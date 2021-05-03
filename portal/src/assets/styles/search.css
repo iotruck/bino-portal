@@ -1,0 +1,49 @@
+.bar{
+    left: 12%;
+    top: 5%;
+    position: absolute;
+    width: 35%;
+    height: auto;
+    border-radius: 5px;
+    display: flex;
+}
+
+.bar .icon-search{
+    width: 10%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 0px 0px 10px;
+}   
+
+.bar i{
+    font-size: 21px;
+    color: #010A2C;
+    -webkit-transform: scaleX(-1);
+}
+
+.bar input{
+    width: 160%;
+    height: 7vh;
+    outline: none;
+    transition: 1s;
+    padding-left: 10px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.bar input:focus{
+    border-bottom: #F55100 2px solid;
+}
+
+@media only screen and (max-width: 768px){
+    .bar{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 540px){
+    .bar{
+        display: none;
+    }
+}

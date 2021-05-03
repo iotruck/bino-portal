@@ -1,0 +1,43 @@
+.card-person{
+    height: auto;
+    width: 85%;
+    background-color: white;
+    margin-top: 3%;
+    border-radius: 10px;
+    padding: 4%;
+}
+
+.card-person h4{
+    color:#010A2C;
+    font-size: 20px;
+    max-width: 70%;
+    float: left;
+}
+
+.itens-options i:nth-child(2) {
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.itens-options i {
+    position: relative;
+    float: right;
+    padding-left: 20px;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+
+.itens-options i:hover {
+    color: #373838;
+    cursor: pointer;
+}
+
+.itens-list{
+    margin-top: 15%;
+}
+
+.itens-list b{
+    display: grid;
+    margin-top: 6%;
+}
+

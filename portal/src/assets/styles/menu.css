@@ -1,0 +1,66 @@
+.sideMenu {
+    height: 100vh;
+    width: 12%;
+    background-color: #010A2C;
+    position: absolute;
+}
+
+.sideMenu li{
+    cursor: pointer;
+    font-size: 2rem;
+    color: #fff;
+    transition: .5s;
+    padding: 23% 0;
+    margin-left: 26%;
+    list-style: none;
+}
+
+.sideMenu li :hover {
+    color: #F55100;
+}
+
+.sideMenu ul li a{
+    color: #fff;
+}
+
+@media only screen and (max-width: 1366px){
+    .sideMenu li{
+        font-size: 1.41rem;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .sideMenu li{
+        padding: 70% 0;
+        font-size: 1.8rem;
+    }
+    
+    .sideMenu li:nth-child(1){
+        padding-top: 300%;
+    }
+    
+}
+
+@media only screen and (max-width: 768px){
+   .sideMenu{
+       height: 5%;
+       width: 100vw;
+       bottom: 0%;
+       position: fixed;
+   }
+   
+    .sideMenu ul{
+    display: flex;
+    justify-content: center;
+   }
+
+   .sideMenu li{
+       padding: 0;
+       margin: 0 4%;
+       margin-top: 3%;
+   }
+
+   .sideMenu li:nth-child(1){
+       padding-top: 0;
+   }
+}

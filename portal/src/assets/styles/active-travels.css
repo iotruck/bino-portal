@@ -1,0 +1,35 @@
+.viagem{
+    background-color: #fff;
+    padding: 2%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+    width: 100%;
+}
+
+.viagem .date{
+    font-weight: bold;
+    padding: 2%;
+    align-self: center;
+}
+
+.viagem .code{
+    align-self: center;
+}
+
+.viagem .infos{
+    color: #767676;
+    font-size: .9rem;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+}
+
+.viagem .status-travel{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #0173B2;
+    align-self: center;
+}

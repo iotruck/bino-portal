@@ -1,0 +1,197 @@
+.form-travel {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.form-inputs {
+  padding: 1vh 2vw;
+}
+
+.section-forms-travel {
+  height: 80vh;
+  width: 36vw;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  left: 14vw;
+  position: absolute;
+  top: 15vh;
+}
+
+.section-forms-travel label {
+  position: absolute;
+  background-color: white;
+  margin-top: -12px;
+  margin-left: 10px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  padding: 3px 3px 3px 3px;
+}
+
+.section-forms-travel .input-travel {
+  width: 95%;
+    font-size: 16px;
+    outline: 0;
+    padding: 16px 10px 10px;
+    margin-bottom: 7%;
+    border: rgb(21, 21, 21) 1px solid;
+}
+
+#id-destinatario {
+  position: absolute;
+  border: none;
+}
+
+.css-yk16xz-control {
+  min-height: 47px;
+}
+
+.section-forms-travel .input-recipient {
+  width: 89%;
+  font-size: 16px;
+  margin-bottom: 1000px;
+  font: #000;
+  outline: none;
+  
+}
+
+.section-forms-travel .input-recipient > div:first-of-type{
+  border-width: 10px ;
+  border:1px solid #000;
+  border-radius: 0;
+  z-index: 0;
+  padding: 9px 10px 2px;
+} 
+
+#label-destinatario{
+  margin-bottom: 100vh;
+  z-index: 1;
+}
+
+#id-descricao{
+  margin-top: 12vh;
+}
+
+#label-descricao{
+  margin-top: 10vh;
+}
+
+
+.section-forms-travel .inputs-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 1vw;
+}
+
+.section-forms-travel .inputs-grid div {
+  width: 100%;
+}
+
+.section-forms-travel .inputs-grid .input-grid {
+  width: 90%;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 4vh;
+  border: 1px black solid;
+  /* border-radius: 5px; */
+}
+
+.inline-form-analyst {
+  display: inline-block;
+  width: 50%;
+}
+
+.inline-form-analyst input {
+  width: 70%;
+  margin-bottom: 14%;
+}
+
+form h3 {
+  color: #f97801;
+  font-family: Roboto;
+  font-style: normal;
+  margin-bottom: 2%;
+}
+
+form button {
+  width: 10vw;
+  height: 5vh;
+  background: #010a2c;
+  border-radius: 5px;
+  color: white;
+  border: 0;
+  margin-top: 2vh;
+}
+
+.list-travel {
+  height: 76vh;
+  width: 35vw;
+  padding: 0px 32px 0px 40px;
+  background-color: transparent;
+  border-radius: 10px;
+  position: absolute;
+  top: 19vh;
+  left: 53vw;
+  overflow-y: scroll;
+  margin-right: 15vh;
+}
+
+.list-travel .status {
+  left: 10px;
+}
+
+.list-travel h3 {
+  border-bottom: 1px black solid;
+  padding-bottom: 1%;
+}
+
+.card-travel {
+  background-color: #f8f7f7;
+  padding: 4% 2%;
+  border-radius: 10px;
+  box-shadow: 0px 5px 6px -5px rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.card-travel:first-child {
+  margin-top: 0;
+}
+
+.card-travel .date-travel {
+  font-weight: bold;
+  align-self: center;
+}
+
+.card-travel .code-travel {
+  align-self: center;
+}
+
+.card-travel .infos-travel {
+  color: #767676;
+  font-size: 0.9rem;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+}
+
+.card-travel .status-travel {
+  width: 1vw;
+  height: 1vw;
+  border-radius: 50%;
+  background-color: #0173b2;
+  align-self: center;
+}
+
+::-webkit-scrollbar {
+  width: 0.6vw;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f97801;
+  border-radius: 10px;
+}
