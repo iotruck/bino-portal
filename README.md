@@ -1,4 +1,4 @@
-![iotruck, entenda quem somos e o que fazemos](https://github.com/BandTec/iotruck/blob/develop/readme.png)
+![iotruck, entenda quem somos e o que fazemos](https://github.com/iotruck/bino-portal/blob/master/readme.png)
 
 # iotruck
 ## Atravessando todas as fronteiras juntos
