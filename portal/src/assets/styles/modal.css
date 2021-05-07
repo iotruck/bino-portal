@@ -1,0 +1,130 @@
+.Modal {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    background-color: #fff;
+    width: 40%;
+    margin: 0 auto;
+    outline: none;
+    padding: 2%;
+    font-size: 1.5em;
+  }
+
+  .Modal h1{
+    color: #F55100;
+    display: flex;
+    margin-bottom: 3%;
+  }
+
+  .Modal i{
+      margin-left: 25%;
+      cursor: pointer;
+  }
+
+  .Modal i:hover{
+    opacity: .5;
+  }
+
+  .Modal input{
+    width: 97%;
+    border: 1px solid #9B9B9B;
+    padding: .7em;
+    border-radius: 3px;
+    margin-top: 5%;
+    outline: none;
+    font-size: .7em;
+  }
+
+  .Modal label{
+    position: absolute;
+    font-size: .7em;
+    line-height: 15px;
+    align-items: center;
+    padding-left: 5px;
+    margin-top: 3%;
+    margin-left: 2%;
+    color: #000000;
+    background-color: #fff;
+    width: 80px;
+    height: 15px;
+  }
+
+  .Modal input:nth-child(6){
+    width: 40%;
+  }
+
+  .Modal input:nth-child(8){
+    width: 47%;
+    margin-left: 20px;
+  }
+
+  .Modal input:nth-child(10){
+    width: 60%;
+  }
+
+  .Modal input:nth-child(12){
+    width: 25%;
+    margin-left: 30px;
+  }
+
+  .Modal #labelCnh {
+    left: 4%;
+    margin-top: 16%;
+  }
+
+  .Modal #labelDig{
+    margin-left: 6%;
+  }
+
+  .Modal #labelCertifications{
+    left: 4%;
+    margin-top: 15%;
+    width: 140px;
+  }
+
+
+  .Modal #saveTrucker{
+    position: absolute;
+    width: 25%;
+    bottom: 5%;
+    right: 1%;
+    background: #F55100;
+    border-radius: 5px;
+    font-size: .8em;
+    text-transform: uppercase;
+  }
+
+  .Modal #cancelTrucker{
+    position: absolute;
+    width: 25%;
+    bottom: 5%;
+    right: 30%;
+    background: #fff;
+    border-radius: 5px;
+    border: #F55100 2px solid;
+    font-size: .8em;
+    color: #F55100;
+    text-transform: uppercase;
+  }
+
+  .Modal #saveTrucker:hover{
+    background: #fff;
+    border: #F55100 2px solid;
+    color: #F55100;
+  }
+
+  .Modal #cancelTrucker:hover {
+    background: #F55100;
+    color: #fff;
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.75);
+  }
