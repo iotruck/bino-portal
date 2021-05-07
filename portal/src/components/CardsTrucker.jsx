@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import Input from './Input';
-
-
 
 Modal.setAppElement('#root');
 
@@ -16,7 +13,7 @@ export default function CardsTrucker() {
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={() => setModalOpen(false)}
-                className="Modal"
+                className="ModalTrucker"
                 overlayClassName="Overlay"
             >
                 <h1>
