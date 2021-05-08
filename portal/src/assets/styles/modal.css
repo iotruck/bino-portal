@@ -1,4 +1,4 @@
-.ModalTrucker, .ModalTruck {
+.ModalTrucker, .ModalTruck, .ModalTravel {
     position: absolute;
     top: 40px;
     left: 40px;
@@ -12,10 +12,16 @@
     font-size: 1.5em;
   }
 
-  .ModalTrucker h1, .ModalTruck h1{
+  .ModalTravel #dateTravel{
+    left: 67%;
+    top: 38%;
+  }
+
+  .ModalTrucker h1, .ModalTruck h1, .ModalTravel h1{
     color: #F55100;
     display: flex;
     margin-bottom: 3%;
+    justify-content: space-between;
   }
 
   .ModalTrucker i, .ModalTruck i{
@@ -23,11 +29,11 @@
       cursor: pointer;
   }
 
-  .ModalTrucker i:hover, .ModalTruck i:hover{
+  .ModalTrucker i:hover, .ModalTruck i:hover, .ModalTravel i:hover{
     opacity: .5;
   }
 
-  .ModalTrucker input, .ModalTruck input{
+  .ModalTrucker input, .ModalTruck input, .ModalTravel input{
     width: 97%;
     border: 1px solid #9B9B9B;
     padding: .7em;
@@ -37,7 +43,7 @@
     font-size: .7em;
   }
 
-  .ModalTrucker label, .ModalTruck label{
+  .ModalTrucker label, .ModalTruck label, .ModalTravel label{
     position: absolute;
     font-size: .7em;
     line-height: 15px;
@@ -85,7 +91,7 @@
   }
 
 
-  .ModalTrucker #saveTrucker, .ModalTruck #saveTruck{
+  .ModalTrucker #saveTrucker, .ModalTruck #saveTruck, .ModalTravel #saveTravel{
     position: absolute;
     width: 25%;
     bottom: 5%;
@@ -96,7 +102,7 @@
     text-transform: uppercase;
   }
 
-  .ModalTrucker #cancelTrucker, .ModalTruck #cancelTruck{
+  .ModalTrucker #cancelTrucker, .ModalTruck #cancelTruck, .ModalTravel #cancelTravel{
     position: absolute;
     width: 25%;
     bottom: 5%;
@@ -109,17 +115,53 @@
     text-transform: uppercase;
   }
 
-  .ModalTrucker #saveTrucker:hover, .ModalTruck #saveTruck:hover{
+  .ModalTrucker #saveTrucker:hover, .ModalTruck #saveTruck:hover, .ModalTravel #saveTravel:hover{
     background: #fff;
     border: #F55100 2px solid;
     color: #F55100;
   }
 
-  .ModalTrucker #cancelTrucker:hover, .ModalTruck #cancelTruck:hover {
+  .ModalTrucker #cancelTrucker:hover, .ModalTruck #cancelTruck:hover, .ModalTravel #cancelTravel:hover {
     background: #F55100;
     color: #fff;
   }
 
+  .ModalTravel input:nth-child(6){
+    width: 60%;
+  }
+
+  .ModalTravel input:nth-child(8){
+    width: 25%;
+    margin-left: 30px;
+  }
+
+  .ModalTravel input:nth-child(10){
+    width: 40%;
+  }
+
+  .ModalTravel input:nth-child(12){
+    width: 47%;
+    margin-left: 20px;
+  }
+
+  .ModalTravel #driver{
+    left: 50%;
+    top: 51%;
+  }
+
+  .ModalTravel label{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-direction: row;
+    width: 130px;
+  }
+
+  .ModalTravel i{
+    margin-left: 20px;
+  }
+
+  
   .Overlay {
     position: fixed;
     top: 0;
@@ -127,4 +169,5 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.75);
+    z-index: 2;
   }
