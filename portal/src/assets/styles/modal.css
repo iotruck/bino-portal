@@ -1,4 +1,4 @@
-.ModalTrucker, .ModalTruck, .ModalTravel {
+.ModalTrucker, .ModalTruck, .ModalTravel, .ModalAnalyst {
     position: absolute;
     top: 40px;
     left: 40px;
@@ -17,23 +17,22 @@
     top: 38%;
   }
 
-  .ModalTrucker h1, .ModalTruck h1, .ModalTravel h1{
+  .ModalTrucker h1, .ModalTruck h1, .ModalTravel h1, .ModalAnalyst h1{
     color: #F55100;
     display: flex;
     margin-bottom: 3%;
     justify-content: space-between;
   }
 
-  .ModalTrucker i, .ModalTruck i{
-      margin-left: 25%;
+  .ModalTrucker i, .ModalTruck i, .ModalAnalyst i{
       cursor: pointer;
   }
 
-  .ModalTrucker i:hover, .ModalTruck i:hover, .ModalTravel i:hover{
+  .ModalTrucker i:hover, .ModalTruck i:hover, .ModalTravel i:hover, .ModalAnalyst i:hover{
     opacity: .5;
   }
 
-  .ModalTrucker input, .ModalTruck input, .ModalTravel input{
+  .ModalTrucker input, .ModalTruck input, .ModalTravel input, .ModalAnalyst input{
     width: 97%;
     border: 1px solid #9B9B9B;
     padding: .7em;
@@ -43,7 +42,7 @@
     font-size: .7em;
   }
 
-  .ModalTrucker label, .ModalTruck label, .ModalTravel label{
+  .ModalTrucker label, .ModalTruck label, .ModalTravel label, .ModalAnalyst label{
     position: absolute;
     font-size: .7em;
     line-height: 15px;
@@ -91,7 +90,7 @@
   }
 
 
-  .ModalTrucker #saveTrucker, .ModalTruck #saveTruck, .ModalTravel #saveTravel{
+  .ModalTrucker #saveTrucker, .ModalTruck #saveTruck, .ModalTravel #saveTravel, .ModalAnalyst #saveAnalyst{
     position: absolute;
     width: 25%;
     bottom: 5%;
@@ -102,7 +101,7 @@
     text-transform: uppercase;
   }
 
-  .ModalTrucker #cancelTrucker, .ModalTruck #cancelTruck, .ModalTravel #cancelTravel{
+  .ModalTrucker #cancelTrucker, .ModalTruck #cancelTruck, .ModalTravel #cancelTravel, .ModalAnalyst #cancelAnalyst{
     position: absolute;
     width: 25%;
     bottom: 5%;
@@ -115,13 +114,13 @@
     text-transform: uppercase;
   }
 
-  .ModalTrucker #saveTrucker:hover, .ModalTruck #saveTruck:hover, .ModalTravel #saveTravel:hover{
+  .ModalTrucker #saveTrucker:hover, .ModalTruck #saveTruck:hover, .ModalTravel #saveTravel:hover, .ModalAnalyst #saveAnalyst:hover{
     background: #fff;
     border: #F55100 2px solid;
     color: #F55100;
   }
 
-  .ModalTrucker #cancelTrucker:hover, .ModalTruck #cancelTruck:hover, .ModalTravel #cancelTravel:hover {
+  .ModalTrucker #cancelTrucker:hover, .ModalTruck #cancelTruck:hover, .ModalTravel #cancelTravel:hover, .ModalAnalyst #cancelAnalyst:hover {
     background: #F55100;
     color: #fff;
   }
