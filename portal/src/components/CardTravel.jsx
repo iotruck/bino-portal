@@ -35,10 +35,10 @@ const CardTravel = (props) => {
           <label htmlFor="date" id="dateTravel"> Data </label>
           <input type="date" id="date"/>
 
-          <label htmlFor="model"> Caminhão <i class="fas fa-plus"></i> </label>
+          <label htmlFor="model"> Caminhão </label>
           <input type="text" id="model" placeholder="Hyundai Branco" />
 
-          <label htmlFor="driver" id="driver"> Motorista <i class="fas fa-plus"></i> </label>
+          <label htmlFor="driver" id="driver"> Motorista </label>
           <input type="text" id="driver" placeholder="Waldesio da Silva Pereira" />
 
           <label htmlFor="price"> Valor estimado </label>
