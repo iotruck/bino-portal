@@ -32,7 +32,7 @@ export default function CardsTrucker() {
                     <label htmlFor="birthDate"> Nasc </label>
                     <input type="date" id="birthDate" />
 
-                    <label htmlFor="phoneNumber"> Telefone </label>
+                    <label htmlFor="phoneNumber" id="labelPhoneNumber"> Telefone </label>
                     <input type="text" id="phoneNumber" placeholder="(11) 91234-1234" />
 
                     <label htmlFor="cnh" id="labelCnh"> CNH </label>

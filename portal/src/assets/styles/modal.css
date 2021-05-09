@@ -83,6 +83,10 @@
     margin-left: 6%;
   }
 
+  .ModalTrucker #labelPhoneNumber{
+    margin-left: 30px;
+  }
+
   .ModalTrucker #labelCertifications{
     left: 4%;
     margin-top: 15%;
@@ -133,6 +137,7 @@
     width: 25%;
     margin-left: 30px;
   }
+
 
   .ModalTravel input:nth-child(10){
     width: 40%;
