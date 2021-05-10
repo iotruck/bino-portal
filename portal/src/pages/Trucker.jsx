@@ -6,7 +6,9 @@ import CardsTruck from '../components/CardsTruck';
 import CardsTrucker from '../components/CardsTrucker';
 
 export default function TruckerPage(props) {
-    return (
+    
+  
+  return (
         <React.Fragment>
             {/* <SearchBar /> */}
             <User name={props.name} />
