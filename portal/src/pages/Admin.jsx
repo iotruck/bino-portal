@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import User from '../components/UserData';
-import SearchBar from '../components/SearchBar';
-import Input from '../components/Input';
-import Cards from '../components/Cards';
-import conn from '../service/conn';
+import User from '../components/UserData'
+import SearchBar from '../components/SearchBar'
+import Input from '../components/Input'
+import Cards from '../components/Cards'
+import conn from '../service/conn'
 
 export default function AdminPage(props) {
 
