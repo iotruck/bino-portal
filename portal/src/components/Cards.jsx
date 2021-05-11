@@ -39,15 +39,13 @@ export default function Cards(props) {
 
 
                 <form id="updateTravel">
-                    <label htmlFor="cpf"> CPF <i class="fas fa-lock"></i> </label>
-                    <input type="text" id="cpf" placeholder="5050505050" disabled />
+                    <label htmlFor="name"> Nome <i class="fas fa-lock"></i> </label>
+                    <input type="text" id="name" placeholder={props.name}/>
 
                     <label htmlFor="email"> E-mail </label>
-                    <input type="text" id="email" placeholder="i.bezerra@iotruck.com.br" />
+                    <input type="text" id="email" placeholder={props.email} />
 
-                    <label htmlFor="password"> Senha <i class="fas fa-eye" id="eyeIcon" onClick={() => viewPassword()}></i> </label>
-                    <input type="password" id="password" placeholder="**********" />
-
+                
 
                     <button id="cancelAnalyst" onClick={() => setModalOpen(false)} >
                         Cancelar
@@ -67,9 +65,8 @@ export default function Cards(props) {
                     <i class="fas fa-trash-alt"></i>
                 </div>
                 <div className="itens-list">
-                    <b>CPF:</b>{props.cpf}
-                    <b>Email:</b>{props.email}
-                    <b>Senha:</b>{props.senha}
+                    <b>E-mail:</b>{props.email}
+                    <b>Empresa:</b>{props.company}
                 </div>
             </div>
         </>
