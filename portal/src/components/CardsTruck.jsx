@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 
 Modal.setAppElement('#root');
 
-export default function CardsTruck() {
+export default function CardsTruck(props) {
 
     const [modalIsOpen, setModalOpen] = useState(false)
 
@@ -23,20 +23,15 @@ export default function CardsTruck() {
 
 
                 <form id="updateTruck">
-                    <label htmlFor="placa"> Placa </label>
-                    <input type="text" id="placa" placeholder="FREP 0921" />
-
+                    
                     <label htmlFor="model"> Modelo </label>
-                    <input type="text" id="model" placeholder="Hyundai HR 2021" />
+                    <input type="text" id="model" placeholder={props.name} />
 
                     <label htmlFor="brand"> Marca </label>
-                    <input type="text" id="brand" placeholder="Hyundai" />
-
-                    <label htmlFor="fuel"> Combustível </label>
-                    <input type="text" id="fuel" placeholder="Diesel S10" />
+                    <input type="text" id="brand" placeholder={props.brand} />
 
                     <label htmlFor="type" > Tipo </label>
-                    <input type="text" id="type" placeholder="Baú" />
+                    <input type="text" id="type" placeholder={props.type} />
 
                     <button id="cancelTruck" onClick={() => setModalOpen(false)} >
                         Cancelar
@@ -53,20 +48,15 @@ export default function CardsTruck() {
                 <div className="itens-options">
                     <i class="fas fa-edit" onClick={() => setModalOpen(true)}></i>
                     <i class="fas fa-trash-alt"></i>
-                    <h3 id="h3Truck">KIA BAÚ BRANCO 01</h3>
+                    <h3 id="h3Truck">{props.name}</h3>
                 </div>
 
 
                 <p>
-                    <h6>Modelo: </h6> <label> Baú grande </label>
+                    <h6>Marca: </h6> <label> {props.brand} </label>
                 </p>
                 <p>
-                    <h6>Placa: </h6> <label> GRE-0345 </label>
-                    <h6>Combustível: </h6> <label> Diesel </label>
-                </p>
-                <p>
-                    <h6>Marca: </h6> <label> Kia </label>
-                    <h6>Status: </h6> <label> Disponível </label>
+                    <h6>Tipo: </h6> <label> {props.type} </label>
                 </p>
             </div>
         </>

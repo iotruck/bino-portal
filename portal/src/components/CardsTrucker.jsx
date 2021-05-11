@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 
 Modal.setAppElement('#root');
 
-export default function CardsTrucker() {
+export default function CardsTrucker(props) {
 
     const [modalIsOpen, setModalOpen] = useState(false)
 
@@ -24,26 +24,24 @@ export default function CardsTrucker() {
 
                 <form id="updateTrucker">
                     <label htmlFor="name"> Nome </label>
-                    <input type="text" id="name" placeholder="Waldesio da Silva Pereira" />
+                    <input type="text" id="name" placeholder={props.name} />
 
                     <label htmlFor="cpf"> CPF </label>
-                    <input type="text" id="cpf" placeholder="012.345.678-90" />
+                    <input type="text" id="cpf" placeholder={props.cpf} />
 
-                    <label htmlFor="birthDate"> Nasc </label>
+                    <label htmlFor="birthDate"> Nascimento </label>
                     <input type="date" id="birthDate" />
 
                     <label htmlFor="phoneNumber" id="labelPhoneNumber"> Telefone </label>
-                    <input type="text" id="phoneNumber" placeholder="(11) 91234-1234" />
+                    <input type="text" id="phoneNumber" placeholder={props.phoneNumber} />
 
                     <label htmlFor="cnh" id="labelCnh"> CNH </label>
-                    <input type="text" id="cnh" placeholder="000123456789" />
+                    <input type="text" id="cnh" placeholder={props.cnh} />
 
                     <label htmlFor="digito" id="labelDig"> Dígito </label>
-                    <input type="text" id="digito" placeholder="B+" />
+                    <input type="text" id="digito" placeholder={props.digito} />
 
-                    <label htmlFor="certifications" id="labelCertifications"> Certificações </label>
-                    <input type="text" id="certifications" placeholder="Inflamavéis" />
-
+                
                     <button id="cancelTrucker" onClick={() => setModalOpen(false)} >
                         Cancelar
                     </button>
@@ -60,18 +58,18 @@ export default function CardsTrucker() {
                 <div className="itens-options">
                     <i class="fas fa-edit" onClick={() => setModalOpen(true)} ></i>
                     <i class="fas fa-trash-alt"></i>
-                    <h3 id="h3Trucker">WALDESIO PEREIRA</h3>
+                    <h3 id="h3Trucker">{props.name}</h3>
                 </div>
                 <p>
-                    <h6>CPF: </h6> <label> 01203623389 </label>
+                    <h6>CPF: </h6> <label> {props.cpf} </label>
                 </p>
                 <p>
-                    <h6>Nascimento: </h6> <label> 03/04/1989 </label>
-                    <h6>Telefone: </h6> <label> 1191234567 </label>
+                    <h6>Nascimento: </h6> <label> {props.birhtDate} </label>
+                    <h6>Telefone: </h6> <label> {props.phoneNumber} </label>
                 </p>
                 <p>
-                    <h6>CNH: </h6> <label> 000123456789 </label>
-                    <h6>Certificação: </h6> <label> inflamáveis C </label>
+                    <h6>CNH: </h6> <label> {props.cnh} </label>
+                    
                 </p>
             </div>
         </>
