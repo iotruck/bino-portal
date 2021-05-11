@@ -13,7 +13,7 @@ export default function Tracking(props) {
 
     useEffect(() => {
         async function getTravel() {
-            const response = await conn.get(`/travel/analyst/${2}`);
+            const response = await conn.get(`/travel/${1}/${1}`);
             addTravelInList(response.data);
         }
 
@@ -44,16 +44,7 @@ export default function Tracking(props) {
                 }
             </div>
 
-            <div className="last-notify">
-                <div className="status-notify"></div>
-                <span className="date-notify">{props.dateLastNotify}</span>
-                <span className="message-notify">{props.messageLastNotify}</span>
-            </div>
-            <div className="penultimate-notification">
-                <div className="status-notify"></div>
-                <span className="date-notify">{props.datePenultimateNotify}</span>
-                <span className="message-notify">{props.messagePenultimateNotify}</span>
-            </div>
+            
             <div className="map">
                 <img src={MapImage} alt="" />
             </div>
