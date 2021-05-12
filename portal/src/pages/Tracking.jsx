@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SearchBar from '../components/SearchBar';
 import User from '../components/UserData';
 import TravelCost from '../components/TravelCost';
 import InfoTravel from '../components/InfoTravel';
-import MapImage from '../assets/img/mapa.png'
+// import GoogleMap from '../components/GoogleMap.jsx';
+import GoogleMaps from '../components/GoogleMaps.jsx';
+
 
 export default function Tracking(props) {
     return (
@@ -29,13 +31,14 @@ export default function Tracking(props) {
                 <span className="message-notify">{props.messagePenultimateNotify}</span>
             </div>
             <div className="map">
-                <img src={MapImage} alt="" />
+                <GoogleMaps/>
             </div>
-
+           
             <TravelCost value={props.value} />
 
             <InfoTravel trucker={props.trucker} truck={props.truck} travelDetails={props.travelDetails} details={props.details} detailsDate={props.detailsDate} detailsLastLog={props.detailsLastLog}/>
 
         </React.Fragment>
     );
-}
+} 
+
