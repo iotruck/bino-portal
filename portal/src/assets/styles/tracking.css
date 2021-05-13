@@ -1,20 +1,29 @@
+.sliderTracking{
+    position: absolute;
+    left: 13%;
+    top: 15%;
+    max-width: 50%;
+    height: auto;
+    overflow-y: scroll;
+    display: flex;
+}
+
 .codeNumber{
     text-transform: uppercase;
     color: #010A2C;
     font-weight: 500;
-    font-size: 34px;
+    font-size: 20px;
     position: absolute;
-    top: 16%;
+    top:45%;
     left: 13%;
 }
 .destination{
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 15px;
     width: 50%;
     position: absolute;
-    top: 24%;
-    left: 13%;
-    
+    top: 50%;
+    left: 13%;  
 }
 .text-destination{
     text-transform: uppercase;
@@ -67,7 +76,7 @@
 
 .map{
     position: absolute;
-    top: 55%;
+    top: 57%;
     left: 13%;
 }
 
@@ -170,3 +179,4 @@
 #detailsTitle{
     color: #010A2C;
 }
+

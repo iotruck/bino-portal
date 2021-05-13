@@ -24,7 +24,7 @@ function Routes() {
                     <Travel />
                 </PrivateRoutes>
                 <PrivateRoutes path="/tracking">
-                    <Tracking name="Sandra Cunha" code="polybrasilio0001sp" destination="POLYBRASIL LTDA - AV SABUGUEIRO DE MILHO 1029 GALPÃO 3 - 01203455, CENTRO - SÃO PAULO/SP" dateLastNotify="13:50" messageLastNotify="O MOTORISTA SEGUIU A VIAGEM" datePenultimateNotify="13:26" messagePenultimateNotify="O MOTORISTA REALIZOU UMA PARADA" value="120,00" trucker="WALDESIO DA SILVA P." truck="BAÚ HIUNDAY BRANCO 01" travelDetails="POLYBRASILIO0001SP" details="12 Chapas pvc" detailsDate="02/03" detailsLastLog="13:50" />
+                    <Tracking name="Sandra Cunha" code="-" destination="-" dateLastNotify="-" messageLastNotify="-" datePenultimateNotify="-" messagePenultimateNotify="-" value="-" trucker="-" truck="-" travelDetails="-" details="-" detailsDate="-" detailsLastLog="-" />
                 </PrivateRoutes>
                 <PrivateRoutes path="/new-analyst">
                     <Admin name="Admin" />
