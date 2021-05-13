@@ -17,7 +17,7 @@ export default function Tracking(props) {
             addTravelInList(response.data);
         }
 
-
+        console.log(travel);
         getTravel();
 
     });
@@ -42,9 +42,10 @@ export default function Tracking(props) {
                         travel.destiny.address
                     ))
                 }
+
             </div>
 
-            
+
             <div className="map">
                 <img src={MapImage} alt="" />
             </div>
@@ -57,7 +58,8 @@ export default function Tracking(props) {
                 travelDetails={travel.map((travel) => (travel.description))}
                 details={props.details}
                 detailsDate={travel.map((travel) => (travel.dateTravel))}
-                detailsLastLog={props.detailsLastLog} />
+                detailsLastLog={props.detailsLastLog}
+            />
 
         </React.Fragment>
     );

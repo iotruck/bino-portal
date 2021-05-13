@@ -11,7 +11,7 @@ export default function AdminPage(props) {
 
     useEffect(() => {
         async function getAnalyst() {
-            const response = await conn.get(`/securityanalyst/company/${1}`);
+            const response = await conn.get(`securityanalyst/company/${1}`);
             addAnalystInList(response.data);
         }
 
