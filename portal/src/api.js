@@ -10,3 +10,4 @@ export function fetchLocalMapBox(local) {
 export function fetchLogin(values) {
     return axios.post(`http://localhost:8080/securityanalyst/login`, values)
 }
+

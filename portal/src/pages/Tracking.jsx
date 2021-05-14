@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import SearchBar from '../components/SearchBar'
-import User from '../components/UserData'
-import TravelCost from '../components/TravelCost'
-import InfoTravel from '../components/InfoTravel'
-import MapImage from '../assets/img/mapa.png'
+
+import React, { useState } from 'react';
+import SearchBar from '../components/SearchBar';
+import User from '../components/UserData';
+import TravelCost from '../components/TravelCost';
+import InfoTravel from '../components/InfoTravel';
+// import GoogleMap from '../components/GoogleMap.jsx';
+import GoogleMaps from '../components/GoogleMaps.jsx';
 import conn from '../service/conn'
 
 
@@ -47,9 +49,9 @@ export default function Tracking(props) {
 
 
             <div className="map">
-                <img src={MapImage} alt="" />
+                <GoogleMaps/>
             </div>
-
+           
             <TravelCost value={props.value} />
 
             <InfoTravel
@@ -63,4 +65,5 @@ export default function Tracking(props) {
 
         </React.Fragment>
     );
-}
+} 
+

@@ -21,32 +21,15 @@ function Routes() {
                 <Route path="/login">
                     <Login />
                 </Route>
+                <PrivateRoutes path="/new-collaborator" component = {Trucker} />
+                <PrivateRoutes path="/new-travel" component = {Travel} />
+                <PrivateRoutes path="/tracking" component = {Tracking} />
+                <PrivateRoutes path="/new-analyst" component = {Admin} />
+                <PrivateRoutes path="/notify" component = {Notify} />
+                <PrivateRoutes path="/" component = {Home} />
 
-                <PrivateRoutes path="/new-collaborator">
-                    <Trucker />
-                </PrivateRoutes>
-
-                <PrivateRoutes path="/new-travel">
-                    <Travel />
-                </PrivateRoutes>
-
-                <PrivateRoutes path="/tracking">
-                    <Tracking name="Sandra Cunha" />
-                </PrivateRoutes>
-
-                <PrivateRoutes path="/new-analyst">
-                    <Admin name="Sandra Cunha" />
-                </PrivateRoutes>
-
-                <PrivateRoutes path="/notify">
-                    <Notify name="Sandra Cunha" />
-                </PrivateRoutes>
-
-                <PrivateRoutes path="/">
-                    <Home name="Sandra Cunha" number_trucks="10" number_drivers="25" />
-                </PrivateRoutes>
             </Switch>
-        </Provider>   
+          </Provider>   
         </BrowserRouter>
     )
 }
