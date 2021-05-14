@@ -16,7 +16,7 @@ export default function Home(props) {
     const { setToken } = useContext(Context);
 
     const logout = () => {
-        setToken('null')
+        localStorage.removeItem("@login-app/user");
         history.push('/login')
     }
 

@@ -1,9 +1,8 @@
-import { useContext, useState } from 'react';
+import { Component, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { fetchLogin } from '../api'
 
 import coruja from '../assets/img/coruja.png';
-import Context from '../components/Section/Context';
 
 const formCadastro = () => {
     return {
@@ -24,7 +23,8 @@ const formLogin = () => {
 }
 
 const Login = () => {
-    const history = useHistory();
+
+  const history = useHistory();
 
   const [stateForm, setStateForm] = useState(formLogin);
 
@@ -33,7 +33,6 @@ const Login = () => {
   const [loginValues, setLoginValues] = useState({
       email:'', password:''
   });
-  const { setToken } = useContext(Context)
 
   const setValuesDisplay = () => {
     if(stateForm.formCadastro === "block") {
@@ -55,11 +54,13 @@ const Login = () => {
   const requestLogin = (event) => {
     event.preventDefault();  
     fetchLogin(loginValues).then((value) => {
-            if(value.status === 200) {
-                setToken(value.data.id);
+        console.log(value);
+            if(value.status == 200) {
+                localStorage.setItem("@login-app/user",value.data.id);
             history.push('/');
             }
-        }).catch((error) => {
+        }).catch(() => {
+            console.log("Não funcionou")
             setStateError('block')
         });    
   };
@@ -143,7 +144,7 @@ const Login = () => {
                 </div>
             </div>
       </div>
-      
+
   );
 }
 
