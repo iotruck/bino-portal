@@ -1,15 +1,19 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Provider from "./components/Section/Provider";
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import React, { useEffect, useState } from 'react';
+import Provider from "./components/Section/Provider"
 import PrivateRoutes from "./components/Section/PrivateRoutes"
-import Home from "./pages/Home";
-import Tracking from "./pages/Tracking";
-import Admin from "./pages/Admin";
-import Notify from "./pages/Notify";
-import Travel from "./pages/Travel";
-import Login from "./pages/Login";
+import Home from "./pages/Home"
+import Tracking from "./pages/Tracking"
+import Admin from "./pages/Admin"
+import Notify from "./pages/Notify"
+import Travel from "./pages/Travel"
+import Login from "./pages/Login"
 import Trucker from "./pages/Trucker"
+import conn from "./service/conn"
 
 function Routes() {
+    
+
     return (
         <BrowserRouter>
         <Provider>
@@ -23,8 +27,9 @@ function Routes() {
                 <PrivateRoutes path="/new-analyst" component = {Admin} />
                 <PrivateRoutes path="/notify" component = {Notify} />
                 <PrivateRoutes path="/" component = {Home} />
+
             </Switch>
-        </Provider>   
+          </Provider>   
         </BrowserRouter>
     )
 }

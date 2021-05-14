@@ -1,10 +1,25 @@
-import React from 'react';
-import User from '../components/UserData';
-import SearchBar from '../components/SearchBar';
-import Input from '../components/Input';
-import Cards from '../components/Cards';
+import React, { useEffect, useState } from 'react'
+import User from '../components/UserData'
+import SearchBar from '../components/SearchBar'
+import Input from '../components/Input'
+import Cards from '../components/Cards'
+import conn from '../service/conn'
 
 export default function AdminPage(props) {
+
+    const [analysts, addAnalystInList] = useState([])
+
+    useEffect(() => {
+        async function getAnalyst() {
+            const response = await conn.get(`securityanalyst/company/${1}`);
+            addAnalystInList(response.data);
+        }
+
+
+        getAnalyst();
+
+    });
+
     return (
         <React.Fragment>
             <SearchBar />
@@ -23,17 +38,20 @@ export default function AdminPage(props) {
                 </form>
             </div>
 
-          
+
             <div className="list-analyst">
-            <div className="assing-list">
+                <div className="assing-list">
                     <span className="status"></span>
                     <h3>Analistas Cadastrados</h3>
                 </div>
                 <div className="assign">
-                <Cards name="Igor Rafael Ferreira da Fonseca Bezerra" cpf="5050505050" email="i.bezerra@iotruck.com.br" senha="123deoliveira4"/>
-                <Cards name="Gabriel Almeida Carrera" cpf="5050505050" email="g.carrera@iotruck.com.br" senha="ovomaltine"/>
-                <Cards name="Cristóvão Colombo" cpf="5050505050" email="c.colombo@iotruck.com.br" senha="nesquik"/>
-            </div>
+                    {
+                        analysts.map((analyst) => (
+                            <Cards name={analyst.name} email={analyst.email} company={analyst.company.name} />
+                          ))
+                    }
+                   
+                </div>
             </div>
 
         </React.Fragment>
