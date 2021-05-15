@@ -23,6 +23,7 @@ jobs:
 
     - name: npm install, build
       run: |
+        npm install
         npm run build 
 
     - name: 'Deploy to Azure Web App'
