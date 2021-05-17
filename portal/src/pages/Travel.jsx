@@ -14,16 +14,17 @@ export default function Travel(props) {
 
     const idAnalyst = localStorage.getItem("@login-app/user")
 
-    useEffect(() => {
-        async function getTravel() {
-            const response = await conn.get(`http://localhost:8080/travel/analyst/${idAnalyst}`)
+    async function getTravel() {
+        const response = await conn.get(`http://localhost:8080/travel/analyst/${idAnalyst}`)
+        setTravel(response.data)
+        if(response.status === 204){
+            console.log("No content");
+        }else{
             setTravel(response.data)
-            if(response.status == 204){
-                console.log("No content");
-            }else{
-                setTravel(response.data)
-            }
         }
+    }
+
+    useEffect(() => {
         getTravel()
     })
 

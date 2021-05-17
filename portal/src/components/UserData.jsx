@@ -6,18 +6,17 @@ export default function UserData(props) {
     const [ analyst, setAnalyst ] = useState([])
     const idAnalyst = localStorage.getItem("@login-app/user")
 
-
-    useEffect(() => {
-        async function getAnalyst() {
-            const response = await conn.get(`/securityanalyst/${idAnalyst}`)
+    async function getAnalyst() {
+        const response = await conn.get(`/securityanalyst/${idAnalyst}`)
+        setAnalyst(response.data)
+        if(response.status === 204){
+            console.log("No content");
+        }else{
             setAnalyst(response.data)
-            if(response.status == 204){
-                console.log("No content");
-            }else{
-                setAnalyst(response.data)
-            }
         }
-        
+    }
+
+    useEffect(() => {      
         getAnalyst()
     })
     

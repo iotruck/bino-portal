@@ -12,16 +12,16 @@ import conn from '../services/conn'
 export default function Tracking(props) {
 
     const [travel, addTravelInList] = useState([])
+    const idAnalyst = localStorage.getItem("@login-app/user")
+
+
+    async function getTravel() {
+        const response = await conn.get(`http://localhost:8080/travel/analyst/${idAnalyst}`);
+        addTravelInList(response.data);
+    }
 
     useEffect(() => {
-        async function getTravel() {
-            const response = await conn.get(`/travel/${1}/${1}`);
-            addTravelInList(response.data);
-        }
-
-        console.log(travel);
         getTravel();
-
     });
 
     return (
@@ -49,9 +49,9 @@ export default function Tracking(props) {
 
 
             <div className="map">
-                <GoogleMaps/>
+                <GoogleMaps />
             </div>
-           
+
             <TravelCost value={props.value} />
 
             <InfoTravel
@@ -65,5 +65,5 @@ export default function Tracking(props) {
 
         </React.Fragment>
     );
-} 
+}
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import User from '../components/UserData';
 import Travel from '../components/ActivesTravels';
 import Notification from '../components/Notifications';
@@ -22,23 +23,28 @@ export default function Home(props) {
     const [travels, setTravel] = useState([])
     const idAnalyst = localStorage.getItem("@login-app/user")
 
+    function getAnalyst() {
+        
+        conn.get(`/securityanalyst/${idAnalyst}`).then(response => {
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error);
+        })
+        
+    }
+
+    function getTravel() {
+        const response = conn.get(`http://localhost:8080/travel/analyst/${idAnalyst}`)
+        if (response.status === 204) {
+            console.log("No content");
+        } else {
+            setTravel(response.data)
+        }
+
+    }
+
 
     useEffect(() => {
-        async function getAnalyst() {
-            const response = await conn.get(`/securityanalyst/${idAnalyst}`)
-            setAnalyst(response.data)
-        }
-
-        async function getTravel() {
-            const response = await conn.get(`http://localhost:8080/travel/analyst/${idAnalyst}`)
-            if(response.status == 204){
-                console.log("No content");
-            }else{
-                setTravel(response.data)
-            }
-            
-        }
-
         getAnalyst()
         getTravel()
     })
@@ -58,14 +64,18 @@ export default function Home(props) {
             <div className="active-travels">
                 <p>
                     <h3>Viagens ativas</h3>
-                    <i className="fas fa-reply"></i>
+                    <Link to="/new-travel">
+                        <i className="fas fa-reply"></i>
+                    </Link>
                 </p>
                 <div id="active-travels-labels">
-                    {
+                    {/* {
+
                         travels.map((travel) => (
                             <Travel date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name} driver={travel.trucker.name} />
                         ))
-                    }
+
+                    } */}
                 </div>
             </div>
 
