@@ -60,7 +60,7 @@ const Login = () => {
             history.push('/');
             }
         }).catch(() => {
-            console.log("Não funcionou")
+            
             setStateError('block')
         });    
   };

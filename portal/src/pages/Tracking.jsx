@@ -1,12 +1,12 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from '../components/SearchBar';
 import User from '../components/UserData';
 import TravelCost from '../components/TravelCost';
 import InfoTravel from '../components/InfoTravel';
 // import GoogleMap from '../components/GoogleMap.jsx';
 import GoogleMaps from '../components/GoogleMaps.jsx';
-import conn from '../service/conn'
+import conn from '../services/conn'
 
 
 export default function Tracking(props) {

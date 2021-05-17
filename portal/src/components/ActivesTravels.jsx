@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import conn from '../service/conn'
+import conn from '../services/conn'
 
 
 
@@ -21,11 +21,11 @@ export default function ActivesTravels(props) {
     return (
         <div className="viagem">
             <div className="date">
-                {
+                {/* {
                     travel.map((travel) => (
                         travel.codigo
                     ))
-                }
+                } */}
             </div>
             <div className="code">{props.code}</div>
             <div className="infos">

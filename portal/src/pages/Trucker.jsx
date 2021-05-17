@@ -4,7 +4,7 @@ import FormTruck from '../components/FormTruck'
 import FormTrucker from '../components/FormTrucker'
 import CardsTruck from '../components/CardsTruck'
 import CardsTrucker from '../components/CardsTrucker'
-import conn from '../service/conn'
+import conn from '../services/conn'
 
 
 export default function TruckerPage(props) {

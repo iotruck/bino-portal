@@ -24,25 +24,25 @@ const CardTravel = (props) => {
 
         <form id="updateTravel">
           <label htmlFor="code"> Código <i class="fas fa-lock"></i> </label>
-          <input type="text" id="code" placeholder="FRESNI019284574" disabled/>
+          <input type="text" id="code" placeholder={props.codigo} disabled/>
           
           <label htmlFor="receiver"> Destinatário </label>
-          <input type="text" id="receiver" placeholder="Rua Haddock Lobo, 595 - São Paulo - SP" />
+          <input type="text" id="receiver" placeholder={props.address}/>
 
           <label htmlFor="description"> Descrição </label>
-          <input type="text" id="description" placeholder="Equipamentos eletrônicos" />
+          <input type="text" id="description" placeholder={props.description} />
 
           <label htmlFor="date" id="dateTravel"> Data </label>
           <input type="date" id="date"/>
 
           <label htmlFor="model"> Caminhão </label>
-          <input type="text" id="model" placeholder="Hyundai Branco" />
+          <input type="text" id="model" placeholder={props.truck} />
 
           <label htmlFor="driver" id="driver"> Motorista </label>
-          <input type="text" id="driver" placeholder="Waldesio da Silva Pereira" />
+          <input type="text" id="driver" placeholder={props.driver} />
 
           <label htmlFor="price"> Valor estimado </label>
-          <input type="text" id="price" placeholder="R$ 253.32" />
+          <input type="text" id="price" placeholder={props.coust} />
 
           
 

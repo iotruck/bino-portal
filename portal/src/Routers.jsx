@@ -9,7 +9,7 @@ import Notify from "./pages/Notify"
 import Travel from "./pages/Travel"
 import Login from "./pages/Login"
 import Trucker from "./pages/Trucker"
-import conn from "./service/conn"
+
 
 function Routes() {
     

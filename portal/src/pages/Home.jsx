@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import User from '../components/UserData';
 import Travel from '../components/ActivesTravels';
 import Notification from '../components/Notifications';
 import Chat from '../components/Chat';
-import Context from '../components/Section/Context';
+import conn from './../services/conn'
 
 
 import coruja from '../assets/img/coruja.png';
@@ -13,22 +13,45 @@ import { useHistory } from 'react-router-dom';
 export default function Home(props) {
     const history = useHistory();
 
-    const { setToken } = useContext(Context);
-
     const logout = () => {
         localStorage.removeItem("@login-app/user");
         history.push('/login')
     }
 
+    const [analyst, setAnalyst] = useState([])
+    const [travels, setTravel] = useState([])
+    const idAnalyst = localStorage.getItem("@login-app/user")
+
+
+    useEffect(() => {
+        async function getAnalyst() {
+            const response = await conn.get(`/securityanalyst/${idAnalyst}`)
+            setAnalyst(response.data)
+        }
+
+        async function getTravel() {
+            const response = await conn.get(`http://localhost:8080/travel/analyst/${idAnalyst}`)
+            if(response.status == 204){
+                console.log("No content");
+            }else{
+                setTravel(response.data)
+            }
+            
+        }
+
+        getAnalyst()
+        getTravel()
+    })
+
     return (
-        
+
         <React.Fragment>
             <User name={props.name} />
             <img src={blob} className="blob" alt="" />
             <h1 className="welcome">
                 <img src={coruja} className="brand-logo" alt="Seja bem vindo, estamos aqui pra lha ajudar" />
                 <p>
-                    Olá, <span>{props.name}</span> <i className="fas fa-sign-out-alt" onClick={logout}></i>
+                    Olá, <span>{analyst.name}</span> <i className="fas fa-sign-out-alt" onClick={logout}></i>
                 </p>
             </h1>
 
@@ -38,9 +61,11 @@ export default function Home(props) {
                     <i className="fas fa-reply"></i>
                 </p>
                 <div id="active-travels-labels">
-                    <Travel date="21/12" code="BSD1213" truck="Scannia FH-16" driver="Waldesio Silva" />
-                    <Travel date="21/12" code="JBD4433" truck="Volkswagen HR90" driver="Bruna Oliveira" />
-                    <Travel date="21/12" code="VBÇLJ21" truck="Mercedes 1113" driver="Mathues Rodrigues" />
+                    {
+                        travels.map((travel) => (
+                            <Travel date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name} driver={travel.trucker.name} />
+                        ))
+                    }
                 </div>
             </div>
 
@@ -48,16 +73,16 @@ export default function Home(props) {
                 <p>
                     caminhões registrados
                     <b>
-                        {props.number_trucks}
+                        21
                     </b>
                 </p>
             </div>
 
             <div className="registered-drivers">
                 <p>
-                    caminhões registrados
+                    caminhoneiros registrados
                     <b>
-                        {props.number_drivers}
+                        3
                     </b>
                 </p>
             </div>
@@ -78,7 +103,7 @@ export default function Home(props) {
                     <h3>Chats ativos</h3>
                 </p>
 
-                <Chat code="BSD1213" message="Houve um acidente na via"/>
+                <Chat code="BSD1213" message="Houve um acidente na via" />
             </div>
 
         </React.Fragment>
