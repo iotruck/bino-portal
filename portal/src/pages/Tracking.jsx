@@ -27,7 +27,7 @@ export default function Tracking(props) {
     return (
         <React.Fragment>
             <SearchBar />
-            <User name={props.name} />
+            {/* <User name={props.name} /> */}
             <div className="codeNumber">
                 {
                     travel.map((travel) => (

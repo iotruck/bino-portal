@@ -32,7 +32,7 @@ export default function TruckerPage(props) {
   return (
     <React.Fragment>
       
-      <User name={props.name} />
+      {/* <User name={props.name} /> */}
       <div className="cointainer">
         <label className="switch">
           <input type="checkbox" />

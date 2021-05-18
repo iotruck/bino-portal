@@ -47,7 +47,7 @@ const Login = () => {
 
     setLoginValues({
         ...loginValues,
-        [name]: value,
+        [name]: value.trim(),
     });
   }; 
 

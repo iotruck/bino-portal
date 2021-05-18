@@ -9,21 +9,21 @@ export default function AdminPage(props) {
 
     const [analysts, addAnalystInList] = useState([])
 
-    useEffect(() => {
-        async function getAnalyst() {
-            const response = await conn.get(`securityanalyst/company/${1}`);
-            addAnalystInList(response.data);
-        }
+    // useEffect(() => {
+    //     async function getAnalyst() {
+    //         const response = await conn.get(`securityanalyst/company/${1}`);
+    //         addAnalystInList(response.data);
+    //     }
 
 
-        getAnalyst();
+    //     getAnalyst();
 
-    });
+    // });
 
     return (
         <React.Fragment>
             <SearchBar />
-            <User name={props.name} />
+            {/* <User name={props.name} /> */}
 
             <div className="section-forms-analyst">
                 <form class="form-analyst">

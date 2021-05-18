@@ -58,7 +58,7 @@ export default function Travel(props) {
     return (
         <>
             <SearchBar />
-            <User name={props.name} />
+            {/* <User name={props.name} /> */}
             <div className="section-forms-travel">
                 <form className="form-travel">
                     <div className="form-inputs">
