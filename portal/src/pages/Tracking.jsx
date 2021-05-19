@@ -23,7 +23,7 @@ export default function Tracking(props) {
 
     useEffect(() => {
         getTravel();
-    },  [ idAnalyst ]);
+    }, [idAnalyst]);
 
     return (
         <React.Fragment>
@@ -36,7 +36,6 @@ export default function Tracking(props) {
                 <SelectTravel codigo="JLMQ0110dasq" trucker="Waldesio da Silva" truck="Volkswagen Constellation" load="Pneus" coust="1423.34" />
                 <SelectTravel codigo="JLMQ0110dasq" trucker="Waldesio da Silva" truck="Volkswagen Constellation" load="Pneus" coust="1423.34" />
                 <SelectTravel codigo="JLMQ0110dasq" trucker="Waldesio da Silva" truck="Volkswagen Constellation" load="Pneus" coust="1423.34" />
-
             </div>
             {/* <User name={props.name} /> */}
 
@@ -53,7 +52,7 @@ export default function Tracking(props) {
 
                 <span className="text-destination">DESTINO: </span>{props.destination}
             </div>
-
+            <div>
                 <span className="text-destination">DESTINO: </span>
                 {
                     travel.map((travel) => (
