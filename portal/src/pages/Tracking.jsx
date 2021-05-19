@@ -22,7 +22,7 @@ export default function Tracking(props) {
 
     useEffect(() => {
         getTravel();
-    });
+    },  [ idAnalyst ]);
 
     return (
         <React.Fragment>

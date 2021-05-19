@@ -13,9 +13,8 @@ export default function UserData(props) {
     }
 
     useEffect(() => {      
-        console.log("Rodou")
         getAnalyst()
-    },[])
+    }, [ idAnalyst ])
     
     return (
         <div className="user">

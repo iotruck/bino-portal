@@ -7,18 +7,18 @@ import conn from '../services/conn'
 
 export default function AdminPage(props) {
 
-    const [analysts, addAnalystInList] = useState([])
+    const [analysts, setAnalyst] = useState([])
 
-    // useEffect(() => {
-    //     async function getAnalyst() {
-    //         const response = await conn.get(`securityanalyst/company/${1}`);
-    //         addAnalystInList(response.data);
-    //     }
+    useEffect(() => {
+        async function getAnalyst() {
+            const response = await conn.get(`securityanalyst/company/${1}`);
+            setAnalyst(response.data);
+        }
 
 
-    //     getAnalyst();
+        getAnalyst();
 
-    // });
+    });
 
     return (
         <React.Fragment>

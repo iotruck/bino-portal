@@ -23,31 +23,27 @@ export default function Home(props) {
     const [travels, setTravel] = useState([])
     const idAnalyst = localStorage.getItem("@login-app/user")
 
-    function getAnalyst() {
-        
-        conn.get(`/securityanalyst/${idAnalyst}`).then(response => {
-            console.log(response.data);
-        }).catch(error => {
-            console.log(error);
-        })
-        
-    }
+    async function getAnalyst() {
 
-    function getTravel() {
-        const response = conn.get(`http://localhost:8080/travel/analyst/${idAnalyst}`)
-        if (response.status === 204) {
-            console.log("No content");
-        } else {
-            setTravel(response.data)
-        }
+        const response = await conn.get(`/securityanalyst/${idAnalyst}`)
+        setAnalyst(response.data)
 
     }
 
+     async function getTravel() {
+       const response = await conn.get(`/travel/analyst/${idAnalyst}`)
+       setTravel(response.data)
+    }
 
-    // useEffect(() => {
-    //     getAnalyst()
-    //     getTravel()
-    // })
+
+
+
+
+
+    useEffect(() => {
+        getAnalyst()
+        getTravel()
+    })
 
     return (
 
@@ -69,30 +65,28 @@ export default function Home(props) {
                     </Link>
                 </p>
                 <div id="active-travels-labels">
-                    {/* {
-
+                    {
                         travels.map((travel) => (
                             <Travel date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name} driver={travel.trucker.name} />
                         ))
-
-                    } */}
+                    }
                 </div>
             </div>
 
             <div className="registered-trucks">
                 <p>
-                    caminhões registrados
+                caminhões registrados
                     <b>
-                        21
+                    21
                     </b>
                 </p>
             </div>
 
             <div className="registered-drivers">
                 <p>
-                    caminhoneiros registrados
+                caminhoneiros registrados
                     <b>
-                        3
+                    3
                     </b>
                 </p>
             </div>
@@ -116,6 +110,6 @@ export default function Home(props) {
                 <Chat code="BSD1213" message="Houve um acidente na via" />
             </div>
 
-        </React.Fragment>
+        </React.Fragment >
     );
 }
