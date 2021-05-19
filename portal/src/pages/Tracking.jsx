@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from '../components/SearchBar';
 import User from '../components/UserData';
+import SelectTravel from '../components/TrackingTravel'
 import TravelCost from '../components/TravelCost';
 import InfoTravel from '../components/InfoTravel';
 // import GoogleMap from '../components/GoogleMap.jsx';
@@ -27,7 +28,18 @@ export default function Tracking(props) {
     return (
         <React.Fragment>
             <SearchBar />
+            <User name={props.name} />
+
+            <div className="sliderTracking">
+                <SelectTravel codigo="JLMQ0110dasq" trucker="Waldesio da Silva" truck="Volkswagen Constellation" load="Pneus" coust="1423.34" />
+                <SelectTravel codigo="JLMQ0110dasq" trucker="Waldesio da Silva" truck="Volkswagen Constellation" load="Pneus" coust="1423.34" />
+                <SelectTravel codigo="JLMQ0110dasq" trucker="Waldesio da Silva" truck="Volkswagen Constellation" load="Pneus" coust="1423.34" />
+                <SelectTravel codigo="JLMQ0110dasq" trucker="Waldesio da Silva" truck="Volkswagen Constellation" load="Pneus" coust="1423.34" />
+                <SelectTravel codigo="JLMQ0110dasq" trucker="Waldesio da Silva" truck="Volkswagen Constellation" load="Pneus" coust="1423.34" />
+
+            </div>
             {/* <User name={props.name} /> */}
+
             <div className="codeNumber">
                 {
                     travel.map((travel) => (
@@ -38,6 +50,10 @@ export default function Tracking(props) {
             </div>
 
             <div className="destination">
+
+                <span className="text-destination">DESTINO: </span>{props.destination}
+            </div>
+
                 <span className="text-destination">DESTINO: </span>
                 {
                     travel.map((travel) => (
@@ -54,14 +70,10 @@ export default function Tracking(props) {
 
             <TravelCost value={props.value} />
 
-            <InfoTravel
-                trucker={travel.map((travel) => (travel.trucker.name))}
-                truck={travel.map((travel) => (travel.truck.name))}
-                travelDetails={travel.map((travel) => (travel.description))}
-                details={props.details}
-                detailsDate={travel.map((travel) => (travel.dateTravel))}
-                detailsLastLog={props.detailsLastLog}
-            />
+
+            <InfoTravel trucker={props.trucker} truck={props.truck} travelDetails={props.travelDetails} details={props.details} detailsDate={props.detailsDate} detailsLastLog={props.detailsLastLog} />
+
+
 
         </React.Fragment>
     );
