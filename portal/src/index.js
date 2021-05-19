@@ -20,5 +20,6 @@ import './assets/styles/travel.css'
 import './assets/styles/login.css'
 import './assets/styles/styletruck.css'
 import './assets/styles/tracking-travel.css'
+import './assets/styles/modal.css'
 
 reactDom.render(<App />, document.getElementById('root'));

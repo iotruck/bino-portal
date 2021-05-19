@@ -80,10 +80,33 @@
     left: 13%;
 }
 
-.map img{
-    width: 94%;
-    height: 42vh;
-}
+.marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background-image: url('../img/caminhao.png');
+  }
+
+.markerd {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background-image: url('../img/destino.png');
+  }
+
+  .markers{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: black;
+  }
 
 .travel-cost{
 
