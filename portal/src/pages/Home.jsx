@@ -35,15 +35,10 @@ export default function Home(props) {
        setTravel(response.data)
     }
 
-
-
-
-
-
     useEffect(() => {
         getAnalyst()
         getTravel()
-    })
+    }, [])
 
     return (
 

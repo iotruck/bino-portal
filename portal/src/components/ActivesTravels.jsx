@@ -7,16 +7,14 @@ export default function ActivesTravels(props) {
 
     const [travel, addTravelInList] = useState([])
 
+    async function getTravel() {
+        const response = await conn.get(`/travel/analyst/${1}`);
+        addTravelInList(response.data);
+    }
+
     useEffect(() => {
-        async function getTravel() {
-            const response = await conn.get(`/travel/analyst/${1}`);
-            addTravelInList(response.data);
-        }
-
-        console.log(travel);
-        getTravel();
-
-    });
+        getTravel()
+    }, []);
 
     return (
         <div className="viagem">

@@ -12,26 +12,24 @@ export default function TruckerPage(props) {
   const [truckers, addTruckerInList] = useState([]);
   const [trucks, addTruckInList] = useState([]);
 
+  async function getTruckers() {
+    const response = await conn.get(`/trucker/company/${1}`);
+    addTruckerInList(response.data);
+  }
+
+  async function getTrucks() {
+    const response = await conn.get(`/truck/company/${1}`);
+    addTruckInList(response.data);
+  }
+
   useEffect(() => {
-    async function getTruckers() {
-      const response = await conn.get(`/trucker/company/${1}`);
-      addTruckerInList(response.data);
-    }
-    
-    async function getTrucks() {
-      const response = await conn.get(`/truck/company/${1}`);
-      addTruckInList(response.data);
-     }
-
-
     getTruckers();
     getTrucks();
-
-  });
+  }, []);
 
   return (
     <React.Fragment>
-      
+
       {/* <User name={props.name} /> */}
       <div className="cointainer">
         <label className="switch">

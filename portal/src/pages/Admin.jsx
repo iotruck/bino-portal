@@ -9,16 +9,14 @@ export default function AdminPage(props) {
 
     const [analysts, setAnalyst] = useState([])
 
+    async function getAnalyst() {
+        const response = await conn.get(`securityanalyst/company/${1}`);
+        setAnalyst(response.data);
+    }
+
     useEffect(() => {
-        async function getAnalyst() {
-            const response = await conn.get(`securityanalyst/company/${1}`);
-            setAnalyst(response.data);
-        }
-
-
         getAnalyst();
-
-    });
+    }, []);
 
     return (
         <React.Fragment>
@@ -48,9 +46,9 @@ export default function AdminPage(props) {
                     {
                         analysts.map((analyst) => (
                             <Cards name={analyst.name} email={analyst.email} company={analyst.company.name} />
-                          ))
+                        ))
                     }
-                   
+
                 </div>
             </div>
 

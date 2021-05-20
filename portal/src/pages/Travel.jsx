@@ -8,25 +8,20 @@ import conn from './../services/conn'
 
 export default function Travel(props) {
 
-    const [address, setAddress] = useState(() => { });
+    const [address, setAddress] = useState([]);
     const [orderLocation, setOrderLocation] = useState([]);
     const [travels, setTravel] = useState([])
 
     const idAnalyst = localStorage.getItem("@login-app/user")
 
     async function getTravel() {
-        const response = await conn.get(`http://localhost:8080/travel/analyst/${idAnalyst}`)
+        const response = await conn.get(`/travel/analyst/${idAnalyst}`)
         setTravel(response.data)
-        if(response.status === 204){
-            console.log("No content");
-        }else{
-            setTravel(response.data)
-        }
     }
 
     useEffect(() => {
         getTravel()
-    })
+    }, [])
 
     const loadOptions = async (inputValue) => {
         const response = await fetchLocalMapBox(inputValue);
