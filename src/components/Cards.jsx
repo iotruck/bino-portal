@@ -7,20 +7,20 @@ export default function Cards(props) {
 
     const [modalIsOpen, setModalOpen] = useState(false)
 
-    function viewPassword(){
-        let inputPassword = document.getElementById('password');
-        let iconEye = document.getElementById('eyeIcon');
+    // function viewPassword(){
+    //     let inputPassword = document.getElementById('password');
+    //     let iconEye = document.getElementById('eyeIcon');
 
-        if(inputPassword.type == 'text'){
-            inputPassword.type = 'password';
-            iconEye.classList.remove('fa-eye');
-            iconEye.classList.add('fa-eye-slash');
-        }else{
-            inputPassword.type = 'text';
-            iconEye.classList.remove('fa-eye-slash');
-            iconEye.classList.add('fa-eye');
-        }
-    }
+    //     if(inputPassword.type === 'text'){
+    //         inputPassword.type = 'password';
+    //         iconEye.classList.remove('fa-eye');
+    //         iconEye.classList.add('fa-eye-slash');
+    //     }else{
+    //         inputPassword.type = 'text';
+    //         iconEye.classList.remove('fa-eye-slash');
+    //         iconEye.classList.add('fa-eye');
+    //     }
+    // }
 
     return (
 
