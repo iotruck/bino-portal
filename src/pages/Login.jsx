@@ -1,6 +1,6 @@
-import { Component, useContext, useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { fetchLogin } from '../api'
+import conn from '../services/conn'
 
 import coruja from '../assets/img/coruja.png';
 
@@ -53,11 +53,10 @@ const Login = () => {
 
   const requestLogin = (event) => {
     event.preventDefault();  
-    fetchLogin(loginValues).then((value) => {
-        console.log(value);
+    conn.post(`securityanalyst/login/`, loginValues).then((value) => {
             if(value.status == 200) {
                 localStorage.setItem("@login-app/user",value.data.id);
-            history.push('/');
+                history.push('/');
             }
         }).catch(() => {
             
