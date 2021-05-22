@@ -116,6 +116,14 @@
     width: 140px;
   }
 
+  .ModalTravel .inputDestinary{
+    border-radius: 3px;
+    margin-top: 5%;
+    outline: none;
+    font-size: .7em;
+    width: 100%;
+    height: 2.3em;
+  }
 
   .ModalTrucker #saveTrucker, .ModalTruck #saveTruck, .ModalTravel #saveTravel, .ModalAnalyst #saveAnalyst, .Delete #deleteButton{
     position: absolute;

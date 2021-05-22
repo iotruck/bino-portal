@@ -16,7 +16,7 @@ export default function Travel() {
         codigo: "",
         dateTravel: "",
         description: "",
-        estimatedValue: 1200,
+        estimatedValue: "1200",
         destiny: {
             address: "",
             latitude: 100000,
@@ -67,12 +67,12 @@ export default function Travel() {
                 latitude: `${orderLocation.latitude}`,
                 longitude: `${orderLocation.longitude}`
             },
-            trucker: {
-                ...travel.trucker,
-                [name]: value
-            },
             truck: {
                 ...travel.truck,
+                [name]: value
+            },
+            trucker: {
+                ...travel.trucker,
                 [name]: value
             },
             analyst: {
@@ -159,7 +159,7 @@ export default function Travel() {
                             </div>
                             <div>
                                 <label htmlFor="id-valor">Valor estimado</label>
-                                <input id="id-valor" className="input-grid" name="estimatedValue" value={travel.estimatedValue} onChange={updateTravelValues} />
+                                <input id="id-valor" placeholder="Custo estimado da viagem" className="input-grid" name="estimatedValue" value={travel.estimatedValue} onChange={updateTravelValues} />
                             </div>
                         </div>
                         <button>Cadastrar</button>
@@ -173,10 +173,10 @@ export default function Travel() {
                         travels.map((travel) => (
                             <CardTravel id={travel.id} date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name}
                                 driver={travel.trucker.name} codigo={travel.codigo} description={travel.description}
-                                coust={travel.estimatedValue} address={travel.destiny.address} />
+                                coust={travel.estimatedValue} address={travel.destiny.address} hasTravel={hasTravels} />
                         ))
                         :
-                        <CardTravel code="Não há viagens ativas" hasTravel={hasTravels}/>
+                        <CardTravel code="Não há viagens ativas" hasTravel={hasTravels} />
                 }
             </div>
         </>
