@@ -8,10 +8,20 @@ import conn from '../services/conn'
 export default function AdminPage(props) {
 
     const [analysts, setAnalyst] = useState([])
+    const [hasAnalyts, setHasAnalyts] = useState(false)
+
+    const idCompany = localStorage.getItem("@login-app/company")
+
 
     async function getAnalyst() {
-        const response = await conn.get(`securityanalyst/company/${1}`);
+        const response = await conn.get(`securityanalyst/company/${idCompany}`);
         setAnalyst(response.data);
+
+        if (response.status === 204)
+            setHasAnalyts(false)
+        else
+            setHasAnalyts(true)
+
     }
 
     useEffect(() => {
@@ -44,9 +54,12 @@ export default function AdminPage(props) {
                 </div>
                 <div className="assign">
                     {
-                        analysts.map((analyst) => (
-                            <Cards name={analyst.name} email={analyst.email} company={analyst.company.name} />
-                        ))
+                        hasAnalyts ?
+                            analysts.map((analyst) => (
+                                <Cards name={analyst.name} email={analyst.email} company={analyst.company.name} />
+                            )) :
+                            <Cards name="Não há nenhum analista" email="-" company="-"/>
+
                     }
 
                 </div>
