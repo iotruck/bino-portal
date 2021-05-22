@@ -58,6 +58,9 @@ export default function CardsTruck(props) {
                 <p>
                     <h6>Tipo: </h6> <label> {props.type} </label>
                 </p>
+                <p>
+                    <h6>Combustível: </h6> <label> {props.fuelType} </label>
+                </p>
             </div>
         </>
     );

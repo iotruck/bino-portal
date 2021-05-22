@@ -64,7 +64,7 @@ export default function CardsTrucker(props) {
                     <h6>CPF: </h6> <label> {props.cpf} </label>
                 </p>
                 <p>
-                    <h6>Nascimento: </h6> <label> {props.birhtDate} </label>
+                    <h6>Nascimento: </h6> <label> {props.birthDate} </label>
                     <h6>Telefone: </h6> <label> {props.phoneNumber} </label>
                 </p>
                 <p>

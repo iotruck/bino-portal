@@ -57,6 +57,10 @@
     -webkit-transition: .4s;
     transition: .4s;
   }
+
+  h5{
+    padding: 1.8em;
+  }
   
   input:checked + .slider {
     background-color: #F97801;

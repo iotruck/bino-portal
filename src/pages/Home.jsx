@@ -38,8 +38,6 @@ export default function Home(props) {
         const response = await conn.get(`/travel/analyst/${idAnalyst}`)
         setTravel(response.data)
 
-        console.log(response);
-
         if (response.status === 204)
             setHasTravels(false)
         else
@@ -62,8 +60,6 @@ export default function Home(props) {
         getTravel()
         countTruck()
         countTrucker()
-
-
     }, [])
 
     return (

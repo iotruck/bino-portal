@@ -76,10 +76,10 @@ const Login = () => {
 
         setCompany({
             ...company,
-            [name]: value.trim(),
+            [name]: value,
             location:{
                 ...company.location,
-                [name]: value.trim()
+                [name]: value
             }
         });
     };
@@ -90,14 +90,14 @@ const Login = () => {
 
         setLoginValues({
             ...loginValues,
-            [name]: value.trim(),
+            [name]: value,
         });
     };
 
     const requestLogin = (event) => {
         event.preventDefault();
         conn.post(`securityanalyst/login/`, loginValues).then((value) => {
-            if (value.status == 200) {
+            if (value.status === 200) {
                 localStorage.setItem("@login-app/user", value.data.id);
                 localStorage.setItem("@login-app/company", value.data.company.id);
                 history.push('/');

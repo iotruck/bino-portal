@@ -13,6 +13,33 @@ export default function Travel(props) {
     const [travels, setTravel] = useState([]);
     const [hasTravels, setHasTravels] = useState(false)
 
+    const [travel, setTravelValues] = useState({
+            codigo: "",
+            dateTravel: "",
+            description: "",
+            estimatedValue: 1200,
+            destiny: {
+                address: "",
+                latitude: 100000,
+                longitude: 300000
+            },
+            currentTruckPosition: {
+                address: "",
+                latitude: 100000,
+                longitude: 300000
+            },
+            trucker: {
+                id: ""
+            },
+            truck: {
+                id: ""
+            },
+            analyst: {
+                id: ""
+            },
+            status: "" 
+    })
+
 
     const idAnalyst = localStorage.getItem("@login-app/user")
 
@@ -20,9 +47,9 @@ export default function Travel(props) {
         const response = await conn.get(`/travel/analyst/${idAnalyst}`)
         setTravel(response.data)
 
-        if (travels.length === 0) 
+        if (response.status === 204)
             setHasTravels(false)
-        else 
+        else
             setHasTravels(true)
     }
 
