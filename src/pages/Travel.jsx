@@ -5,7 +5,7 @@ import AsyncSelect from 'react-select/async';
 import CardTravel from '../components/CardTravel';
 import conn from './../services/conn'
 
-export default function Travel(props) {
+export default function Travel() {
 
     const [address, setAddress] = useState([]);
     const [orderLocation, setOrderLocation] = useState([]);
@@ -13,31 +13,73 @@ export default function Travel(props) {
     const [hasTravels, setHasTravels] = useState(false)
 
     const [travel, setTravelValues] = useState({
-            codigo: "",
-            dateTravel: "",
-            description: "",
-            estimatedValue: 1200,
+        codigo: "",
+        dateTravel: "",
+        description: "",
+        estimatedValue: 1200,
+        destiny: {
+            address: "",
+            latitude: 100000,
+            longitude: 300000
+        },
+        currentTruckPosition: {
+            address: "",
+            latitude: 100000,
+            longitude: 300000
+        },
+        trucker: {
+            id: ""
+        },
+        truck: {
+            id: ""
+        },
+        analyst: {
+            id: ""
+        },
+        status: "1"
+    })
+
+    const postTravel = async (event) => {
+        event.preventDefault();
+        const response = await conn.post(`/travel/`, {
+            ...travel
+        })
+
+        if (response.status === 201)
+            alert("Nova viagem criada")
+        else
+            alert("Erro ao criar")
+    }
+
+    const updateTravelValues = (event) => {
+        const { value, name } = event.target;
+
+        setTravelValues({
+            ...travel,
+            [name]: value,
             destiny: {
-                address: "",
-                latitude: 100000,
-                longitude: 300000
+                address: `${orderLocation.address}`,
+                latitude: `${orderLocation.latitude}`,
+                longitude: `${orderLocation.longitude}`
             },
             currentTruckPosition: {
-                address: "",
-                latitude: 100000,
-                longitude: 300000
+                address: `${orderLocation.address}`,
+                latitude: `${orderLocation.latitude}`,
+                longitude: `${orderLocation.longitude}`
             },
             trucker: {
-                id: ""
+                ...travel.trucker,
+                [name]: value
             },
             truck: {
-                id: ""
+                ...travel.truck,
+                [name]: value
             },
             analyst: {
-                id: ""
+                id: `${idAnalyst}`
             },
-            status: "" 
-    })
+        });
+    };
 
 
     const idAnalyst = localStorage.getItem("@login-app/user")
@@ -87,37 +129,37 @@ export default function Travel(props) {
         <>
             <SearchBar />
             <div className="section-forms-travel">
-                <form className="form-travel">
+                <form className="form-travel" onSubmit={postTravel}>
                     <div className="form-inputs">
                         <h3>Cadastro de viagem</h3>
                         <label htmlFor="id-codigo">Código</label>
-                        <input id="id-codigo" className="input-travel" />
+                        <input id="id-codigo" placeholder="Digite o código da viagem" className="input-travel" name="codigo" value={travel.codigo} onChange={updateTravelValues} />
                         <label htmlFor="id-destinatario" id="label-destinatario">Destinatário</label>
                         <AsyncSelect
                             id="id-destinatario"
                             loadOptions={loadOptions}
-                            placeholder=""
+                            placeholder="Digite o endereço do destino"
                             className="input-recipient"
                             onChange={value => handleChangeSelect(value)}
                         />
                         <label id="label-descricao" htmlFor="id-descricao">Descrição carga</label>
-                        <input id="id-descricao" className="input-travel" />
+                        <input id="id-descricao" placeholder="Descreva o que vai ser entregue" className="input-travel" name="description" value={travel.description} onChange={updateTravelValues} />
                         <div className='inputs-grid'>
                             <div>
                                 <label htmlFor="id-data">Data da viagem</label>
-                                <input id="id-data" className="input-grid" />
+                                <input id="id-data" type="date" className="input-grid" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues} />
                             </div>
                             <div>
                                 <label htmlFor="id-motorista">Motorista</label>
-                                <input id="id-motorista" className="input-grid" />
+                                <input id="id-motorista" placeholder="ID do Motorista" className="input-grid" name="id" value={travel.trucker.id} onChange={updateTravelValues} />
                             </div>
                             <div>
                                 <label htmlFor="id-caminhao">Caminhão</label>
-                                <input id="id-caminhao" className="input-grid" />
+                                <input id="id-caminhao" placeholder="ID do Caminhão" className="input-grid" name="id" value={travel.truck.id} onChange={updateTravelValues} />
                             </div>
                             <div>
                                 <label htmlFor="id-valor">Valor estimado</label>
-                                <input id="id-valor" className="input-grid" />
+                                <input id="id-valor" className="input-grid" name="estimatedValue" value={travel.estimatedValue} onChange={updateTravelValues} />
                             </div>
                         </div>
                         <button>Cadastrar</button>
@@ -129,14 +171,14 @@ export default function Travel(props) {
                 {
                     hasTravels ?
                         travels.map((travel) => (
-                            <CardTravel date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name} 
-                                driver={travel.trucker.name} codigo={travel.codigo} description={travel.description} 
-                                    coust={travel.estimatedValue} address={travel.destiny.address}/>
+                            <CardTravel date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name}
+                                driver={travel.trucker.name} codigo={travel.codigo} description={travel.description}
+                                coust={travel.estimatedValue} address={travel.destiny.address} />
                         ))
-                    :
+                        :
                         <CardTravel code="Não há viagens ativas" />
-                    
-                    
+
+
                 }
             </div>
         </>
