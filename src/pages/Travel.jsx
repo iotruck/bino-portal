@@ -10,13 +10,20 @@ export default function Travel(props) {
 
     const [address, setAddress] = useState([]);
     const [orderLocation, setOrderLocation] = useState([]);
-    const [travels, setTravel] = useState([])
+    const [travels, setTravel] = useState([]);
+    const [hasTravels, setHasTravels] = useState(false)
+
 
     const idAnalyst = localStorage.getItem("@login-app/user")
 
     async function getTravel() {
         const response = await conn.get(`/travel/analyst/${idAnalyst}`)
         setTravel(response.data)
+
+        if (travels.length === 0) 
+            setHasTravels(false)
+        else 
+            setHasTravels(true)
     }
 
     useEffect(() => {
@@ -95,11 +102,16 @@ export default function Travel(props) {
 
             <div className="list-travel">
                 {
-                    travels.map((travel) => (
-                        <CardTravel date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name} 
-                            driver={travel.trucker.name} codigo={travel.codigo} description={travel.description} 
-                                coust={travel.estimatedValue} address={travel.destiny.address}/>
-                    ))
+                    hasTravels ?
+                        travels.map((travel) => (
+                            <CardTravel date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name} 
+                                driver={travel.trucker.name} codigo={travel.codigo} description={travel.description} 
+                                    coust={travel.estimatedValue} address={travel.destiny.address}/>
+                        ))
+                    :
+                        <CardTravel code="Não há viagens ativas" />
+                    
+                    
                 }
             </div>
         </>

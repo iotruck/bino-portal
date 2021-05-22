@@ -21,7 +21,11 @@ export default function Home(props) {
 
     const [analyst, setAnalyst] = useState([])
     const [travels, setTravel] = useState([])
+    const [truckCount, setTruckCount] = useState([])
+    const [truckerCount, setTruckerCount] = useState([])
+    const [hasTravels, setHasTravels] = useState(false)
     const idAnalyst = localStorage.getItem("@login-app/user")
+    const idCompany = localStorage.getItem("@login-app/company")
 
     async function getAnalyst() {
 
@@ -30,14 +34,36 @@ export default function Home(props) {
 
     }
 
-     async function getTravel() {
-       const response = await conn.get(`/travel/analyst/${idAnalyst}`)
-       setTravel(response.data)
+    async function getTravel() {
+        const response = await conn.get(`/travel/analyst/${idAnalyst}`)
+        setTravel(response.data)
+
+        console.log(response);
+
+        if (response.status === 204)
+            setHasTravels(false)
+        else
+            setHasTravels(true)
+    }
+
+
+    async function countTruck() {
+        const response = await conn.get(`/truck/score/${idCompany}`)
+        setTruckCount(response.data)
+    }
+
+    async function countTrucker() {
+        const response = await conn.get(`/trucker/score/${idCompany}`)
+        setTruckerCount(response.data)
     }
 
     useEffect(() => {
         getAnalyst()
         getTravel()
+        countTruck()
+        countTrucker()
+
+
     }, [])
 
     return (
@@ -61,27 +87,30 @@ export default function Home(props) {
                 </p>
                 <div id="active-travels-labels">
                     {
-                        travels.map((travel) => (
-                            <Travel date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name} driver={travel.trucker.name} />
-                        ))
+
+                        hasTravels ?
+                            travels.map((travel) => (
+                                <Travel date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name} driver={travel.trucker.name} />
+                            )) :
+                            <Travel code="Não há viagens ativas" />
                     }
                 </div>
             </div>
 
             <div className="registered-trucks">
                 <p>
-                caminhões registrados
+                    caminhões registrados
                     <b>
-                    21
+                        {truckCount}
                     </b>
                 </p>
             </div>
 
             <div className="registered-drivers">
                 <p>
-                caminhoneiros registrados
+                    caminhoneiros registrados
                     <b>
-                    3
+                        {truckerCount}
                     </b>
                 </p>
             </div>
