@@ -171,14 +171,12 @@ export default function Travel() {
                 {
                     hasTravels ?
                         travels.map((travel) => (
-                            <CardTravel date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name}
+                            <CardTravel id={travel.id} date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name}
                                 driver={travel.trucker.name} codigo={travel.codigo} description={travel.description}
                                 coust={travel.estimatedValue} address={travel.destiny.address} />
                         ))
                         :
-                        <CardTravel code="Não há viagens ativas" />
-
-
+                        <CardTravel code="Não há viagens ativas" hasTravel={hasTravels}/>
                 }
             </div>
         </>

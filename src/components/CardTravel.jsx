@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import Confirm from 'react-modal';
+import conn from '../services/conn'
 
 Modal.setAppElement('#root');
 
 const CardTravel = (props) => {
 
   const [modalIsOpen, setModalOpen] = useState(false)
+  const [modalConfirmIsOpen, setModalConfirmOpen] = useState(false)
+
+  const deleteTravel = async () => {
+    const response = await conn.delete(`/travel/${Number(props.id)}`)
+
+    if(response.status === 200)
+      window.location.reload()
+    else
+      setModalConfirmOpen(false)
+  }
 
   return (
     <>
@@ -56,6 +68,34 @@ const CardTravel = (props) => {
         </form>
       </Modal>
 
+      <Confirm
+        isOpen={modalConfirmIsOpen}
+        onRequestClose={() => setModalConfirmOpen(false)}
+        className="Delete"
+        overlayClassName="Overlay"
+      >
+
+        <h1>
+          <p> Tem certeza que deseja excluir esta viagem? </p>
+          <i className="fas fa-times" onClick={() => setModalConfirmOpen(false)} ></i>
+        </h1>
+
+        <h4> Código: <span> {props.codigo} </span> </h4>
+        <h4> Descrição: <span> {props.description} </span> </h4>
+        <h4> Caminhão: <span> {props.truck} </span> </h4>
+        <h4> Motorista: <span> {props.driver} </span> </h4>
+        
+
+        <button id="cancelDelete" onClick={() => setModalConfirmOpen(false)} >
+            Cancelar
+                    </button>
+
+        <button id="deleteButton" onClick={() => deleteTravel()}>
+            Sim, tenho
+                    </button>
+
+      </Confirm>
+
       <div className="card-travel">
 
         <div className="date-travel">{props.date}</div>
@@ -65,10 +105,19 @@ const CardTravel = (props) => {
           <div className="driver-travel">{props.driver}</div>
         </div>
         <div className="itens-options">
-          <i className="fas fa-edit" onClick={() => setModalOpen(true)}></i>
-          <i className="fas fa-trash-alt"></i>
+          {
+            props.hasTravels ? (
+              <React.Fragment>
+                <i className="fas fa-edit" onClick={() => setModalOpen(true)}></i>
+                <i className="fas fa-trash-alt" onClick={() => setModalConfirmOpen(true)}></i>
+              </React.Fragment>
+            ):
+            <React.Fragment></React.Fragment>
+            
+          }
+          
         </div>
-        <div className="status-travel"></div>
+        
       </div>
     </>
   );
