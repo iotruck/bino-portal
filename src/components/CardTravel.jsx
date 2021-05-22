@@ -23,7 +23,7 @@ const CardTravel = (props) => {
 
 
         <form id="updateTravel">
-          <label htmlFor="code"> Código <i class="fas fa-lock"></i> </label>
+          <label htmlFor="code"> Código <i className="fas fa-lock"></i> </label>
           <input type="text" id="code" placeholder={props.codigo} disabled/>
           
           <label htmlFor="receiver"> Destinatário </label>
@@ -65,8 +65,8 @@ const CardTravel = (props) => {
           <div className="driver-travel">{props.driver}</div>
         </div>
         <div className="itens-options">
-          <i class="fas fa-edit" onClick={() => setModalOpen(true)}></i>
-          <i class="fas fa-trash-alt"></i>
+          <i className="fas fa-edit" onClick={() => setModalOpen(true)}></i>
+          <i className="fas fa-trash-alt"></i>
         </div>
         <div className="status-travel"></div>
       </div>

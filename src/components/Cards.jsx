@@ -39,7 +39,7 @@ export default function Cards(props) {
 
 
                 <form id="updateTravel">
-                    <label htmlFor="name"> Nome <i class="fas fa-lock"></i> </label>
+                    <label htmlFor="name"> Nome <i className="fas fa-lock"></i> </label>
                     <input type="text" id="name" placeholder={props.name}/>
 
                     <label htmlFor="email"> E-mail </label>
@@ -61,8 +61,8 @@ export default function Cards(props) {
             <div className="card-person">
                 <div className="itens-options">
                     <h4 max-length="100">{props.name}</h4>
-                    <i class="fas fa-edit" onClick={() => setModalOpen(true)}></i>
-                    <i class="fas fa-trash-alt"></i>
+                    <i className="fas fa-edit" onClick={() => setModalOpen(true)}></i>
+                    <i className="fas fa-trash-alt"></i>
                 </div>
                 <div className="itens-list">
                     <b>E-mail:</b>{props.email}

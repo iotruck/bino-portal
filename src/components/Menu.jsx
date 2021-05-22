@@ -24,7 +24,7 @@ export default function Menu() {
 
                 <li>
                     <Link to="/new-analyst">
-                        <i class="fas fa-user-shield"></i>
+                        <i className="fas fa-user-shield"></i>
                     </Link>
                 </li>
 

@@ -34,7 +34,7 @@ export default function AdminPage(props) {
             {/* <User name={props.name} /> */}
 
             <div className="section-forms-analyst">
-                <form class="form-analyst">
+                <form className="form-analyst">
                     <div className="form-initial">
                         <h3>Cadastro de analista</h3>
                         <Input label="Nome" />

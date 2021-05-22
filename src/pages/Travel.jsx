@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import User from '../components/UserData';
 import SearchBar from '../components/SearchBar';
 import { fetchLocalMapBox } from '../api';
 import AsyncSelect from 'react-select/async';
@@ -87,7 +86,6 @@ export default function Travel(props) {
     return (
         <>
             <SearchBar />
-            {/* <User name={props.name} /> */}
             <div className="section-forms-travel">
                 <form className="form-travel">
                     <div className="form-inputs">

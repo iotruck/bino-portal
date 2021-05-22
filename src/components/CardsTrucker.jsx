@@ -56,8 +56,8 @@ export default function CardsTrucker(props) {
             <div className="cards">
 
                 <div className="itens-options">
-                    <i class="fas fa-edit" onClick={() => setModalOpen(true)} ></i>
-                    <i class="fas fa-trash-alt"></i>
+                    <i className="fas fa-edit" onClick={() => setModalOpen(true)} ></i>
+                    <i className="fas fa-trash-alt"></i>
                     <h3 id="h3Trucker">{props.name}</h3>
                 </div>
                 <p>

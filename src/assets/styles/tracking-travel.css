@@ -1,15 +1,15 @@
 .cardTravel{
     background-color: #fff;
-    padding: 12px;
-    border-radius: 10px;
-    margin-left: 6px;
-    margin-right: 6px;
+    padding: .6em;
+    margin: .6em;
+    border-radius: 5px;
     cursor: pointer;
-    height: auto;
+    width: 200px;
+
 }
 
 .cardTravel:hover{
-    opacity: .7;
+    border: #F55100 1px solid;
 }
 
 .cardTravel h3{
@@ -17,7 +17,6 @@
     font-weight:bold;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 6px;
 }
 
 .cardTravel h4{

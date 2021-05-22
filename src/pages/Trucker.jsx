@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import User from '../components/UserData'
 import FormTruck from '../components/FormTruck'
 import FormTrucker from '../components/FormTrucker'
 import CardsTruck from '../components/CardsTruck'
@@ -43,8 +42,6 @@ export default function TruckerPage() {
 
   return (
     <React.Fragment>
-
-      {/* <User name={props.name} /> */}
       <div className="cointainer">
         <label className="switch">
           <input type="checkbox" />
