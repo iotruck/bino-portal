@@ -19,12 +19,25 @@
   }
  }
 
+ .fa-truck, .fa-id-card-alt{
+  color: #010A2C;
+  position: relative;
+  left: 14%;
+  top: 10px;
+  margin: 1%;
+  font-size: 1.5em;
+ }
+
+ .fa-id-card-alt{
+   font-size: 1.8em;
+ }
+
 .switch {
     margin-top: 3%;
     left: 14%;
     position: relative;
-    display: inline-block;
-    width: 130px;
+    display:inline-block;
+    width: 90px;
     height: 34px;
   }
 
@@ -81,7 +94,7 @@
   input:checked + .slider:before {
     -webkit-transform: translateX(96px);
     -ms-transform: translateX(96px);
-    transform: translateX(96px);
+    transform: translateX(56px);
   }
   
   .slider.round {
@@ -91,6 +104,25 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
+  .enumFuel, .enumTruckType{
+    width: 80%;
+    margin-bottom: 14%;
+    padding: 5px;
+    border: 1px #232323 solid;
+    padding: 16px 10px 10px;
+    outline: none;
+  }
+
+  .enumFuelUpdate, .enumTruckTypeUpdate{
+  width: 101%;
+  border: 1px solid #9B9B9B;
+  padding: .7em;
+  border-radius: 3px;
+  margin-top: 5%;
+  outline: none;
+  font-size: .7em;
+}
 
 .section-forms {
     position: absolute;

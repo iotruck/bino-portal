@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import conn from '../services/conn'
 
+
 export default function UserData(props) {
     
     const [ analyst, setAnalyst ] = useState([])
+
     const idAnalyst = localStorage.getItem("@login-app/user")
 
     async function getAnalyst() {
