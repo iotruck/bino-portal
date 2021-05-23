@@ -10,13 +10,15 @@ export default function Travel() {
     const [address, setAddress] = useState([]);
     const [orderLocation, setOrderLocation] = useState([]);
     const [travels, setTravel] = useState([]);
+    const [truck, setTruck] = useState();
+    const [trucker, setTrucker] = useState();
     const [hasTravels, setHasTravels] = useState(false)
 
     const [travel, setTravelValues] = useState({
         codigo: "",
         dateTravel: "",
         description: "",
-        estimatedValue: "1200",
+        estimatedValue: "",
         destiny: {
             address: "",
             latitude: 100000,
@@ -34,9 +36,8 @@ export default function Travel() {
             id: ""
         },
         analyst: {
-            id: ""
         },
-        status: "1"
+        status: "READY"
     })
 
     const postTravel = async (event) => {
@@ -67,22 +68,20 @@ export default function Travel() {
                 latitude: `${orderLocation.latitude}`,
                 longitude: `${orderLocation.longitude}`
             },
+            analyst: {
+                id: idAnalyst
+            },
             truck: {
-                ...travel.truck,
-                [name]: value
+                id: truck
             },
             trucker: {
-                ...travel.trucker,
-                [name]: value
-            },
-            analyst: {
-                id: `${idAnalyst}`
+                id : trucker
             },
         });
     };
 
 
-    const idAnalyst = localStorage.getItem("@login-app/user")
+    const idAnalyst = Number(localStorage.getItem("@login-app/user"))
 
     async function getTravel() {
         const response = await conn.get(`/travel/analyst/${idAnalyst}`)
@@ -97,6 +96,16 @@ export default function Travel() {
     useEffect(() => {
         getTravel()
     }, [])
+
+    const updateTrucker = (event) => {
+        event.preventDefault();
+        setTrucker(Number(event.target.value))
+    }
+
+    const updateTruck = (event) => {
+        event.preventDefault();
+        setTruck(Number(event.target.value))
+    }
 
     const loadOptions = async (inputValue) => {
         const response = await fetchLocalMapBox(inputValue);
@@ -146,16 +155,16 @@ export default function Travel() {
                         <input id="id-descricao" placeholder="Descreva o que vai ser entregue" className="input-travel" name="description" value={travel.description} onChange={updateTravelValues} />
                         <div className='inputs-grid'>
                             <div>
-                                <label htmlFor="id-data">Data da viagem</label>
-                                <input id="id-data" type="date" className="input-grid" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues} />
-                            </div>
-                            <div>
                                 <label htmlFor="id-motorista">Motorista</label>
-                                <input id="id-motorista" placeholder="ID do Motorista" className="input-grid" name="id" value={travel.trucker.id} onChange={updateTravelValues} />
+                                <input id="id-motorista" placeholder="ID do Motorista" className="input-grid" value={trucker} onChange={updateTrucker}/>
                             </div>
                             <div>
                                 <label htmlFor="id-caminhao">Caminhão</label>
-                                <input id="id-caminhao" placeholder="ID do Caminhão" className="input-grid" name="id" value={travel.truck.id} onChange={updateTravelValues} />
+                                <input id="id-caminhao" placeholder="ID do Caminhão" className="input-grid" value={truck} onChange={updateTruck} />
+                            </div>
+                            <div>
+                                <label htmlFor="id-data">Data da viagem</label>
+                                <input id="id-data" type="date" className="input-grid" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues} />
                             </div>
                             <div>
                                 <label htmlFor="id-valor">Valor estimado</label>
