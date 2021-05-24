@@ -180,13 +180,13 @@
   }
 
   .ModalTravel input:nth-child(12){
-    width: 47%;
+    width: 46%;
     margin-left: 20px;
   }
 
   .ModalTravel #driver{
     left: 50%;
-    top: 51%;
+    top: 54%;
   }
 
   .ModalTravel label{
