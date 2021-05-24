@@ -1,22 +1,60 @@
+import React, { useState } from 'react'
+import conn from './../services/conn'
+
 export default function FormTrucker() {
+    const idCompany = localStorage.getItem("@login-app/company")
+    const [trucker, setTruckerValues] = useState({
+        birthDate: "",
+        certification: "",
+        cnh: "",
+        cpf: "",
+        name: "",
+        phoneNumber: "",
+        company: {
+            id: idCompany
+        }
+    })
+
+    const postTrucker = async (event) => {
+        event.preventDefault();
+        const response = await conn.post(`/trucker/`, {
+            ...trucker
+        }).then(() => {
+            window.location.reload();
+        }).catch((error) => {
+            alert("Verifique os dados, ocorreu um erro :[")
+        })
+
+    }
+
+    const updateTruckerValues = (event) => {
+        const { value, name } = event.target;
+
+        setTruckerValues({
+            ...trucker,
+            [name]: value
+        });
+    };
+
     return (
-        <form id="formMotorista">
+        <form id="formMotorista" onSubmit={postTrucker} >
             <h3 id="h3Form">Cadastro de motoristas</h3> <br /> <br />
             <label> Nome e sobrenome </label>
-            <input name="Nome" placeholder="Waldesio da Silva" /> <br />
+            <input placeholder="Waldesio da Silva" name="name" value={trucker.name} onChange={updateTruckerValues} /> <br />
+
             <label> CPF </label>
-            <input name="CPF" placeholder="123.456.789-10" /> <br />
+            <input placeholder="123.456.789-10" name="cpf" value={trucker.cpf} onChange={updateTruckerValues}/> <br />
 
             <div className="inline-form">
 
                 <div>
                     <label> Data de nascimento </label>
-                    <input name="Data" placeholder="01/01/1000" /> <br />
+                    <input type="date" name="birthDate" value={trucker.birthDate} onChange={updateTruckerValues} /> <br />
                 </div>
 
                 <div>
                     <label> Telefone </label>
-                    <input name="Telefone" placeholder="00987654321" /> <br />
+                    <input placeholder="(11)98765-4321" name="phoneNumber" value={trucker.phoneNumber} onChange={updateTruckerValues} /> <br />
                 </div>
 
             </div>
@@ -25,12 +63,12 @@ export default function FormTrucker() {
 
                 <div>
                     <label> CNH</label>
-                    <input name="CNH" placeholder="00123456789" /> <br />
+                    <input placeholder="00123456789" name="cnh"  value={trucker.cnh} onChange={updateTruckerValues} /> <br />
                 </div>
 
                 <div>
                     <label> Certificação </label>
-                    <input name="Cer" placeholder="Inflamáveis" />
+                    <input placeholder="Inflamáveis" name="certification" value={trucker.certification} onChange={updateTruckerValues} />
                 </div>
 
             </div>
