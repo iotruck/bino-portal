@@ -44,12 +44,11 @@ export default function Travel() {
         event.preventDefault();
         const response = await conn.post(`/travel/`, {
             ...travel
+        }).then(() => {
+            window.location.reload();
+        }).catch((err) => {
+            alert("Ocorreu ao cadastrar uma nova viagem :[ \nConfira os campos dígitados e os códigos do caminhão e caminhoneiro ")
         })
-
-        if (response.status === 201)
-            alert("Nova viagem criada")
-        else
-            alert("Erro ao criar")
     }
 
     const updateTravelValues = (event) => {

@@ -81,7 +81,7 @@ export default function TruckerPage(props) {
             {
               hasTrucker ?
                 truckers.map((trucker) => (
-                  <CardsTrucker name={trucker.name} cpf={trucker.cpf} cnh={trucker.cnh} birthDate={trucker.birthDate} phoneNumber={trucker.phoneNumber} />
+                  <CardsTrucker name={trucker.name} cpf={trucker.cpf} cnh={trucker.cnh} birthDate={trucker.birthDate} phoneNumber={trucker.phoneNumber} truckerId={trucker.id} hasTrucker={hasTrucker} />
                 )) :
                 <CardsTrucker name="Não há motoristas cadastrados" cpf="-" cnh="-" birthDate="-" phoneNumber="-" />
             }
@@ -91,7 +91,7 @@ export default function TruckerPage(props) {
             {
               hasTruck ?
                 trucks.map((truck) => (
-                  <CardsTruck name={truck.name} brand={truck.truckBrand} type={truck.truckType} fuelType={truck.fuelType} licensePlace={truck.licensePlace} status={truck.status} truckId={truck.id}/>
+                  <CardsTruck name={truck.name} brand={truck.truckBrand} type={truck.truckType} fuelType={truck.fuelType} licensePlace={truck.licensePlace} status={truck.status} truckId={truck.id} hasTruck={hasTruck}/>
                 )) :
                 <CardsTruck name="Não há caminhões cadastrados" brand="-" type="-" fuelType="-" />
 
