@@ -26,6 +26,10 @@ export default function AdminPage(props) {
         event.preventDefault();
         const response = await conn.post(`/securityanalyst/`, {
             ...analyst
+        }).then((response) => {
+            window.location.reload()
+        }).catch((err) => {
+            alert("Confira os dados, não conseguimos adicionar esse analista :[")
         })
     }
 
