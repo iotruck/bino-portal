@@ -1,0 +1,40 @@
+.user{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    display: flex;
+    font-size: .9rem ;
+}
+
+.name-user{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.datas{
+    width: 70%;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.account{
+    color: #F55100;
+    cursor: pointer;
+}
+
+.status{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #F55100;
+    position: absolute;
+    right: 0;
+}
+
+.icon-img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+    cursor: pointer;
+}

@@ -1,0 +1,213 @@
+.ModalTrucker, .ModalTruck, .ModalTravel, .ModalAnalyst {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    background-color: #fff;
+    width: 40%;
+    margin: 0 auto;
+    outline: none;
+    padding: 2%;
+    font-size: 1.5em;
+  }
+
+  .Delete {
+    width: 40%;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 50px;
+    height: 200px;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    padding: 2%;
+    outline: none;
+  }
+
+  .ModalTravel #dateTravel{
+    left: 67%;
+    top: 38%;
+  }
+
+  .Delete h4{
+    margin: .7em;
+  }
+
+  .Delete span{
+    color: #F55100;
+  }
+
+  .ModalTrucker h1, .ModalTruck h1, .ModalTravel h1, .ModalAnalyst h1, .Delete h1{
+    color: #F55100;
+    display: flex;
+    margin-bottom: 3%;
+    justify-content: space-between;
+  }
+
+  .ModalTrucker i, .ModalTruck i, .ModalAnalyst i, .Delete i{
+      cursor: pointer;
+  }
+
+  .ModalTrucker i:hover, .ModalTruck i:hover, .ModalTravel i:hover, .ModalAnalyst i:hover, .Delete i:hover{
+    opacity: .5;
+  }
+
+  .ModalTrucker input, .ModalTruck input, .ModalTravel input, .ModalAnalyst input{
+    width: 97%;
+    border: 1px solid #9B9B9B;
+    padding: .7em;
+    border-radius: 3px;
+    margin-top: 5%;
+    outline: none;
+    font-size: .7em;
+  }
+
+  .ModalTrucker label, .ModalTruck label, .ModalTravel label, .ModalAnalyst label{
+    position: absolute;
+    font-size: .7em;
+    line-height: 15px;
+    align-items: center;
+    padding-left: 5px;
+    margin-top: 3%;
+    margin-left: 2%;
+    color: #000000;
+    background-color: #fff;
+    width: 142px;
+    height: 15px;
+  }
+
+  .ModalTrucker input:nth-child(6){
+    width: 40%;
+  }
+
+  .ModalTrucker input:nth-child(8){
+    width: 47%;
+    margin-left: 20px;
+  }
+
+  .ModalTrucker input:nth-child(10){
+    width: 60%;
+  }
+
+  .ModalTrucker input:nth-child(12){
+    width: 25%;
+    margin-left: 30px;
+  }
+
+  .ModalTrucker #labelCnh {
+    left: 4%;
+    margin-top: 16%;
+  }
+
+  .ModalTrucker #labelDig{
+    margin-left: 6%;
+  }
+
+  .ModalTrucker #labelPhoneNumber{
+    margin-left: 30px;
+  }
+
+  .ModalTrucker #labelCertifications{
+    left: 4%;
+    margin-top: 15%;
+    width: 140px;
+  }
+
+  .ModalTravel .inputDestinary{
+    border-radius: 3px;
+    margin-top: 5%;
+    outline: none;
+    font-size: .7em;
+    width: 100%;
+    height: 2.3em;
+  }
+
+  .ModalTrucker #saveTrucker, .ModalTruck #saveTruck, .ModalTravel #saveTravel, .ModalAnalyst #saveAnalyst, .Delete #deleteButton{
+    position: absolute;
+    width: 25%;
+    bottom: 5%;
+    right: 1%;
+    background: #F55100;
+    border-radius: 5px;
+    font-size: .8em;
+    text-transform: uppercase;
+    padding: 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .ModalTrucker #cancelTrucker, .ModalTruck #cancelTruck, .ModalTravel #cancelTravel, .ModalAnalyst #cancelAnalyst, .Delete #cancelDelete{
+    position: absolute;
+    width: 25%;
+    bottom: 5%;
+    right: 30%;
+    background: #fff;
+    border-radius: 5px;
+    border: #F55100 2px solid;
+    font-size: .8em;
+    color: #F55100;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 3px;
+  }
+
+  .ModalTrucker #saveTrucker:hover, .ModalTruck #saveTruck:hover, .ModalTravel #saveTravel:hover, .ModalAnalyst #saveAnalyst:hover, .Delete #deleteButton:hover{
+    background: #fff;
+    border: #F55100 2px solid;
+    color: #F55100;
+  }
+
+  .ModalTrucker #cancelTrucker:hover, .ModalTruck #cancelTruck:hover, .ModalTravel #cancelTravel:hover, .ModalAnalyst #cancelAnalyst:hover, .Delete #cancelDelete:hover {
+    background: #F55100;
+    color: #fff;
+  }
+
+  .ModalTravel input:nth-child(6){
+    width: 60%;
+  }
+
+  .ModalTravel input:nth-child(8){
+    width: 25%;
+    margin-left: 30px;
+  }
+
+
+  .ModalTravel input:nth-child(10){
+    width: 40%;
+  }
+
+  .ModalTravel input:nth-child(12){
+    width: 46%;
+    margin-left: 20px;
+  }
+
+  .ModalTravel #driver{
+    left: 50%;
+    top: 54%;
+  }
+
+  .ModalTravel label{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-direction: row;
+    width: 130px;
+  }
+
+  .ModalTravel i{
+    margin-left: 20px;
+  }
+
+  
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 2;
+  }

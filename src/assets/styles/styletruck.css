@@ -1,0 +1,297 @@
+
+#formCaminhao {
+    display: block;
+}
+
+#formMotorista {
+  display: none;
+}
+ 
+@media screen and (min-width: 1440px){
+  #formCaminhao {
+    margin-top: 6%;
+  }
+ }
+ 
+@media screen and (min-width: 1440px){
+  #formMotorista {
+    margin-top: 6%;
+  }
+ }
+
+ .fa-truck, .fa-id-card-alt{
+  color: #010A2C;
+  position: relative;
+  left: 14%;
+  top: 10px;
+  margin: 1%;
+  font-size: 1.5em;
+ }
+
+ .fa-id-card-alt{
+   font-size: 1.8em;
+ }
+
+.switch {
+    margin-top: 3%;
+    left: 14%;
+    position: relative;
+    display:inline-block;
+    width: 90px;
+    height: 34px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #010A2C;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  h5{
+    padding: 1.8em;
+  }
+  
+  input:checked + .slider {
+    background-color: #F97801;
+  }
+
+  input:checked + #formMotorista:before {
+    display: block;
+  }
+
+  input:checked + #formCaminhao:before {
+    display: none;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #F97801;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(96px);
+    -ms-transform: translateX(96px);
+    transform: translateX(56px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .enumFuel, .enumTruckType{
+    width: 80%;
+    margin-bottom: 14%;
+    padding: 5px;
+    border: 1px #232323 solid;
+    padding: 16px 10px 10px;
+    outline: none;
+  }
+
+  .enumFuelUpdate, .enumTruckTypeUpdate{
+  width: 101%;
+  border: 1px solid #9B9B9B;
+  padding: .7em;
+  border-radius: 3px;
+  margin-top: 5%;
+  outline: none;
+  font-size: .7em;
+}
+
+.section-forms {
+    position: absolute;
+    margin-left: 7%;
+    top: 14%;
+    width: 50%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-forms form {
+    height: 500px;
+    width: 450px;
+    padding: 30px 0px 0px 40px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.section-forms label {
+    position: absolute;
+    background-color: white;
+    margin-top: -12px;
+    margin-left: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    padding: 3px 3px 3px 3px;
+}
+
+.section-forms input {
+    width: 85%;
+    height: 3%;
+    font-size: 16px;
+    outline: 0;
+    padding: 16px 10px 10px;
+    margin-bottom: 7%;
+    border: rgb(21, 21, 21) 1px solid;
+}
+
+
+.inline-form {
+    display: inline-block;
+    width: 50%;
+}
+
+.inline-form input {
+    width: 70%;
+    margin-bottom: 14%;
+}
+
+#h3Form {
+    color:#F97801;
+    font-family: Roboto;
+    font-style: normal;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+form button {
+    margin-right: 40px;
+    width: 197px;
+    height: 35px;
+    background: #010A2C;
+    border-radius: 5px;
+    color: white;
+    border: 0;
+    cursor: pointer;
+}
+
+/*SECTION TAGS*/
+
+.tags {
+  position: absolute;
+    left: 55%;
+    top: 12%;
+    width: 40%;
+    height: 50vh;
+}
+
+    @media screen and (max-width: 1024px) {
+        .tags {
+            margin-top: -54%;
+        }
+    }
+
+.motorista {
+    height: 200px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.motorista::-webkit-scrollbar {
+    width: 13px; 
+  }
+  
+.motorista::-webkit-scrollbar-thumb {
+    background-color: #F97801; 
+    border-radius: 20px;   
+}
+
+.caminhao {
+    height: 200px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.caminhao::-webkit-scrollbar {
+    width: 13px; 
+  }
+  
+.caminhao::-webkit-scrollbar-thumb {
+    background-color: #F97801; 
+    border-radius: 20px;   
+}
+
+.cards {
+    padding: 15px 0px 0px 15px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-left: 30px;
+    height: 170px;
+    width:85%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#h3Trucker {
+    color: #F97801;
+    padding: 05px 05px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+#h3Truck {
+    color: #010A2C;
+    padding: 05px 05px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.cards p {
+    line-height: 26px;
+}
+
+.cards p h6 {
+    display: inline;
+    padding-left: 6px;
+}
+
+.tags input {
+    margin-top: 6%;
+    width: 82%;
+    height: 30px;
+    margin-left: 6%;
+    margin-bottom: 2%;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+}
+
+.tags input::placeholder {
+    color: rgb(19, 19, 19);
+    font-size: 14px;
+}
+
+.tags p {
+    padding: 3px;
+}
