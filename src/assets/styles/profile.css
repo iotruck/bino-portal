@@ -1,0 +1,92 @@
+body,html {
+    padding: 0;
+    margin: 0;
+}
+
+.profilecontainer {
+height: 100vh;
+width: 80vh;
+float: right;
+}
+
+.background {
+    background-color: rgb(26, 26, 71);
+    height: 100vh;
+    box-shadow: 0 0 1em rgb(158, 158, 158);
+}
+
+.infosuser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+.userphoto {
+    height: 20vh;
+    width: 20vh;
+    background-color: gainsboro;
+    border-radius: 80%;
+    margin-right: 08vh;
+}
+
+.infosuser label {
+    color: white;
+    font-size: 25px;
+    padding-top: 6vh;
+}
+
+.infosuser button {
+    margin-top: 2vh;
+    cursor: pointer;
+}
+
+.edit-profile {
+    height: 47vh;
+    width: 92%;
+    background-color: whitesmoke;
+    padding-top: 03vh;
+    padding-left: 03vh;
+    padding-right: 03vh;
+}
+
+.edit-profile span {
+    color: orangered;
+    padding-left: 4vh;
+}
+
+.edit {
+    background-color: white;
+    height: 18vh;
+    margin-top: 4vh;
+    border-radius: 03%;
+    padding: 07vh;
+    box-shadow: 0 0 1em rgb(221, 221, 221);
+}
+
+.edit label {
+    padding: 03vh;
+}
+
+.edit input {
+    padding-right: 6vh;
+    padding-left: 1vh;
+}
+
+.edit img {
+    height: 30px;
+    position: absolute;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.edit button {
+    float: right;
+    margin-top: 4vh;
+    width: 140px;
+    height: 30px;
+}
+
+
+
+

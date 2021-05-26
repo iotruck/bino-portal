@@ -6,7 +6,7 @@
  
 @media screen and (min-width: 1440px){
   #formCaminhao {
-    margin-top: 6%;
+    margin-top: 0%;
   }
  }
 
@@ -17,13 +17,44 @@
  
 @media screen and (min-width: 1440px){
   #formMotorista {
-    margin-top: 6%;
+    margin-top: 0%;
   }
+ }
+
+ .btnGroup{
+   margin-left: 4vh;
+   height: 5vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  
+ }
+
+  .btnGroup span {
+    padding-right: 0;
+    padding-left: 5vh;
+    padding-top: 2vh;
+  }
+
+ .btnDownload {
+   width: 200px;
+   height: 24px;
+   border-radius: 3px;
+   background-color: #ededed;
+   position: relative;
+   margin-top: 2vh;
+   cursor: pointer;
+   border: 0.5px black solid;
+ }
+
+ .uploadBtn {
+   position: relative;
+   cursor: pointer;
  }
 
 .switch {
     margin-top: 3%;
-    left: 14%;
+    left: 34vh;
     position: relative;
     display: inline-block;
     width: 130px;
