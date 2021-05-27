@@ -18,31 +18,17 @@ export default function Travel() {
     const [travels, setTravel] = useState([]);
     const [truck, setTruck] = useState();
     const [trucker, setTrucker] = useState();
-    const [hasTravels, setHasTravels] = useState(false)
-
+    const [hasTravels, setHasTravels] = useState(false);
+    const [company,setCompany] = useState({
+        address: "",
+        latitude: 0,
+        longitude: 0
+    });
     const [travel, setTravelValues] = useState({
         codigo: "",
         dateTravel: "",
         description: "",
         estimatedValue: "",
-        destiny: {
-            address: "",
-            latitude: 100000,
-            longitude: 300000
-        },
-        currentTruckPosition: {
-            address: "",
-            latitude: 100000,
-            longitude: 300000
-        },
-        trucker: {
-            id: ""
-        },
-        truck: {
-            id: ""
-        },
-        analyst: {
-        },
         status: "READY"
     })
 
@@ -55,6 +41,32 @@ export default function Travel() {
         }).catch((err) => {
            enableError();
         })
+
+        const postValue = {
+            ...travel,
+            destiny: {
+               ...orderLocation
+            },
+            currentTruckPosition: {
+                ...company
+            },
+            trucker: {
+                id: trucker
+            },
+            truck: {
+                id: truck
+            },
+            analyst: {
+                id: idAnalyst
+            },
+        }
+
+        const response = await conn.post(`/travel/`, postValue)
+
+        if (response.status === 201)
+            alert("Nova viagem criada")
+        else
+            alert("Erro ao criar")
     }
 
     const updateTravelValues = (event) => {
@@ -62,26 +74,7 @@ export default function Travel() {
 
         setTravelValues({
             ...travel,
-            [name]: value,
-            destiny: {
-                address: `${orderLocation.address}`,
-                latitude: `${orderLocation.latitude}`,
-                longitude: `${orderLocation.longitude}`
-            },
-            currentTruckPosition: {
-                address: `${orderLocation.address}`,
-                latitude: `${orderLocation.latitude}`,
-                longitude: `${orderLocation.longitude}`
-            },
-            analyst: {
-                id: idAnalyst
-            },
-            truck: {
-                id: truck
-            },
-            trucker: {
-                id : trucker
-            },
+            [name]: value
         });
     };
 
@@ -98,8 +91,22 @@ export default function Travel() {
             setHasTravels(true)
     }
 
+    async function getCompany() {
+        const response = await conn.get(`/securityanalyst/${idAnalyst}`)
+        if(response.status === 200) {
+            console.log(response.data)
+            const location = {
+                address: response.data.company.location.address,
+                latitude: response.data.company.location.latitude,
+                longitude: response.data.company.location.longitude
+            }
+            setCompany(location);
+        }
+    }
+
     useEffect(() => {
-        getTravel()
+        getTravel();
+        getCompany();
     }, [])
 
     const updateTrucker = (event) => {
