@@ -211,3 +211,40 @@
     background-color: rgba(0,0,0,0.75);
     z-index: 2;
   }
+
+  .sectionfiles {
+     text-align: center;
+      font-size: 22px;
+      padding-bottom: 2vh;
+      padding-top: 2vh;
+  }
+
+  .controller {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+  }
+
+  .controller button {
+   margin: 4vh;
+    padding: 2vh;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid rgb(130, 130, 130);
+    transition: 1s;
+  }
+
+  .controller button:hover {
+   transform: scale(1.1);
+  }
+
+  #TXT {
+   color: rgb(26, 26, 71);
+  }
+  
+  #CSV {
+    color: #F55100;
+  }
+  
