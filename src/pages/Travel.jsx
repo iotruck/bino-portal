@@ -8,7 +8,7 @@ import conn from './../services/conn'
 export default function Travel() {
 
     function enableError() {
-        if(document.getElementById("error").style.display == 'none') {
+        if (document.getElementById("error").style.display == 'none') {
             document.getElementById("error").style.display = 'block';
         }
     }
@@ -19,7 +19,7 @@ export default function Travel() {
     const [truck, setTruck] = useState();
     const [trucker, setTrucker] = useState();
     const [hasTravels, setHasTravels] = useState(false);
-    const [company,setCompany] = useState({
+    const [company, setCompany] = useState({
         address: "",
         latitude: 0,
         longitude: 0
@@ -34,18 +34,18 @@ export default function Travel() {
 
     const postTravel = async (event) => {
         event.preventDefault();
-        const response = await conn.post(`/travel/`, {
-            ...travel
-        }).then(() => {
-            window.location.reload();
-        }).catch((err) => {
-           enableError();
-        })
+        // const response = await conn.post(`/travel/`, {
+        //     ...travel
+        // }).then(() => {
+        //     window.location.reload();
+        // }).catch((err) => {
+        //    enableError();
+        // })
 
         const postValue = {
             ...travel,
             destiny: {
-               ...orderLocation
+                ...orderLocation
             },
             currentTruckPosition: {
                 ...company
@@ -64,9 +64,9 @@ export default function Travel() {
         const response = await conn.post(`/travel/`, postValue)
 
         if (response.status === 201)
-            alert("Nova viagem criada")
+            window.location.reload();
         else
-            alert("Erro ao criar")
+            enableError();
     }
 
     const updateTravelValues = (event) => {
@@ -93,7 +93,7 @@ export default function Travel() {
 
     async function getCompany() {
         const response = await conn.get(`/securityanalyst/${idAnalyst}`)
-        if(response.status === 200) {
+        if (response.status === 200) {
             console.log(response.data)
             const location = {
                 address: response.data.company.location.address,
@@ -168,7 +168,7 @@ export default function Travel() {
                         <div className='inputs-grid'>
                             <div>
                                 <label htmlFor="id-motorista">Motorista</label>
-                                <input id="id-motorista" placeholder="1" className="input-grid" value={trucker} onChange={updateTrucker}/>
+                                <input id="id-motorista" placeholder="1" className="input-grid" value={trucker} onChange={updateTrucker} />
                             </div>
                             <div>
                                 <label htmlFor="id-caminhao">Caminhão</label>
@@ -183,9 +183,9 @@ export default function Travel() {
                                 <input id="id-valor" placeholder="600" className="input-grid" name="estimatedValue" value={travel.estimatedValue} onChange={updateTravelValues} />
                             </div>
                         </div>
-                        <button>Cadastrar</button> <br/>
+                        <button>Cadastrar</button> <br />
                         <span id="error" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
-                Alguma informação inválida - revise o formulário.</span>
+                            Alguma informação inválida - revise o formulário.</span>
                     </div>
                 </form>
             </div>

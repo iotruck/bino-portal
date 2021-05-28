@@ -3,14 +3,14 @@ import conn from './../services/conn'
 
 
 export default function FormTruck() {
-   
+
     function enableError() {
-        if(document.getElementById("error").style.display == 'none') {
-            document.getElementById("error").style.display = 'block';
+        if (document.getElementById("errorTruck").style.display === 'none') {
+            document.getElementById("errorTruck").style.display = 'block';
         }
     }
 
-    
+
     const idCompany = localStorage.getItem("@login-app/company")
     const [truck, setTruckValues] = useState({
         name: "",
@@ -31,9 +31,9 @@ export default function FormTruck() {
         const response = await conn.post(`/truck/`, {
             ...truck
         }).then(() => {
-            window.onload();
+            window.location.reload();
         }).catch((error) => {
-           enableError()
+            enableError();
         })
 
     }
@@ -97,8 +97,8 @@ export default function FormTruck() {
             </div>
             <br />
             <button>Cadastrar</button>
-            <span id="error" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
-            Alguma informação inválida - revise o formulário.</span>
+            <span id="errorTruck" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
+                Alguma informação inválida - revise o formulário.</span>
         </form>
     );
 }
