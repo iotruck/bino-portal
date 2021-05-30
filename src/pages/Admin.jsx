@@ -58,7 +58,7 @@ export default function AdminPage(props) {
     }
 
     async function getAnalyst() {
-        const response = await conn.get(`securityanalyst/company/${idCompany}`);
+        const response = await conn.get(`/securityanalyst/company/${idCompany}`);
         setAnalyst(response.data);
 
         if (response.status === 204)
