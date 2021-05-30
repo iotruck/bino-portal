@@ -29,7 +29,7 @@ export default function AdminPage(props) {
         }).then((response) => {
             window.location.reload()
         }).catch((err) => {
-            alert("Confira os dados, não conseguimos adicionar esse analista :[")
+            enableError();
         })
     }
 
@@ -41,6 +41,12 @@ export default function AdminPage(props) {
             [name]: value
         });
     };
+
+    function enableError() {
+        if(document.getElementById("error").style.display == 'none') {
+            document.getElementById("error").style.display = 'block';
+        }
+    }
 
      function viewPassword(){
         let inputPassword = document.getElementById('id-password');
@@ -86,17 +92,19 @@ export default function AdminPage(props) {
                         <h3>Cadastro de analista</h3>
                         <div>
                             <label htmlFor="id-nome">Nome</label>
-                            <input id="id-nome" placeholder="Nome para o novo analista" className="input-grid" name="name" value={analyst.name} onChange={updateAnalystValues} />
+                            <input id="id-nome" placeholder="Sandra Cunha" className="input-grid" name="name" value={analyst.name} onChange={updateAnalystValues} />
                         </div>
                         <div>
                             <label htmlFor="id-email">E-mail</label>
-                            <input id="id-email" placeholder="E-mail de acesso" className="input-grid" name="email" value={analyst.email} onChange={updateAnalystValues} />
+                            <input id="id-email" placeholder="sandracunha@exemplo.com" className="input-grid" name="email" value={analyst.email} onChange={updateAnalystValues} />
                         </div>
                         <div>
                             <label htmlFor="id-password">Senha  <i className="fa fa-eye" id="eyeIcon" onClick={viewPassword}></i></label>
-                            <input id="id-password" type="password" placeholder="Senha para acessar" className="input-grid" name="password" value={analyst.password} onChange={updateAnalystValues} />
+                            <input id="id-password" type="password" placeholder="#S3nhaForte" className="input-grid" name="password" value={analyst.password} onChange={updateAnalystValues} />
                         </div>
-                        <button>Cadastrar</button>
+                        <button>Cadastrar</button> <br/>
+                        <span id="error" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
+                Alguma informação inválida - revise o formulário.</span>
                     </div>
                 </form>
             </div>

@@ -3,6 +3,14 @@ import conn from './../services/conn'
 
 
 export default function FormTruck() {
+
+    function enableError() {
+        if (document.getElementById("errorTruck").style.display === 'none') {
+            document.getElementById("errorTruck").style.display = 'block';
+        }
+    }
+
+
     const idCompany = localStorage.getItem("@login-app/company")
     const [truck, setTruckValues] = useState({
         name: "",
@@ -25,7 +33,7 @@ export default function FormTruck() {
         }).then(() => {
             window.location.reload();
         }).catch((error) => {
-            alert("Verifique os dados, ocorreu um erro :[")
+            enableError();
         })
 
     }
@@ -46,13 +54,13 @@ export default function FormTruck() {
         <form id="formCaminhao" onSubmit={postTruck}>
             <h3 id="h3Form" style={{ color: 'blue' }}>Cadastro de caminhões</h3> <br /> <br />
             <label> Nome/descrição </label>
-            <input placeholder="Qual o nome do caminhão?" name="name" value={truck.name} onChange={updateTruckValues} /> <br />
+            <input placeholder="CAMINHAO 01" name="name" value={truck.name} onChange={updateTruckValues} /> <br />
 
 
 
             <div>
                 <label> Placa </label>
-                <input placeholder="CAMINHAO 01" name="licensePlace" value={truck.nalicensePlace} onChange={updateTruckValues} /> <br />
+                <input placeholder="ABC-0123" name="licensePlace" value={truck.nalicensePlace} onChange={updateTruckValues} /> <br />
             </div>
 
 
@@ -65,7 +73,7 @@ export default function FormTruck() {
                 <div>
                     <label> Combustível</label>
                     <select className="enumFuel" name="fuelType" value={truck.fuelType} onChange={updateTruckValues}>
-                        <option selected>Selecione aqui</option>
+                        <option selected>Selecione</option>
                         <option value={0}>S10</option>
                         <option value={1}>S500</option>
                     </select>
@@ -76,7 +84,7 @@ export default function FormTruck() {
                 <div>
                     <label> Tipo do caminhão</label>
                     <select className="enumTruckType" name="truckType" value={truck.truckType} onChange={updateTruckValues}>
-                        <option selected>Selecione aqui</option>
+                        <option selected>Selecione</option>
                         <option value={0}>Carreta</option>
                         <option value={1}>Baú</option>
                     </select>
@@ -84,13 +92,13 @@ export default function FormTruck() {
 
                 <div>
                     <label> Status </label>
-                    <input placeholder="Como ele está?" name="status" value={truck.status} onChange={updateTruckValues} />
+                    <input placeholder="Livre" name="status" value={truck.status} onChange={updateTruckValues} />
                 </div>
             </div>
             <br />
             <button>Cadastrar</button>
-            <span id="error" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
-                Alguma informação inválida. Por favor, revise o formulário.</span>
+            <span id="errorTruck" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
+                Alguma informação inválida - revise o formulário.</span>
         </form>
     );
 }

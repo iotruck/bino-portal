@@ -2,6 +2,13 @@ import React, { useState } from 'react'
 import conn from './../services/conn'
 
 export default function FormTrucker() {
+
+    function enableError() {
+        if (document.getElementById("error").style.display === 'none') {
+            document.getElementById("error").style.display = 'block';
+        }
+    }
+
     const idCompany = localStorage.getItem("@login-app/company")
     const [trucker, setTruckerValues] = useState({
         birthDate: "",
@@ -22,7 +29,7 @@ export default function FormTrucker() {
         }).then(() => {
             window.location.reload();
         }).catch((error) => {
-            alert("Verifique os dados, ocorreu um erro :[")
+            enableError();
         })
 
     }
@@ -43,7 +50,7 @@ export default function FormTrucker() {
             <input placeholder="Waldesio da Silva" name="name" value={trucker.name} onChange={updateTruckerValues} /> <br />
 
             <label> CPF </label>
-            <input placeholder="123.456.789-10" name="cpf" value={trucker.cpf} onChange={updateTruckerValues}/> <br />
+            <input placeholder="123.456.789-10" name="cpf" value={trucker.cpf} onChange={updateTruckerValues} /> <br />
 
             <div className="inline-form">
 
@@ -63,7 +70,7 @@ export default function FormTrucker() {
 
                 <div>
                     <label> CNH</label>
-                    <input placeholder="00123456789" name="cnh"  value={trucker.cnh} onChange={updateTruckerValues} /> <br />
+                    <input placeholder="00123456789" name="cnh" value={trucker.cnh} onChange={updateTruckerValues} /> <br />
                 </div>
 
                 <div>
