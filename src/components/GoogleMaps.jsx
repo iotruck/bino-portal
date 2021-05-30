@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import GoogleMapReact from 'google-map-react';
+import GoogleMapReact from 'google-map-react';
 import Marker from '../components/Marker';
 import Destiny from '../components/Destiny';
 import Point from '../components/Point';
