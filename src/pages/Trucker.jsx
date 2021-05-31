@@ -44,13 +44,14 @@ export default function TruckerPage(props) {
   }
 
   async function getTrucks() {
-    const response = await conn.get(`/truck/company/${idCompany}`);
-    addTruckInList(response.data);
-
-    if (response.status === 204)
-      setHasTruck(false)
-    else
+    const response = await conn.get(`/truck/company/${idCompany}`).
+    then((response) => {
+      addTruckInList(response.data);
       setHasTruck(true)
+    }).
+    catch(err => {
+      setHasTruck(false)
+    })
   }
 
   const getLicense = async () => {
@@ -119,7 +120,7 @@ export default function TruckerPage(props) {
             {
               hasTruck ?
                 trucks.map((truck) => (
-                  <CardsTruck name={truck.name} brand={truck.truckBrand} type={truck.truckType} fuelType={truck.fuelType} licensePlace={truck.licensePlace} status={truck.status} truckId={truck.id} hasTruck={hasTruck} />
+                  <CardsTruck name={truck.name} brand={truck.truckBrand} type={truck.truckType} fuelType={truck.fuelType} licensePlace={truck.licensePlace} condintion={truck.status} truckId={truck.id} hasTruck={hasTruck} />
                 )) :
                 <CardsTruck name="Não há caminhões cadastrados" brand="-" type="-" fuelType="-" />
 

@@ -75,9 +75,6 @@ export default function AdminPage(props) {
 
     }
 
-
-
-
     useEffect(() => {
         getAnalyst();
     }, []);

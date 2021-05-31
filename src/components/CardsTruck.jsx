@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import Confirm from 'react-modal';
 import conn from './../services/conn'
@@ -11,6 +11,8 @@ export default function CardsTruck(props) {
     const [modalIsOpen, setModalOpen] = useState(false)
     const [modalConfirmIsOpen, setModalConfirmOpen] = useState(false)
     const idCompany = localStorage.getItem("@login-app/company")
+
+
 
     const [truck, setTruckValues] = useState({
         name: "",
@@ -26,12 +28,12 @@ export default function CardsTruck(props) {
 
     const deleteTruck = async () => {
         const response = await conn.delete(`/truck/${Number(props.truckId)}`)
-    
+
         if (response.status === 200)
-          window.location.reload()
+            window.location.reload()
         else
-          setModalConfirmOpen(false)
-      }
+            setModalConfirmOpen(false)
+    }
 
 
     const putTruck = async (event) => {
@@ -45,7 +47,7 @@ export default function CardsTruck(props) {
 
     }
 
-    
+
 
     const updateTruckValues = (event) => {
         const { value, name } = event.target;
@@ -60,6 +62,22 @@ export default function CardsTruck(props) {
         });
     };
 
+    useEffect(() => {
+
+        setTruckValues({
+            ...truck,
+            name: props.name,
+            licensePlace: props.licensePlace,
+            truckBrand: props.brand,
+            truckType: props.type,
+            fuelType: props.fuelType,
+            status: props.condintion,
+            company: {
+                id: `${idCompany}`
+            },
+        });
+
+    }, [])
 
     return (
         <>
@@ -90,6 +108,7 @@ export default function CardsTruck(props) {
                     <div>
                         <label> Combustível</label>
                         <select className="enumFuelUpdate" name="fuelType" onChange={updateTruckValues}>
+                            <option selected>Selecione</option>
                             <option value={Number(0)}>S10</option>
                             <option value={Number(1)}>S500</option>
                         </select>
@@ -100,6 +119,7 @@ export default function CardsTruck(props) {
                     <div>
                         <label> Tipo do caminhão</label>
                         <select className="enumTruckTypeUpdate" name="truckType" onChange={updateTruckValues}>
+                            <option selected>Selecione</option>
                             <option value={Number(0)}>Carroceria</option>
                             <option value={Number(1)}>Baú</option>
                         </select>
@@ -107,7 +127,7 @@ export default function CardsTruck(props) {
 
                     <div>
                         <label> Status </label>
-                        <input placeholder={props.status} name="status" value={truck.status} onChange={updateTruckValues} />
+                        <input placeholder={props.condintion} name="status" value={truck.status} onChange={updateTruckValues} />
                     </div>
                     <br />
 
@@ -152,7 +172,7 @@ export default function CardsTruck(props) {
             <div className="cards">
 
                 <div className="itens-options">
-                {
+                    {
                         props.hasTruck ?
                             <React.Fragment>
                                 <i className="fas fa-edit" onClick={() => setModalOpen(true)} ></i>
