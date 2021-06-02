@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import GoogleMapReact from 'google-map-react';
+import GoogleMapReact from 'google-map-react';
 import Marker from '../components/Marker';
 import Destiny from '../components/Destiny';
 import Point from '../components/Point';
@@ -21,7 +21,7 @@ const SimpleMap = (props) => {
   const [zoom, setZoom] = useState(11);
   return (
     <div style={{ width: '105vh', height: '40vh' }}>
-      {/* <GoogleMapReact
+      <GoogleMapReact
         // bootstrapURLKeys={{ key: 'AIzaSyD8pBN-9gQmaWdmxxLOuPwtlycNBy2e6wI' }}
         defaultCenter={center}
         defaultZoom={zoom}
@@ -47,7 +47,7 @@ const SimpleMap = (props) => {
             name="Destino"
           />
         ))}
-      </GoogleMapReact> */}
+      </GoogleMapReact>
     </div>
   );
 }
