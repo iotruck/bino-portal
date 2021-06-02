@@ -43,9 +43,6 @@ export default function Cards(props) {
 
     const updateAnalystValues = (event) => {
         const { value, name } = event.target;
-        console.log(analyst);
-        console.log("Analista " + idAnalyst);
-        console.log("Props " + props.id);
         setAnalystValues({
             ...analyst,
             password: `${password}`,

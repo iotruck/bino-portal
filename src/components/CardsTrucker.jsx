@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import Confirm from 'react-modal';
 import conn from './../services/conn'
@@ -26,10 +26,10 @@ export default function CardsTrucker(props) {
 
     const deleteTrucker = async () => {
         const response = await conn.delete(`/trucker/${Number(props.truckerId)}`).then(() => {
-                window.location.reload();
-            }).catch(err => {
-                alert("Erro ao deletar motorista")
-            })
+            window.location.reload();
+        }).catch(err => {
+            alert("Erro ao deletar motorista")
+        })
     };
 
 
@@ -45,7 +45,7 @@ export default function CardsTrucker(props) {
 
     }
 
-    
+
 
     const updateTruckerValues = (event) => {
         const { value, name } = event.target;
@@ -55,6 +55,17 @@ export default function CardsTrucker(props) {
             [name]: value
         });
     };
+
+    useEffect(() => {
+        setTruckerValues({
+            ...trucker,
+            certification: "",
+            cnh: props.cnh,
+            cpf: props.cpf,
+            name: props.name,
+            phoneNumber: props.phoneNumber
+        })
+    }, 1)
 
 
     return (
@@ -87,10 +98,10 @@ export default function CardsTrucker(props) {
                     <input type="text" name="phoneNumber" value={trucker.phoneNumber} onChange={updateTruckerValues} placeholder={props.phoneNumber} />
 
                     <label htmlFor="cnh" id="labelCnh"> CNH </label>
-                    <input type="text" name="cnh"  value={trucker.cnh} onChange={updateTruckerValues} placeholder={props.cnh} />
+                    <input type="text" name="cnh" value={trucker.cnh} onChange={updateTruckerValues} placeholder={props.cnh} />
 
                     <label htmlFor="digito" id="labelDig"> Certificação </label>
-                    <input type="text" name="certification" value={trucker.certification} onChange={updateTruckerValues} placeholder={props.digito} />
+                    <input type="text" name="certification" value={trucker.certification} onChange={updateTruckerValues} placeholder={props.certification} />
 
 
                     <button id="cancelTrucker" onClick={() => setModalOpen(false)} >

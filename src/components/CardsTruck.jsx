@@ -16,13 +16,13 @@ export default function CardsTruck(props) {
 
     const [truck, setTruckValues] = useState({
         name: "",
-        licensePlace: "",
+        licensePlate: "",
         truckBrand: "",
         truckType: "",
         fuelType: "",
         status: "",
         company: {
-            id: ""
+            id: `${idCompany}`
         }
     })
 
@@ -55,7 +55,7 @@ export default function CardsTruck(props) {
         setTruckValues({
             ...truck,
             [name]: value,
-            licensePlace: `${props.licensePlace}`,
+            licensePlate: `${props.licensePlate}`,
             company: {
                 id: `${idCompany}`
             },
@@ -64,20 +64,19 @@ export default function CardsTruck(props) {
 
     useEffect(() => {
 
+        
+
         setTruckValues({
             ...truck,
             name: props.name,
-            licensePlace: props.licensePlace,
+            licensePlate: props.licensePlate,
             truckBrand: props.brand,
             truckType: props.type,
             fuelType: props.fuelType,
-            status: props.condintion,
-            company: {
-                id: `${idCompany}`
-            },
+            status: props.condintion
         });
 
-    }, [])
+    }, 1)
 
     return (
         <>
@@ -89,7 +88,7 @@ export default function CardsTruck(props) {
                 overlayClassName="Overlay"
             >
                 <h1>
-                    <p> Editar informações do caminhonão </p>
+                    <p> Editar informações do caminhão </p>
                     <i className="fas fa-times" onClick={() => setModalOpen(false)} ></i>
                 </h1>
 

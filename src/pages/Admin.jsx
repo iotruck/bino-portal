@@ -9,7 +9,7 @@ export default function AdminPage(props) {
     const [hasAnalyts, setHasAnalyts] = useState(false)
 
     const idCompany = localStorage.getItem("@login-app/company")
-    const idAnalyst = localStorage.getItem("@login-app/user")
+    
 
 
     const [analyst, setAnalystValues] = useState({
