@@ -71,7 +71,7 @@ export default function CardsTruck(props) {
                 overlayClassName="Overlay"
             >
                 <h1>
-                    <p> Editar informações do caminhoneiro </p>
+                    <p> Editar informações do caminhonão </p>
                     <i className="fas fa-times" onClick={() => setModalOpen(false)} ></i>
                 </h1>
 
@@ -130,7 +130,7 @@ export default function CardsTruck(props) {
             >
 
                 <h1>
-                    <p> Tem certeza que deseja excluir esta viagem? </p>
+                    <p> Tem certeza que deseja excluir este caminhão? </p>
                     <i className="fas fa-times" onClick={() => setModalConfirmOpen(false)} ></i>
                 </h1>
 
@@ -152,8 +152,15 @@ export default function CardsTruck(props) {
             <div className="cards">
 
                 <div className="itens-options">
-                    <i className="fas fa-edit" onClick={() => setModalOpen(true)}></i>
-                    <i className="fas fa-trash-alt" onClick={() => setModalConfirmOpen(true)}></i>
+                {
+                        props.hasTruck ?
+                            <React.Fragment>
+                                <i className="fas fa-edit" onClick={() => setModalOpen(true)} ></i>
+                                <i className="fas fa-trash-alt" onClick={() => setModalConfirmOpen(true)}></i>
+                            </React.Fragment>
+                            :
+                            <React.Fragment />
+                    }
                     <h3 id="h3Truck">{props.name}</h3>
                 </div>
 

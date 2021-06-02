@@ -65,7 +65,6 @@ export default function Home(props) {
     return (
 
         <React.Fragment>
-            {/* <User name={props.name} /> */}
             <img src={blob} className="blob" alt="" />
             <h1 className="welcome">
                 <img src={coruja} className="brand-logo" alt="Seja bem vindo, estamos aqui pra lha ajudar" />
