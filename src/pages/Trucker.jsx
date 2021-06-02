@@ -21,12 +21,13 @@ export default function TruckerPage(props) {
 
   async function getTruckers() {
     const response = await conn.get(`/trucker/company/${idCompany}`)
-    .then((response) => {
+    
+    if(response.status === 200){
       setHasTrucker(true)
       addTruckerInList(response.data);
-    }).catch((err) => {
+    }else{
       setHasTrucker(false)
-    })
+    }
   }
 
   function ChangeForm() {
@@ -43,14 +44,14 @@ export default function TruckerPage(props) {
   }
 
   async function getTrucks() {
-    const response = await conn.get(`/truck/company/${idCompany}`).
-    then((response) => {
+    const response = await conn.get(`/truck/company/${idCompany}`)
+
+    if (response.status === 200){
       setHasTruck(true)
       addTruckInList(response.data);
-    }).
-    catch(err => {
+    }else{
       setHasTruck(false)
-    })
+    }
   }
 
 
