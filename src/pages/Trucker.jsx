@@ -13,11 +13,20 @@ export default function TruckerPage(props) {
   const [trucks, addTruckInList] = useState([]);
   const [hasTrucker, setHasTrucker] = useState(false);
   const [hasTruck, setHasTruck] = useState(false);
-  const [truckLicense, setTruckLicense] = useState([])
   const [modalIsOpen, setModalOpen] = useState(false)
   const idCompany = localStorage.getItem("@login-app/company")
 
-  
+
+  async function getTruckers() {
+    const response = await conn.get(`/trucker/company/${idCompany}`)
+    
+    if(response.status === 200){
+      setHasTrucker(true)
+      addTruckerInList(response.data);
+    }else{
+      setHasTrucker(false)
+    }
+  }
   function ChangeForm() {
     let fm = document.getElementById("formMotorista");
     let fc = document.getElementById("formCaminhao");
@@ -33,33 +42,25 @@ export default function TruckerPage(props) {
 
 
   async function getTrucks() {
-    const response = await conn.get(`/truck/company/${idCompany}`);
-    addTruckInList(response.data);
+    const response = await conn.get(`/truck/company/${idCompany}`)
 
-    if (response.status === 204)
-      setHasTruck(false)
-    else
+    if (response.status === 200){
       setHasTruck(true)
+      addTruckInList(response.data);
+    }else{
+      setHasTruck(false)
+    }
   }
 
-  async function getTruckers() {
-    const response = await conn.get(`/trucker/company/${idCompany}`);
-    addTruckerInList(response.data);
-
-    if (response.status === 204)
-      setHasTrucker(false)
-    else
-      setHasTrucker(true)
-  }
 
   const getLicense = async () => {
     const response = await conn.get(`/truck/${props.truckId}`)
   }
 
+
   useEffect(() => {
     getTruckers()
     getTrucks()
-    getLicense()
   }, []);
 
   return (
@@ -121,8 +122,7 @@ export default function TruckerPage(props) {
               hasTrucker ?
                 truckers.map((trucker) => (
                   <CardsTrucker name={trucker.name} cpf={trucker.cpf} cnh={trucker.cnh} birthDate={trucker.birthDate} phoneNumber={trucker.phoneNumber} truckerId={trucker.id} hasTrucker={hasTrucker} />
-                )) :
-                <CardsTrucker name="Não há motoristas cadastrados" cpf="-" cnh="-" birthDate="-" phoneNumber="-" />
+                )) : <CardsTrucker name="Não há motoristas cadastrados" cpf="-" cnh="-" birthDate="-" phoneNumber="-" />
             }
           </div>
           <h5 style={{ fontWeight: '130' }}>Caminhões cadastrados na sua empresa</h5>
@@ -130,9 +130,8 @@ export default function TruckerPage(props) {
             {
               hasTruck ?
                 trucks.map((truck) => (
-                  <CardsTruck name={truck.name} brand={truck.truckBrand} type={truck.truckType} fuelType={truck.fuelType} licensePlace={truck.licensePlace} status={truck.status} truckId={truck.id} hasTruck={hasTruck} />
-                )) :
-                <CardsTruck name="Não há caminhões cadastrados" brand="-" type="-" fuelType="-" />
+                  <CardsTruck name={truck.name} brand={truck.truckBrand} type={truck.truckType} fuelType={truck.fuelType} licensePlate={truck.licensePlate} condintion={truck.status} truckId={truck.id} hasTruck={hasTruck} />
+                )) : <CardsTruck name="Não há caminhões cadastrados" brand="-" type="-" fuelType="-" />
 
             }
           </div>

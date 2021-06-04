@@ -9,7 +9,7 @@ export default function AdminPage(props) {
     const [hasAnalyts, setHasAnalyts] = useState(false)
 
     const idCompany = localStorage.getItem("@login-app/company")
-    const idAnalyst = localStorage.getItem("@login-app/user")
+    
 
 
     const [analyst, setAnalystValues] = useState({
@@ -43,20 +43,20 @@ export default function AdminPage(props) {
     };
 
     function enableError() {
-        if(document.getElementById("error").style.display == 'none') {
+        if (document.getElementById("error").style.display == 'none') {
             document.getElementById("error").style.display = 'block';
         }
     }
 
-     function viewPassword(){
+    function viewPassword() {
         let inputPassword = document.getElementById('id-password');
         let iconEye = document.getElementById('eyeIcon');
 
-        if(inputPassword.type === 'text'){
+        if (inputPassword.type === 'text') {
             inputPassword.type = 'password';
             iconEye.classList.add('fa-eye');
             iconEye.classList.remove('fa-eye-slash');
-        }else{
+        } else {
             inputPassword.type = 'text';
             iconEye.classList.add('fa-eye-slash');
             iconEye.classList.remove('fa-eye');
@@ -64,18 +64,16 @@ export default function AdminPage(props) {
     }
 
     async function getAnalyst() {
-        const response = await conn.get(`securityanalyst/company/${idCompany}`);
-        setAnalyst(response.data);
-
-        if (response.status === 204)
-            setHasAnalyts(false)
-        else
-            setHasAnalyts(true)
+        const response = await conn.get(`/securityanalyst/company/${idCompany}`)
+            .then((response) => {
+                setHasAnalyts(true);
+                setAnalyst(response.data)
+            })
+            .catch(err => {
+                setHasAnalyts(false)
+            });
 
     }
-
-
-    
 
     useEffect(() => {
         getAnalyst();
@@ -84,7 +82,7 @@ export default function AdminPage(props) {
     return (
         <React.Fragment>
             <SearchBar />
-            {/* <User name={props.name} /> */}
+            
 
             <div className="section-forms-analyst">
                 <form className="form-analyst" onSubmit={post}>
@@ -102,9 +100,9 @@ export default function AdminPage(props) {
                             <label htmlFor="id-password">Senha  <i className="fa fa-eye" id="eyeIcon" onClick={viewPassword}></i></label>
                             <input id="id-password" type="password" placeholder="#S3nhaForte" className="input-grid" name="password" value={analyst.password} onChange={updateAnalystValues} />
                         </div>
-                        <button>Cadastrar</button> <br/>
+                        <button>Cadastrar</button> <br />
                         <span id="error" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
-                Alguma informação inválida - revise o formulário.</span>
+                            Alguma informação inválida - revise o formulário.</span>
                     </div>
                 </form>
             </div>
@@ -119,9 +117,8 @@ export default function AdminPage(props) {
                     {
                         hasAnalyts ?
                             analysts.map((analyst) => (
-                                <Cards name={analyst.name} email={analyst.email} company={analyst.company.name} hasAnalyts={hasAnalyts} id={analyst.id}/>
-                            )) :
-                            <Cards name="Não há nenhum analista" email="-" company="-" hasAnalyts={hasAnalyts}/>
+                                <Cards name={analyst.name} email={analyst.email} company={analyst.company.name} hasAnalyts={hasAnalyts} id={analyst.id} />
+                            )) : <Cards name="Não há nenhum analista" email="-" company="-" hasAnalyts={hasAnalyts} />
 
                     }
 

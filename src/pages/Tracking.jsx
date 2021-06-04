@@ -5,7 +5,6 @@ import User from '../components/UserData';
 import SelectTravel from '../components/TrackingTravel'
 import TravelCost from '../components/TravelCost';
 import InfoTravel from '../components/InfoTravel';
-// import GoogleMap from '../components/GoogleMap.jsx';
 import GoogleMaps from '../components/GoogleMaps.jsx';
 import conn from '../services/conn'
 
@@ -49,8 +48,7 @@ export default function Tracking(props) {
 
                 }
             </div>
-            {/* <User name={props.name} /> */}
-
+            
             <div className="codeNumber">
                 {
                     "Selecione uma das viagens acima"
