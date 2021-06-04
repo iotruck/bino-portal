@@ -60,13 +60,11 @@
     border: 1px solid #9B9B9B;
     padding: .7em;
     border-radius: 3px;
-    margin-top: 5%;
     outline: none;
     font-size: .7em;
   }
 
   .ModalTrucker label, .ModalTruck label, .ModalTravel label, .ModalAnalyst label{
-    position: absolute;
     font-size: .7em;
     line-height: 15px;
     align-items: center;
@@ -79,41 +77,15 @@
     height: 15px;
   }
 
-  .ModalTrucker input:nth-child(6){
-    width: 40%;
+
+  .ModalTrucker input{
+    margin-top: 0px;
   }
 
-  .ModalTrucker input:nth-child(8){
-    width: 47%;
-    margin-left: 20px;
-  }
-
-  .ModalTrucker input:nth-child(10){
-    width: 60%;
-  }
-
-  .ModalTrucker input:nth-child(12){
-    width: 25%;
-    margin-left: 30px;
-  }
-
-  .ModalTrucker #labelCnh {
-    left: 4%;
-    margin-top: 16%;
-  }
-
-  .ModalTrucker #labelDig{
-    margin-left: 6%;
-  }
-
-  .ModalTrucker #labelPhoneNumber{
-    margin-left: 30px;
-  }
-
-  .ModalTrucker #labelCertifications{
-    left: 4%;
-    margin-top: 15%;
-    width: 140px;
+  .ModalTrucker form, .ModalTruck form{
+    overflow-x: hidden;
+    padding: 30px;
+    height: 300px;
   }
 
   .ModalTravel .inputDestinary{
@@ -211,3 +183,40 @@
     background-color: rgba(0,0,0,0.75);
     z-index: 2;
   }
+
+  .sectionfiles {
+     text-align: center;
+      font-size: 22px;
+      padding-bottom: 2vh;
+      padding-top: 2vh;
+  }
+
+  .controller {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+  }
+
+  .controller button {
+   margin: 4vh;
+    padding: 2vh;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid rgb(130, 130, 130);
+    transition: 1s;
+  }
+
+  .controller button:hover {
+   transform: scale(1.1);
+  }
+
+  #TXT {
+   color: rgb(26, 26, 71);
+  }
+  
+  #CSV {
+    color: #F55100;
+  }
+  

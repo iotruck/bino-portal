@@ -117,8 +117,7 @@ export default function Tracking(props) {
 
                 }
             </div>
-            {/* <User name={props.name} /> */}
-
+            
             <div className="codeNumber">
                 {
                     "Selecione uma das viagens acima"

@@ -6,7 +6,7 @@ import NotifyNotification from '../components/NotifyNotification';
 export default function Notify(props) {
     return (
         <React.Fragment>
-            {/* <User name={props.name} /> */}
+            
             <h1 className="welcome">
                 <p>
                     Notificações

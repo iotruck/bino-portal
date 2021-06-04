@@ -7,13 +7,19 @@ import conn from './../services/conn'
 
 export default function Travel() {
 
+    function enableError() {
+        if (document.getElementById("error").style.display == 'none') {
+            document.getElementById("error").style.display = 'block';
+        }
+    }
+
     const [address, setAddress] = useState([]);
     const [orderLocation, setOrderLocation] = useState([]);
     const [travels, setTravel] = useState([]);
     const [truck, setTruck] = useState();
     const [trucker, setTrucker] = useState();
     const [hasTravels, setHasTravels] = useState(false);
-    const [company,setCompany] = useState({
+    const [company, setCompany] = useState({
         address: "",
         latitude: 0,
         longitude: 0
@@ -28,11 +34,18 @@ export default function Travel() {
 
     const postTravel = async (event) => {
         event.preventDefault();
+        // const response = await conn.post(`/travel/`, {
+        //     ...travel
+        // }).then(() => {
+        //     window.location.reload();
+        // }).catch((err) => {
+        //    enableError();
+        // })
 
         const postValue = {
             ...travel,
             destiny: {
-               ...orderLocation
+                ...orderLocation
             },
             currentTruckPosition: {
                 ...company
@@ -51,9 +64,9 @@ export default function Travel() {
         const response = await conn.post(`/travel/`, postValue)
 
         if (response.status === 201)
-            alert("Nova viagem criada")
+            window.location.reload();
         else
-            alert("Erro ao criar")
+            enableError();
     }
 
     const updateTravelValues = (event) => {
@@ -80,7 +93,7 @@ export default function Travel() {
 
     async function getCompany() {
         const response = await conn.get(`/securityanalyst/${idAnalyst}`)
-        if(response.status === 200) {
+        if (response.status === 200) {
             console.log(response.data)
             const location = {
                 address: response.data.company.location.address,
@@ -141,25 +154,25 @@ export default function Travel() {
                     <div className="form-inputs">
                         <h3>Cadastro de viagem</h3>
                         <label htmlFor="id-codigo">Código</label>
-                        <input id="id-codigo" placeholder="Digite o código da viagem" className="input-travel" name="codigo" value={travel.codigo} onChange={updateTravelValues} />
+                        <input id="id-codigo" placeholder="VG0001" className="input-travel" name="codigo" value={travel.codigo} onChange={updateTravelValues} />
                         <label htmlFor="id-destinatario" id="label-destinatario">Destinatário</label>
                         <AsyncSelect
                             id="id-destinatario"
                             loadOptions={loadOptions}
-                            placeholder="Digite o endereço do destino"
+                            placeholder="AV Paulista 23"
                             className="input-recipient"
                             onChange={value => handleChangeSelect(value)}
                         />
                         <label id="label-descricao" htmlFor="id-descricao">Descrição carga</label>
-                        <input id="id-descricao" placeholder="Descreva o que vai ser entregue" className="input-travel" name="description" value={travel.description} onChange={updateTravelValues} />
+                        <input id="id-descricao" placeholder="Material de construção" className="input-travel" name="description" value={travel.description} onChange={updateTravelValues} />
                         <div className='inputs-grid'>
                             <div>
                                 <label htmlFor="id-motorista">Motorista</label>
-                                <input id="id-motorista" placeholder="ID do Motorista" className="input-grid" value={trucker} onChange={updateTrucker}/>
+                                <input id="id-motorista" placeholder="1" className="input-grid" value={trucker} onChange={updateTrucker} />
                             </div>
                             <div>
                                 <label htmlFor="id-caminhao">Caminhão</label>
-                                <input id="id-caminhao" placeholder="ID do Caminhão" className="input-grid" value={truck} onChange={updateTruck} />
+                                <input id="id-caminhao" placeholder="3" className="input-grid" value={truck} onChange={updateTruck} />
                             </div>
                             <div>
                                 <label htmlFor="id-data">Data da viagem</label>
@@ -167,10 +180,12 @@ export default function Travel() {
                             </div>
                             <div>
                                 <label htmlFor="id-valor">Valor estimado</label>
-                                <input id="id-valor" placeholder="Custo estimado da viagem" className="input-grid" name="estimatedValue" value={travel.estimatedValue} onChange={updateTravelValues} />
+                                <input id="id-valor" placeholder="600" className="input-grid" name="estimatedValue" value={travel.estimatedValue} onChange={updateTravelValues} />
                             </div>
                         </div>
-                        <button>Cadastrar</button>
+                        <button>Cadastrar</button> <br />
+                        <span id="error" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
+                            Alguma informação inválida - revise o formulário.</span>
                     </div>
                 </form>
             </div>

@@ -96,7 +96,7 @@ const Login = () => {
 
     const requestLogin = (event) => {
         event.preventDefault();
-        conn.post(`securityanalyst/login/`, loginValues).then((value) => {
+        conn.post(`/securityanalyst/login/`, loginValues).then((value) => {
             if (value.status === 200) {
                 localStorage.setItem("@login-app/user", value.data.id);
                 localStorage.setItem("@login-app/company", value.data.company.id);
@@ -136,21 +136,21 @@ const Login = () => {
                     </div>
                     <form id="Cadastro" style={{ display: stateForm.formCadastro }} onSubmit={post}>
                         <div className="row-center">
-                            <label>NOME DA EMPRESA</label> <input name="name" value={company.name} onChange={updateCompanyValues} placeholder="Nome da empresa" />
+                            <label>NOME DA EMPRESA</label> <input name="name" value={company.name} onChange={updateCompanyValues} placeholder="Ex. TransCar" />
                         </div>
                         <div className="row-center">
-                            <label>E-MAIL</label> <input name="email" value={company.email} onChange={updateCompanyValues} placeholder="E-mail da empresa" />
+                            <label>E-MAIL</label> <input name="email" value={company.email} onChange={updateCompanyValues} placeholder="Ex. contato@transcar.com.br" />
                         </div>
                         <div className="row">
                             <div className="column">
-                                <label>SENHA</label> <input type="password" name="password" value={company.password} onChange={updateCompanyValues} placeholder="Senha para o login" />
+                                <label>SENHA</label> <input type="password" name="password" value={company.password} onChange={updateCompanyValues} placeholder="Ex. 2021@TransCar" />
                             </div>
                             <div className="column">
-                                <label>CNPJ</label> <input name="cnpj" value={company.cnpj} onChange={updateCompanyValues} placeholder="CNPJ da empresa" />
+                                <label>CNPJ</label> <input name="cnpj" value={company.cnpj} onChange={updateCompanyValues} placeholder="Ex. 27.859.355/0001-97" />
                             </div>
                         </div>
                         <div className="row-center">
-                            <label>LOGRADOURO</label> <input name="address" value={company.location.address} onChange={updateCompanyValues} placeholder="Nome da rua" />
+                            <label>LOGRADOURO</label> <input name="address" value={company.location.address} onChange={updateCompanyValues} placeholder="Ex. Avenida Paulista, 2143 - Cerqueira César - 13 Andar - Ap nº 209" />
                         </div>
                         <div className="row">
                             <div className="column">
@@ -173,10 +173,10 @@ const Login = () => {
 
                     <form id="Login" style={{ display: stateForm.formLogin }} onSubmit={requestLogin}>
                         <div className="row-center">
-                            <label>EMAIL</label> <input name="email" value={loginValues.email} onChange={updateLoginValues} />
+                            <label>EMAIL</label> <input name="email" value={loginValues.email} onChange={updateLoginValues} placeholder="Ex. contato@transcar.com.br" />
                         </div>
                         <div className="row-center">
-                            <label >SENHA</label> <input type="password" name="password" value={loginValues.password} onChange={updateLoginValues} />
+                            <label >SENHA</label> <input type="password" name="password" value={loginValues.password} onChange={updateLoginValues} placeholder="Ex. 2021@TransCar" />
                         </div>
                         <div className="row-login">
                             <div>
