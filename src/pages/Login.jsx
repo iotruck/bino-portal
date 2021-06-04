@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import InputMask from 'react-input-mask'
 import conn from '../services/conn'
 
-import coruja from '../assets/img/coruja.png';
+import coruja from '../assets/img/coruja.png'
 
 const formCadastro = () => {
     return {
@@ -146,7 +147,7 @@ const Login = () => {
                                 <label>SENHA</label> <input type="password" name="password" value={company.password} onChange={updateCompanyValues} placeholder="Ex. 2021@TransCar" />
                             </div>
                             <div className="column">
-                                <label>CNPJ</label> <input name="cnpj" value={company.cnpj} onChange={updateCompanyValues} placeholder="Ex. 27.859.355/0001-97" />
+                                <label>CNPJ</label> <InputMask mask="99.999.999/9999-99" name="cnpj" value={company.cnpj} onChange={updateCompanyValues} placeholder="Ex. 27.859.355/0001-97" />
                             </div>
                         </div>
                         <div className="row-center">

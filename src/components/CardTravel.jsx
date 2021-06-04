@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import Modal from 'react-modal';
-import Confirm from 'react-modal';
-import { fetchLocalMapBox } from '../api';
-import AsyncSelect from 'react-select/async';
+import React, { useState } from 'react'
+import InputMask from 'react-input-mask'
+import Modal from 'react-modal'
+import Confirm from 'react-modal'
+import { fetchLocalMapBox } from '../api'
+import AsyncSelect from 'react-select/async'
 import conn from '../services/conn'
 
 Modal.setAppElement('#root');
@@ -153,7 +154,7 @@ const CardTravel = (props) => {
           <input type="text" id="description" placeholder={props.description} name="description" value={travel.description} onChange={updateTravelValues}/>
 
           <label htmlFor="date" id="dateTravel"> Data </label>
-          <input type="date" id="date" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues}/>
+          <InputMask mask="99/99/9999" id="date" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues}/>
 
           <label htmlFor="model"> Caminhão </label>
           <input type="text" id="model" placeholder={props.truck} name="id" value={travel.truck.id} onChange={updateTravelValues}/>

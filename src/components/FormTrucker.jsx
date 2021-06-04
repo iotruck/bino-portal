@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import InputMask from 'react-input-mask'
 import conn from './../services/conn'
 
 export default function FormTrucker() {
@@ -50,7 +51,7 @@ export default function FormTrucker() {
             <input placeholder="Waldesio da Silva" name="name" value={trucker.name} onChange={updateTruckerValues} /> <br />
 
             <label> CPF </label>
-            <input placeholder="123.456.789-10" name="cpf" value={trucker.cpf} onChange={updateTruckerValues} /> <br />
+            <InputMask mask="999.999.999-99" placeholder="123.456.789-10" name="cpf" value={trucker.cpf} onChange={updateTruckerValues} /> <br />
 
             <div className="inline-form">
 
@@ -61,7 +62,7 @@ export default function FormTrucker() {
 
                 <div>
                     <label> Telefone </label>
-                    <input placeholder="(11)98765-4321" name="phoneNumber" value={trucker.phoneNumber} onChange={updateTruckerValues} /> <br />
+                    <InputMask mask="(99)99999-9999" placeholder="(11)98765-4321" name="phoneNumber" value={trucker.phoneNumber} onChange={updateTruckerValues} /> <br />
                 </div>
 
             </div>

@@ -14,11 +14,11 @@ export default function FormTruck() {
     const idCompany = localStorage.getItem("@login-app/company")
     const [truck, setTruckValues] = useState({
         name: "",
-        licensePlace: "",
+        licensePlate: "",
         truckBrand: "",
         truckType: "",
         fuelType: "",
-        status: "LIVRE",
+        status: 1,
         company: {
             id: ""
         }
@@ -60,7 +60,7 @@ export default function FormTruck() {
 
             <div>
                 <label> Placa </label>
-                <input placeholder="ABC-0123" name="licensePlace" value={truck.nalicensePlace} onChange={updateTruckValues} /> <br />
+                <input placeholder="ABC-0123" name="licensePlate" value={truck.nalicensePlate} onChange={updateTruckValues} /> <br />
             </div>
 
 
