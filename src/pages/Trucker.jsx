@@ -19,6 +19,13 @@ export default function TruckerPage(props) {
 
   const idCompany = localStorage.getItem("@login-app/company")
 
+  async function downloadTXT() {
+    const response = await conn.get(`/download/iotruckCaminhoesTXT`);
+
+    if (response.status != 200)
+      alert("erro ao baixar documento.")
+
+  }
 
   async function getTruckers() {
     const response = await conn.get(`/trucker/company/${idCompany}`);
@@ -73,16 +80,27 @@ export default function TruckerPage(props) {
       >
         <i className="fas fa-times" style={{ color: "black", padding: "18px", fontSize: "18px", cursor: "pointer" }}
           onClick={() => setModalOpen(false)} ></i>
-         
-          <div className="sectionfiles">
+
+        <div className="sectionfiles">
           <span> A Iotruck te entrega um documento com todos seus cadastros -
            <i> pensando sempre em te ajudar. </i> </span>
         </div>
         <div className="controller">
-          <div> <button id="TXT"> Download TXT <br/> <span style={{fontSize: '14px'}}> relação de caminhões </span> </button> </div>
-          <div> <button id="CSV"> Download CSV <br/> <span style={{fontSize: '14px'}}> relação de motoristas </span> </button> </div>
+          <div>
+            <a href={"https://bino.iotruck.com.br/download/iotruckCaminhoesTXT"}>
+              <button id="TXT"> Download TXT <br />
+                <span style={{ fontSize: '14px' }}> relação de caminhões </span> </button>
+            </a>
+          </div>
+
+          <div>
+            <a href={"https://bino.iotruck.com.br/download/iotruckmotoristascsv"}>
+              <button id="CSV"> Download CSV <br /> <span style={{ fontSize: '14px' }}> relação de motoristas </span> </button>
+            </a>
+          </div>
         </div>
-        <span style={{ paddingLeft: "38vh", fontSize: "14px"}}> -ou- </span>
+        
+        <span style={{ paddingLeft: "38vh", fontSize: "14px" }}> -ou- </span>
         <div> <input type="file" id="myFile" name="filename" />
 
           <input type="submit"></input>

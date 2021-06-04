@@ -1,6 +1,7 @@
 import React, { Profiler, useEffect, useState } from 'react'
 import conn from '../services/conn'
 import Modal from 'react-modal'
+import { useHistory } from 'react-router-dom';
 
 
 export default function UserData(props) {
@@ -69,6 +70,11 @@ export default function UserData(props) {
         setAnalystValues(response.data)
     }
 
+    const history = useHistory();
+    const logout = () => {
+        localStorage.removeItem("@login-app/user");
+        history.push('/login')
+    }
 
     useEffect(() => {
         getAnalyst()
@@ -92,7 +98,7 @@ export default function UserData(props) {
                         <div className="infos">
                             <label style={{fontSize: "12px"}}> olá, </label> <br />
                             <label style={{color: "orange"}}>{analyst.name}</label> <br />
-                            <button>Sair</button>
+                            <button onClick={logout}>Sair</button>
                         </div>
                     </div>
                     <div className="edit-profile">
