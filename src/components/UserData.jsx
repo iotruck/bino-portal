@@ -129,7 +129,7 @@ export default function UserData(props) {
                     <p className="account" onClick={() => setModalOpen(true)}>Minha conta</p>
                 </div>
                 <div className="icon">
-                    <div className="icon-img">
+                    <div className="icon-img" onClick={() => setModalOpen(true)}>
                         <div className="status"></div>
                     </div>
 

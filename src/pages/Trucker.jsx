@@ -15,28 +15,9 @@ export default function TruckerPage(props) {
   const [hasTruck, setHasTruck] = useState(false);
   const [truckLicense, setTruckLicense] = useState([])
   const [modalIsOpen, setModalOpen] = useState(false)
-
-
   const idCompany = localStorage.getItem("@login-app/company")
 
-  async function downloadTXT() {
-    const response = await conn.get(`/download/iotruckCaminhoesTXT`);
-
-    if (response.status != 200)
-      alert("erro ao baixar documento.")
-
-  }
-
-  async function getTruckers() {
-    const response = await conn.get(`/trucker/company/${idCompany}`);
-    addTruckerInList(response.data);
-
-    if (response.status === 204)
-      setHasTrucker(false)
-    else
-      setHasTrucker(true)
-  }
-
+  
   function ChangeForm() {
     let fm = document.getElementById("formMotorista");
     let fc = document.getElementById("formCaminhao");
@@ -50,6 +31,7 @@ export default function TruckerPage(props) {
     }
   }
 
+
   async function getTrucks() {
     const response = await conn.get(`/truck/company/${idCompany}`);
     addTruckInList(response.data);
@@ -58,6 +40,16 @@ export default function TruckerPage(props) {
       setHasTruck(false)
     else
       setHasTruck(true)
+  }
+
+  async function getTruckers() {
+    const response = await conn.get(`/trucker/company/${idCompany}`);
+    addTruckerInList(response.data);
+
+    if (response.status === 204)
+      setHasTrucker(false)
+    else
+      setHasTrucker(true)
   }
 
   const getLicense = async () => {
@@ -99,7 +91,7 @@ export default function TruckerPage(props) {
             </a>
           </div>
         </div>
-        
+
         <span style={{ paddingLeft: "38vh", fontSize: "14px" }}> -ou- </span>
         <div> <input type="file" id="myFile" name="filename" />
 
@@ -114,6 +106,7 @@ export default function TruckerPage(props) {
           <span className="slider round" id="sliderbutton" onClick={ChangeForm}></span>
         </label>
         <i className="fas fa-id-card-alt"></i>
+
         <section className="section-forms">
           <FormTruck />
           <FormTrucker />
@@ -121,7 +114,7 @@ export default function TruckerPage(props) {
         </section>
 
         <section className="tags">
-          <button onClick={() => setModalOpen(true)}>Gerenciador de arquivos</button>
+        <button onClick={() => setModalOpen(true)} id="btnGerenciador">Gerenciador de arquivos</button>
           <h5 style={{ fontWeight: '130' }}> Motoristas cadastrados na sua empresa</h5>
           <div className="caminhao">
             {
@@ -143,6 +136,7 @@ export default function TruckerPage(props) {
 
             }
           </div>
+         
         </section>
 
       </div>
