@@ -154,7 +154,7 @@ const CardTravel = (props) => {
           <input type="text" id="description" placeholder={props.description} name="description" value={travel.description} onChange={updateTravelValues}/>
 
           <label htmlFor="date" id="dateTravel"> Data </label>
-          <InputMask mask="99/99/9999" id="date" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues}/>
+          <input type="date" id="date" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues}/>
 
           <label htmlFor="model"> Caminhão </label>
           <input type="text" id="model" placeholder={props.truck} name="id" value={travel.truck.id} onChange={updateTravelValues}/>

@@ -177,7 +177,7 @@ export default function Travel() {
                             </div>
                             <div>
                                 <label htmlFor="id-data">Data da viagem</label>
-                                <InputMask mask="99/99/9999" id="id-data" placeholder="22/06/2021" className="input-grid" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues} />
+                                <input type="date" id="id-data" placeholder="22/06/2021" className="input-grid" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues} />
                             </div>
                             <div>
                                 <label htmlFor="id-valor">Valor estimado</label>
