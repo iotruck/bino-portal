@@ -3,61 +3,121 @@ import GoogleMapReact from 'google-map-react';
 import Marker from '../components/Marker';
 import Destiny from '../components/Destiny';
 import Point from '../components/Point';
-import api from '../services/api';
+import conn from '../services/conn';
 
+const travelInit = {
+  "id": 0,
+  "codigo": "",
+  "destiny": {
+  "id": 0,
+  "address": "",
+  "latitude": 0,
+  "longitude": 0
+},
+"currentTruckPosition": {
+  "id": 0,
+  "address": "",
+  "latitude": 0,
+  "longitude": 0
+},
+"description": "",
+"dateTravel": "",
+"trucker": {
+  "id": 0,
+  "name": "",
+  "cpf": "",
+  "cnh": "",
+  "birthDate": "",
+  "phoneNumber": ""
+},
+"truck": {
+  "id": 0,
+  "name": "",
+  "truckBrand": "",
+  "truckType": "",
+  "fuelType": ""
+},
+"analyst": {
+  "id": 0,
+  "name": "",
+  "email": "",
+  "admin": 0,
+  "company": {
+    "id": 0,
+    "name": ""
+  }
+},
+"estimatedValue": 0,
+"status": "READY"
+};
 
 const SimpleMap = (props) => {
 
-  const [listaLocais, addListaLocais] = useState([]);
-  useEffect(() => {
-    async function getLocals() {
-      const resposta = await api.get("/local")
-      addListaLocais(resposta.data);
-    }
-    getLocals();
+  const [travel, setTravel] = useState(travelInit);
+  const [company, setCompany] = useState({
+      "id": 0,
+      "name": "",
+      "email": "",
+      "cnpj": "",
+      "location": {
+        "id": 0,
+        "address": "",
+        "latitude": 0,
+        "longitude": 0
+      },
+      "subscriptions": ""
   });
 
-  const [center, setCenter] = useState({ lat: -23.555172425586818, lng: -46.663018731806126 });
-  const [zoom, setZoom] = useState(11);
+  const [center, setCenter] = useState({ lat: -23.5202203, lng: -46.7001548});
+  const [zoom, setZoom] = useState(12);
+
+  const updateCurrentLocation = async () => {
+    const response = await conn.get(`/location/${travel.currentTruckPosition.id}`)
+    setTravel({
+      ...travel,
+      currentTruckPosition: {
+        latitude: response.data.latitude,
+        longitude:response.data.longitude,
+      }
+    })
+}
+
+  useEffect(() => {
+   setTravel(props.travel)
+   setCompany(props.company)
+   const interval = setInterval(() => {
+      updateCurrentLocation()
+   }, 1000);
+  return () => clearInterval(interval);
+  });
+
+
+
   return (
     <div style={{ width: '105vh', height: '40vh' }}>
       <GoogleMapReact
-        // bootstrapURLKeys={{ key: 'AIzaSyD8pBN-9gQmaWdmxxLOuPwtlycNBy2e6wI' }}
+        bootstrapURLKeys={{ key: 'AIzaSyD8pBN-9gQmaWdmxxLOuPwtlycNBy2e6wI' }}
         defaultCenter={center}
         defaultZoom={zoom}
       >
-        {listaLocais.map((local) => (
           <Point
-            lat={local.latitudeS}
-            lng={local.longitudeS}
+            lat={company.location.latitude}
+            lng={company.location.longitude}
             name="Ponto de partida"
           />
-        ))}
-        {listaLocais.map((local) => (
           <Marker
-            lat={local.latitude}
-            lng={local.longitude}
+            lat={travel.currentTruckPosition.latitude}
+            lng={travel.currentTruckPosition.longitude}
             name="Localização caminhão"
           />
-        ))}
-        {listaLocais.map((local) => (
           <Destiny
-            lat={local.latitudeF}
-            lng={local.longitudeF}
+            lat={travel.destiny.latitude}
+            lng={travel.destiny.longitude}
             name="Destino"
           />
-        ))}
       </GoogleMapReact>
     </div>
   );
 }
 
 export default SimpleMap;
-
-// {
-//   "id": "1",
-//   "latitude": "-23.59990085632878",
-//   "longitude": "-46.62815487205582",
-//   "latitudeF": "-23.450657674378128",
-//   "longitudeF": "-46.54378034883436"
-// }

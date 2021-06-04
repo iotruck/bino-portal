@@ -14,9 +14,7 @@ export default function TruckerPage(props) {
   const [hasTruck, setHasTruck] = useState(false);
   const [truckLicense, setTruckLicense] = useState([])
 
-
   const idCompany = localStorage.getItem("@login-app/company")
-
 
   async function getTruckers() {
     const response = await conn.get(`/trucker/company/${idCompany}`);
@@ -44,21 +42,16 @@ export default function TruckerPage(props) {
   async function getTrucks() {
     const response = await conn.get(`/truck/company/${idCompany}`);
     addTruckInList(response.data);
-
+    console.log(trucks);  
     if (response.status === 204)
       setHasTruck(false)
     else
       setHasTruck(true)
   }
 
-  const getLicense = async () => {
-    const response = await conn.get(`/truck/${props.truckId}`)
-}
-
   useEffect(() => {
     getTruckers()
     getTrucks()
-    getLicense()
   }, []);
 
   return (

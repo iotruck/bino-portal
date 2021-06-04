@@ -42,8 +42,8 @@ const Login = () => {
         password: "",
         location: {
             address: "",
-            latitude: 100000,
-            longitude: 300000
+            latitude: -23.486220000,
+            longitude: -46.771780000
         },
         subscriptions: "CLASSIC"
     })

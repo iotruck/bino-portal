@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react';  
 
 export default function TrackingTravel(props) {
     return (
         <>
-            <div className="cardTravel">
+            <div className="cardTravel" onClick={props.onClick}>
                 <p>
                     <h3>{props.codigo}</h3>
                 </p>
@@ -23,9 +23,7 @@ export default function TrackingTravel(props) {
                     <h4>{props.load}</h4>
                 </p>
 
-                <p>
-                    <h4 className="coust">R$ {props.coust}</h4>
-                </p>
+               
             </div>
         </>
     )
