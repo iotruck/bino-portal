@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import Confirm from 'react-modal';
+import InputMask from 'react-input-mask'
 import conn from './../services/conn'
 
 Modal.setAppElement('#root');
@@ -63,7 +64,8 @@ export default function CardsTrucker(props) {
             cnh: props.cnh,
             cpf: props.cpf,
             name: props.name,
-            phoneNumber: props.phoneNumber
+            phoneNumber: props.phoneNumber,
+            birthDate: props.birthDate
         })
     }, 1)
 
@@ -89,13 +91,13 @@ export default function CardsTrucker(props) {
                     <input type="text" name="name" value={trucker.name} onChange={updateTruckerValues} placeholder={props.name} />
 
                     <label htmlFor="cpf"> CPF </label>
-                    <input type="text" name="cpf" value={trucker.cpf} onChange={updateTruckerValues} placeholder={props.cpf} />
+                    <InputMask mask="999.999.999-99" type="text" name="cpf" value={trucker.cpf} onChange={updateTruckerValues} placeholder={props.cpf} />
 
                     <label htmlFor="birthDate"> Nascimento </label>
-                    <input type="date" name="birthDate" value={trucker.birthDate} onChange={updateTruckerValues} />
+                    <input type="date"  name="birthDate" value={(trucker.birthDate)} onChange={updateTruckerValues} />
 
                     <label htmlFor="phoneNumber" id="labelPhoneNumber"> Telefone </label>
-                    <input type="text" name="phoneNumber" value={trucker.phoneNumber} onChange={updateTruckerValues} placeholder={props.phoneNumber} />
+                    <InputMask mask="(99)99999-9999" type="text" name="phoneNumber" value={trucker.phoneNumber} onChange={updateTruckerValues} placeholder={props.phoneNumber} />
 
                     <label htmlFor="cnh" id="labelCnh"> CNH </label>
                     <input type="text" name="cnh" value={trucker.cnh} onChange={updateTruckerValues} placeholder={props.cnh} />

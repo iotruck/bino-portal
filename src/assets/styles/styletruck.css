@@ -72,7 +72,7 @@
   }
 
   h5{
-    padding: 1.8em;
+    padding: .8em;
   }
   
   input:checked + .slider {
@@ -126,7 +126,7 @@
 .section-forms {
     position: absolute;
     margin-left: 7%;
-    top: 14%;
+    top: 15%;
     width: 50%;
     height: 80%;
     display: flex;
@@ -197,8 +197,22 @@ form button {
 
 /*SECTION TAGS*/
 
+.icon_download_file{
+    font-size: 1.8em;
+    position: absolute;
+    right: 20%;
+    top: 8%;
+    transition: 9ms;
+    cursor: pointer;
+    box-shadow: 0px 8px 24px -9px #000000;
+}
+
+.icon_download_file:hover{
+  color:#F97801;
+}
+
 .tags {
-  position: absolute;
+    position: absolute;
     left: 55%;
     top: 13vh;
     width: 40%;
@@ -212,7 +226,7 @@ form button {
     }
 
 .motorista {
-    height: 290px;
+    height: 230px;
     width: 100%;
     overflow-y: scroll;
 }
@@ -227,7 +241,7 @@ form button {
 }
 
 .caminhao {
-    height: 290px;
+    height: 230px;
     width: 100%;
     overflow-y: scroll;
 }
@@ -246,7 +260,7 @@ form button {
     margin-top: 5px;
     margin-bottom: 15px;
     margin-left: 30px;
-    height: 170px;
+    height: 150px;
     width:85%;
     background-color: white;
     border-radius: 10px;
