@@ -112,11 +112,6 @@ export default function TruckerPage(props) {
           <FormTrucker />
 
         </section>
-
-          <div>
-          <i className="fas fa-download icon_download_file" onClick={() => setModalOpen(true)}></i>
-
-          </div>
         <section className="tags">
         <button onClick={() => setModalOpen(true)} id="btnGerenciador">Gerenciador de arquivos</button>
           <h5 style={{ fontWeight: '130' }}> Motoristas cadastrados na sua empresa</h5>
