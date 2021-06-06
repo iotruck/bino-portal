@@ -112,8 +112,8 @@ export default function TruckerPage(props) {
           <FormTrucker />
 
         </section>
-        <section className="tags">
         <button onClick={() => setModalOpen(true)} id="btnGerenciador">Gerenciador de arquivos</button>
+        <section className="tags">
           <h5 style={{ fontWeight: '130' }}> Motoristas cadastrados na sua empresa</h5>
           <div className="caminhao">
             {
