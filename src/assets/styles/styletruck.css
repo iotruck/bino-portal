@@ -214,7 +214,7 @@ form button {
 .tags {
     position: absolute;
     left: 55%;
-    top: 12%;
+    top: 13vh;
     width: 40%;
     height: 50vh;
 }
@@ -310,3 +310,18 @@ form button {
     padding: 3px;
 }
 
+
+#btnGerenciador {
+  background-color: whitesmoke;
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  margin-left: 4vh;
+  cursor: pointer;
+  border: 1px solid rgb(181, 181, 181);
+  transition: 1s;
+}
+
+#btnGerenciador:hover {
+  transform: scale(1.02);
+}
