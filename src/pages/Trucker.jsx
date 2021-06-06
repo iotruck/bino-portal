@@ -93,14 +93,20 @@ export default function TruckerPage(props) {
           <span className="slider round" id="sliderbutton" onClick={ChangeForm}></span>
         </label>
         <i className="fas fa-id-card-alt"></i>
+        
         <section className="section-forms">
           <FormTruck />
           <FormTrucker />
 
         </section>
 
+          <div>
+          <i className="fas fa-download icon_download_file" onClick={() => setModalOpen(true)}></i>
+
+          </div>
         <section className="tags">
-          <button onClick={() => setModalOpen(true)}>Gerenciador de arquivos</button>
+        
+          
           <h5 style={{ fontWeight: '130' }}> Motoristas cadastrados na sua empresa</h5>
           <div className="caminhao">
             {

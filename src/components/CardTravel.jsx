@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import Modal from 'react-modal';
-import Confirm from 'react-modal';
-import { fetchLocalMapBox } from '../api';
-import AsyncSelect from 'react-select/async';
+import React, { useState } from 'react'
+import InputMask from 'react-input-mask'
+import Modal from 'react-modal'
+import Confirm from 'react-modal'
+import { fetchLocalMapBox } from '../api'
+import AsyncSelect from 'react-select/async'
 import conn from '../services/conn'
 
 Modal.setAppElement('#root');

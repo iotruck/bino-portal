@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import SearchBar from '../components/SearchBar';
-import { fetchLocalMapBox } from '../api';
-import AsyncSelect from 'react-select/async';
-import CardTravel from '../components/CardTravel';
+import React, { useEffect, useState } from 'react'
+import SearchBar from '../components/SearchBar'
+import InputMask from 'react-input-mask'
+import { fetchLocalMapBox } from '../api'
+import AsyncSelect from 'react-select/async'
+import CardTravel from '../components/CardTravel'
 import conn from './../services/conn'
 
 export default function Travel() {
@@ -176,7 +177,7 @@ export default function Travel() {
                             </div>
                             <div>
                                 <label htmlFor="id-data">Data da viagem</label>
-                                <input id="id-data" type="date" className="input-grid" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues} />
+                                <input type="date" id="id-data" placeholder="22/06/2021" className="input-grid" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues} />
                             </div>
                             <div>
                                 <label htmlFor="id-valor">Valor estimado</label>
