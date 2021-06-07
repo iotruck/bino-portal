@@ -16,7 +16,6 @@ export default function TruckerPage(props) {
   const [modalIsOpen, setModalOpen] = useState(false)
   const idCompany = localStorage.getItem("@login-app/company")
 
-
   async function getTruckers() {
     const response = await conn.get(`/trucker/company/${idCompany}`)
     
@@ -51,13 +50,9 @@ export default function TruckerPage(props) {
       setHasTruck(false)
     }
   }
-
-
   const getLicense = async () => {
     const response = await conn.get(`/truck/${props.truckId}`)
   }
-
-
   useEffect(() => {
     getTruckers()
     getTrucks()
