@@ -9,8 +9,8 @@ import conn from './../services/conn'
 export default function Travel() {
 
     function enableError() {
-        if (document.getElementById("error").style.display == 'none') {
-            document.getElementById("error").style.display = 'block';
+        if (document.getElementById("errorrr").style.display == 'none') {
+            document.getElementById("errorrr").style.display = 'block';
         }
     }
 
@@ -30,7 +30,8 @@ export default function Travel() {
         dateTravel: "",
         description: "",
         estimatedValue: "",
-        status: "READY"
+        status: "READY",
+        
     })
 
     const postTravel = async (event) => {
@@ -62,12 +63,15 @@ export default function Travel() {
             },
         }
 
-        const response = await conn.post(`/travel/`, postValue)
-
-        if (response.status === 201)
+       const response = await conn.post(`/travel/`, {
+            ...postValue
+        }).then(() => {
             window.location.reload();
-        else
-            enableError();
+        }).catch((err) => {
+           enableError();
+        })
+
+                
     }
 
     const updateTravelValues = (event) => {
@@ -184,9 +188,12 @@ export default function Travel() {
                                 <input id="id-valor" placeholder="600" className="input-grid" name="estimatedValue" value={travel.estimatedValue} onChange={updateTravelValues} />
                             </div>
                         </div>
-                        <button>Cadastrar</button> <br />
-                        <span id="error" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
+                        <div style={{ display: 'flex'}}>
+                        <button>Cadastrar</button>
+                        <span id="errorrr" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
                             Alguma informação inválida - revise o formulário.</span>
+                        </div>
+                        
                     </div>
                 </form>
             </div>
