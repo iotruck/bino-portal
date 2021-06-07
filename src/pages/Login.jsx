@@ -51,16 +51,17 @@ const Login = () => {
 
     const post = async (event) => {
         event.preventDefault();
+
+
         const response = await conn.post(`/company/`, {
             ...company
+        }).then(() => {
+            console.log("Empresa cadastrada com sucesso");
+            window.location.reload();
+            
+        }).catch((err) => {
+            alert("Alguma informação inválida, por favor, revize o formulário e tente novamente")
         })
-
-
-        if (response.status === 201) {
-            setStateForm(formLogin);
-        }else{
-            alert("errado")
-        }
 
     }
 
@@ -160,7 +161,7 @@ const Login = () => {
                         </div>
                         <div className="div-termos-enviar">
                             <div className="div-termos">
-                                <input type="checkbox" checked /><span className="termos">Li e concordo com os <u>termos de uso</u>.</span>
+                                <input type="checkbox"  /><span className="termos">Li e concordo com os <u>termos de uso</u>.</span>
                             </div>
                             <button >ENVIAR</button>
                         </div>
