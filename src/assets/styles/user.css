@@ -22,19 +22,16 @@
     cursor: pointer;
 }
 
-.status{
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: #F55100;
-    position: absolute;
-    right: 0;
-}
-
 .icon-img{
     height: 60px;
     width: 60px;
     border-radius: 50%;
-    background-color: #C4C4C4;
+    background: url("../img/profile-owl.jpg");
     cursor: pointer;
+    transition: 1s;
 }
+
+.icon-img:hover {
+    transform: scale(1.1);
+}
+

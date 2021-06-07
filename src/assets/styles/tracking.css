@@ -102,10 +102,9 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background-color: black;
+      width: 40px;
+      height: 40px;
+      background-image: url('../img/company.png');
   }
 
 .travel-cost{

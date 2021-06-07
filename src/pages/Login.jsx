@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import InputMask from 'react-input-mask'
 import conn from '../services/conn'
 
-import coruja from '../assets/img/coruja.png';
+import coruja from '../assets/img/coruja.png'
 
 const formCadastro = () => {
     return {
@@ -50,16 +51,17 @@ const Login = () => {
 
     const post = async (event) => {
         event.preventDefault();
+
+
         const response = await conn.post(`/company/`, {
             ...company
+        }).then(() => {
+            console.log("Empresa cadastrada com sucesso");
+            window.location.reload();
+            
+        }).catch((err) => {
+            alert("Alguma informação inválida, por favor, revize o formulário e tente novamente")
         })
-
-
-        if (response.status === 201) {
-            setStateForm(formLogin);
-        }else{
-            alert("errado")
-        }
 
     }
 
@@ -146,7 +148,7 @@ const Login = () => {
                                 <label>SENHA</label> <input type="password" name="password" value={company.password} onChange={updateCompanyValues} placeholder="Ex. 2021@TransCar" />
                             </div>
                             <div className="column">
-                                <label>CNPJ</label> <input name="cnpj" value={company.cnpj} onChange={updateCompanyValues} placeholder="Ex. 27.859.355/0001-97" />
+                                <label>CNPJ</label> <InputMask mask="99.999.999/9999-99" name="cnpj" value={company.cnpj} onChange={updateCompanyValues} placeholder="Ex. 27.859.355/0001-97" />
                             </div>
                         </div>
                         <div className="row-center">
@@ -159,7 +161,7 @@ const Login = () => {
                         </div>
                         <div className="div-termos-enviar">
                             <div className="div-termos">
-                                <input type="checkbox" checked /><span className="termos">Li e concordo com os <u>termos de uso</u>.</span>
+                                <input type="checkbox"  /><span className="termos">Li e concordo com os <u>termos de uso</u>.</span>
                             </div>
                             <button >ENVIAR</button>
                         </div>

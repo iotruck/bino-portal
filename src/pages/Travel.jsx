@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import SearchBar from '../components/SearchBar';
-import { fetchLocalMapBox } from '../api';
-import AsyncSelect from 'react-select/async';
-import CardTravel from '../components/CardTravel';
+import React, { useEffect, useState } from 'react'
+import SearchBar from '../components/SearchBar'
+import InputMask from 'react-input-mask'
+import { fetchLocalMapBox } from '../api'
+import AsyncSelect from 'react-select/async'
+import CardTravel from '../components/CardTravel'
 import conn from './../services/conn'
 
 export default function Travel() {
 
     function enableError() {
-        if (document.getElementById("error").style.display == 'none') {
-            document.getElementById("error").style.display = 'block';
+        if (document.getElementById("errorrr").style.display == 'none') {
+            document.getElementById("errorrr").style.display = 'block';
         }
     }
 
@@ -29,7 +30,8 @@ export default function Travel() {
         dateTravel: "",
         description: "",
         estimatedValue: "",
-        status: "READY"
+        status: "READY",
+        
     })
 
     const postTravel = async (event) => {
@@ -61,12 +63,15 @@ export default function Travel() {
             },
         }
 
-        const response = await conn.post(`/travel/`, postValue)
-
-        if (response.status === 201)
+       const response = await conn.post(`/travel/`, {
+            ...postValue
+        }).then(() => {
             window.location.reload();
-        else
-            enableError();
+        }).catch((err) => {
+           enableError();
+        })
+
+                
     }
 
     const updateTravelValues = (event) => {
@@ -176,16 +181,19 @@ export default function Travel() {
                             </div>
                             <div>
                                 <label htmlFor="id-data">Data da viagem</label>
-                                <input id="id-data" type="date" className="input-grid" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues} />
+                                <input type="date" id="id-data" placeholder="22/06/2021" className="input-grid" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues} />
                             </div>
                             <div>
                                 <label htmlFor="id-valor">Valor estimado</label>
                                 <input id="id-valor" placeholder="600" className="input-grid" name="estimatedValue" value={travel.estimatedValue} onChange={updateTravelValues} />
                             </div>
                         </div>
-                        <button>Cadastrar</button> <br />
-                        <span id="error" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
+                        <div style={{ display: 'flex'}}>
+                        <button>Cadastrar</button>
+                        <span id="errorrr" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
                             Alguma informação inválida - revise o formulário.</span>
+                        </div>
+                        
                     </div>
                 </form>
             </div>

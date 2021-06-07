@@ -14,7 +14,6 @@ export default function TruckerPage(props) {
   const [hasTrucker, setHasTrucker] = useState(false);
   const [hasTruck, setHasTruck] = useState(false);
   const [modalIsOpen, setModalOpen] = useState(false)
-
   const idCompany = localStorage.getItem("@login-app/company")
 
   async function getTruckers() {
@@ -27,7 +26,6 @@ export default function TruckerPage(props) {
       setHasTrucker(false)
     }
   }
-
   function ChangeForm() {
     let fm = document.getElementById("formMotorista");
     let fc = document.getElementById("formCaminhao");
@@ -41,6 +39,7 @@ export default function TruckerPage(props) {
     }
   }
 
+
   async function getTrucks() {
     const response = await conn.get(`/truck/company/${idCompany}`)
 
@@ -51,7 +50,9 @@ export default function TruckerPage(props) {
       setHasTruck(false)
     }
   }
-
+  const getLicense = async () => {
+    const response = await conn.get(`/truck/${props.truckId}`)
+  }
   useEffect(() => {
     getTruckers()
     getTrucks()
@@ -67,16 +68,27 @@ export default function TruckerPage(props) {
       >
         <i className="fas fa-times" style={{ color: "black", padding: "18px", fontSize: "18px", cursor: "pointer" }}
           onClick={() => setModalOpen(false)} ></i>
-         
-          <div className="sectionfiles">
+
+        <div className="sectionfiles">
           <span> A Iotruck te entrega um documento com todos seus cadastros -
            <i> pensando sempre em te ajudar. </i> </span>
         </div>
         <div className="controller">
-          <div> <button id="TXT"> Download TXT <br/> <span style={{fontSize: '14px'}}> relação de caminhões </span> </button> </div>
-          <div> <button id="CSV"> Download CSV <br/> <span style={{fontSize: '14px'}}> relação de motoristas </span> </button> </div>
+          <div>
+            <a href={"https://bino.iotruck.com.br/download/iotruckCaminhoesTXT"}>
+              <button id="TXT"> Download TXT <br />
+                <span style={{ fontSize: '14px' }}> relação de caminhões </span> </button>
+            </a>
+          </div>
+
+          <div>
+            <a href={"https://bino.iotruck.com.br/download/iotruckmotoristascsv"}>
+              <button id="CSV"> Download CSV <br /> <span style={{ fontSize: '14px' }}> relação de motoristas </span> </button>
+            </a>
+          </div>
         </div>
-        <span style={{ paddingLeft: "38vh", fontSize: "14px"}}> -ou- </span>
+
+        <span style={{ paddingLeft: "38vh", fontSize: "14px" }}> -ou- </span>
         <div> <input type="file" id="myFile" name="filename" />
 
           <input type="submit"></input>
@@ -95,9 +107,8 @@ export default function TruckerPage(props) {
           <FormTrucker />
 
         </section>
-
         <section className="tags">
-          <button onClick={() => setModalOpen(true)}>Gerenciador de arquivos</button>
+        <button onClick={() => setModalOpen(true)} id="btnGerenciador">Gerenciador de arquivos</button>
           <h5 style={{ fontWeight: '130' }}> Motoristas cadastrados na sua empresa</h5>
           <div className="caminhao">
             {
@@ -117,6 +128,7 @@ export default function TruckerPage(props) {
 
             }
           </div>
+         
         </section>
 
       </div>
