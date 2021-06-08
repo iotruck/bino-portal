@@ -1,0 +1,47 @@
+.cardTravel{
+    background-color: #fff;
+    padding: .6em;
+    margin: .6em;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+
+}
+
+.cardTravel:hover{
+    border: #F55100 1px solid;
+}
+
+.cardTravel h3{
+    font-size:1em;
+    font-weight:bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.cardTravel h4{
+    font-size:.9em;
+    font-weight:100;
+    margin-bottom: 2px;
+    font-weight: 700;
+}
+
+.cardTravel h5{
+    font-weight: 500;
+}
+
+.cardTravel .coust{
+    font-weight:bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #F55100;
+}
+
+::-webkit-scrollbar {
+    height: .8vw;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #F55100;
+    border-radius: 8px;
+  }

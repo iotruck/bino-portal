@@ -1,0 +1,230 @@
+/*Tela login*/
+
+.tela-login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.fundo-login {
+  width: 50%;
+  height: 100%;
+  background-image: url("../img/fundologin.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: default;
+}
+
+.content {
+  width: 90%;
+  padding: 5% 5%;
+}
+
+.fundo-login li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.fundo-login li a {
+  color: #f55100;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.fundo-login img {
+  margin-top: 12vh;
+  margin-left: 0;
+}
+
+.fundo-login h1 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 56px;
+  color: #010a2c;
+}
+
+.fundo-login h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 36px;
+  line-height: 42px;
+}
+
+.formulario {
+  width: 50%;
+  height: 100%;
+  background: #010a2c;
+  float: right;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex p {
+  font-size: 25px;
+  color: #3d3d3d;
+  margin: 0 1vw;
+}
+
+.btn {
+  width: auto;
+  font-size: 25px;
+  color: #3d3d3d;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: white;
+  border-bottom: solid #f97801 2px;
+}
+
+.btnactive {
+  color: white;
+  border-bottom: solid #f97801 2px;
+}
+
+.button-voltar {
+  background-color: #f97801;
+  height: 40px;
+  width: 155px;
+  margin-top: 2%;
+  border-radius: 5px;
+  position: absolute;
+}
+
+.back-link {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: whitesmoke;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row-center {
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+#Cadastro {
+  margin-top: 4vh;
+}
+
+#Cadastro label {
+  color: rgb(214, 214, 214);
+  font-size: 16px;
+  padding: 2vh 0 1vh 0;
+}
+
+#Login {
+  display: flex;
+  flex-direction: column;
+  margin-top: 18%;
+}
+
+#Login label {
+  color: rgb(214, 214, 214);
+  font-size: 16px;
+  padding: 2vh 0 1vh 0;
+}
+
+#Cadastro input {
+  font-family: inherit;
+  border: 0;
+  border-bottom: 2px solid rgb(218, 218, 218);
+  outline: 0;
+  font-size: 1rem;
+  color: white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+#Cadastro input:focus {
+  border-bottom: 2px solid #f97801;
+}
+
+#Login input {
+  font-family: inherit;
+  border: 0;
+  border-bottom: 2px solid rgb(218, 218, 218);
+  outline: 0;
+  font-size: 1rem;
+  color: white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  margin-bottom: 1rem;
+}
+
+#Login input:focus {
+  border-bottom: 2px solid #f97801;
+}
+
+#Cadastro button {
+  background: #f55100;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 260px;
+  height: 32px;
+  margin-left: 7%;
+  margin-top: 3%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.div-termos-enviar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4vh;
+}
+
+.div-termos {
+  display: flex;
+  align-items: center;
+  width: 20vw;
+}
+
+.termos {
+  color: whitesmoke;
+  margin-left: 2%;
+}
+
+#Login button {
+  background: #f55100;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 260px;
+  height: 32px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.row-login {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vh;
+}
+
+.error {
+  color: #ff0000b7;
+  font-weight: bold;
+  font-size: 1.5rem;
+}

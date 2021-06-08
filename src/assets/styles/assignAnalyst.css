@@ -1,0 +1,92 @@
+.form-analyst {
+    display: block;
+    left: 14%;
+}
+
+.form-initial{
+    width: 85%;
+}
+
+.section-forms-analyst form, .list-analyst {
+    height: 500px;
+    width: 450px;
+    padding: 15px 0px 0px 40px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    position: absolute;
+    top: 16%;
+}
+
+.section-forms-analyst label {
+    position: absolute;
+    background-color: white;
+    margin-top: -12px;
+    margin-left: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    padding: 3px 3px 3px 3px;
+}
+
+.section-forms-analyst input {
+    width: 100%;
+    font-size: 16px;
+    outline: 0;
+    padding: 16px 10px 10px;
+    margin-bottom: 7%;
+    border: rgb(21, 21, 21) 1px solid;
+}
+
+.inline-form-analyst {
+    display: inline-block;
+    width: 50%;
+
+}
+
+.inline-form-analyst input {
+    width: 70%;
+    margin-bottom: 14%;
+}
+
+form h3 {
+    color:#F97801;
+    font-family: Roboto;
+    font-style: normal;
+    padding-bottom: 30px;
+    padding-top: 25px;
+}
+
+form button {
+    width: 197px;
+    height: 35px;
+    background: #010A2C;
+    border-radius: 5px;
+    color: white;
+    border: 0;
+}
+
+.list-analyst{
+    top: 15%;
+    left:57%;
+    background-color: transparent;
+    box-shadow: none;
+    height: 500px;
+    padding-right: 20px;
+}
+
+.list-analyst .status{
+    left: 10px;
+}
+
+.list-analyst h3{
+    border-bottom: 1px black solid;
+    padding-bottom: 1%;
+}
+
+.assign {
+    height: 485px;
+    overflow-y: scroll;
+    width: 105%;
+}

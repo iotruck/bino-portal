@@ -1,0 +1,37 @@
+.user{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    display: flex;
+    font-size: .9rem ;
+}
+
+.name-user{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.datas{
+    width: 70%;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.account{
+    color: #F55100;
+    cursor: pointer;
+}
+
+.icon-img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: url("../img/profile-owl.jpg");
+    cursor: pointer;
+    transition: 1s;
+}
+
+.icon-img:hover {
+    transform: scale(1.1);
+}
+

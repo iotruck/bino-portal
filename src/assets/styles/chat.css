@@ -1,0 +1,29 @@
+.chats{
+    background-color: #E5E5F5;
+    display: flex;
+    border-radius: 10px;
+    padding: 2%;
+    margin-top: 4%;
+    max-height: 35%;
+    overflow-y: scroll;
+}
+
+.chats .infos{
+    width: 95%;
+    margin-left: 2%;
+}
+
+.chats .code{
+    font-size: 1.3em;
+    align-self: flex-start;
+    padding: 1%;
+    font-weight: bold;
+}
+
+.chats .icon-img{
+    width: 70px;
+    height: 55px;
+    border-radius: 50%;
+    align-self: center;
+    margin: 3%
+}

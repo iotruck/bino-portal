@@ -1,0 +1,196 @@
+.ModalTrucker, .ModalTruck, .ModalTravel, .ModalAnalyst {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    background-color: #fff;
+    width: 40%;
+    margin: 0 auto;
+    outline: none;
+    padding: 2%;
+    font-size: 1.5em;
+  }
+
+  .Delete {
+    width: 40%;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 50px;
+    height: 200px;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    padding: 2%;
+    outline: none;
+  }
+
+  .ModalTravel #dateTravel{
+    left: 67%;
+    top: 38%;
+  }
+
+  .Delete h4{
+    margin: .7em;
+  }
+
+  .Delete span{
+    color: #F55100;
+  }
+
+  .ModalTrucker h1, .ModalTruck h1, .ModalTravel h1, .ModalAnalyst h1, .Delete h1{
+    color: #F55100;
+    display: flex;
+    margin-bottom: 3%;
+    justify-content: space-between;
+  }
+
+  .ModalTrucker i, .ModalTruck i, .ModalAnalyst i, .Delete i{
+      cursor: pointer;
+  }
+
+  .ModalTrucker i:hover, .ModalTruck i:hover, .ModalTravel i:hover, .ModalAnalyst i:hover, .Delete i:hover{
+    opacity: .5;
+  }
+
+  .ModalTrucker input, .ModalTruck input, .ModalTravel input, .ModalAnalyst input{
+    width: 97%;
+    border: 1px solid #9B9B9B;
+    padding: .7em;
+    border-radius: 3px;
+    outline: none;
+    font-size: .7em;
+  }
+
+  .ModalTrucker label, .ModalTruck label, .ModalTravel label, .ModalAnalyst label{
+    font-size: .7em;
+    line-height: 15px;
+    align-items: center;
+    padding-left: 5px;
+    margin-top: 3%;
+    margin-left: 2%;
+    color: #000000;
+    background-color: #fff;
+    height: 15px;
+  }
+
+
+  .ModalTrucker input{
+    margin-top: 0px;
+  }
+
+  .ModalTrucker form, .ModalTruck form, .ModalTravel form{
+    overflow-x: hidden;
+    padding: 30px;
+    height: 300px;
+  }
+
+  .ModalTravel .inputDestinary{
+    border-radius: 3px;
+    outline: none;
+    font-size: .7em;
+    width: 100%;
+    height: 2.3em;
+  }
+
+  .ModalTrucker #saveTrucker, .ModalTruck #saveTruck, .ModalTravel #saveTravel, .ModalAnalyst #saveAnalyst, .Delete #deleteButton{
+    position: absolute;
+    width: 25%;
+    bottom: 5%;
+    right: 1%;
+    background: #F55100;
+    border-radius: 5px;
+    font-size: .8em;
+    text-transform: uppercase;
+    padding: 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .ModalTrucker #cancelTrucker, .ModalTruck #cancelTruck, .ModalTravel #cancelTravel, .ModalAnalyst #cancelAnalyst, .Delete #cancelDelete{
+    position: absolute;
+    width: 25%;
+    bottom: 5%;
+    right: 30%;
+    background: #fff;
+    border-radius: 5px;
+    border: #F55100 2px solid;
+    font-size: .8em;
+    color: #F55100;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 3px;
+  }
+
+  .ModalTrucker #saveTrucker:hover, .ModalTruck #saveTruck:hover, .ModalTravel #saveTravel:hover, .ModalAnalyst #saveAnalyst:hover, .Delete #deleteButton:hover{
+    background: #fff;
+    border: #F55100 2px solid;
+    color: #F55100;
+  }
+
+  .ModalTrucker #cancelTrucker:hover, .ModalTruck #cancelTruck:hover, .ModalTravel #cancelTravel:hover, .ModalAnalyst #cancelAnalyst:hover, .Delete #cancelDelete:hover {
+    background: #F55100;
+    color: #fff;
+  }
+
+
+  .ModalTravel label{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-direction: row;
+  }
+
+  .ModalTravel i{
+    margin-left: 20px;
+  }
+
+  
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 2;
+  }
+
+  .sectionfiles {
+     text-align: center;
+      font-size: 22px;
+      padding-bottom: 2vh;
+      padding-top: 2vh;
+  }
+
+  .controller {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+  }
+
+  .controller button {
+   margin: 4vh;
+    padding: 2vh;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid rgb(130, 130, 130);
+    transition: 1s;
+  }
+
+  .controller button:hover {
+   transform: scale(1.1);
+  }
+
+  #TXT {
+   color: rgb(26, 26, 71);
+  }
+  
+  #CSV {
+    color: #F55100;
+  }
+  
