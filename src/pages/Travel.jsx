@@ -36,14 +36,7 @@ export default function Travel() {
 
     const postTravel = async (event) => {
         event.preventDefault();
-        // const response = await conn.post(`/travel/`, {
-        //     ...travel
-        // }).then(() => {
-        //     window.location.reload();
-        // }).catch((err) => {
-        //    enableError();
-        // })
-
+      
         const postValue = {
             ...travel,
             destiny: {
@@ -69,9 +62,7 @@ export default function Travel() {
             window.location.reload();
         }).catch((err) => {
            enableError();
-        })
-
-                
+        })          
     }
 
     const updateTravelValues = (event) => {
@@ -114,15 +105,27 @@ export default function Travel() {
         getCompany();
     }, [])
 
-    const updateTrucker = (event) => {
+    const updateTrucker = async (event) => {
         event.preventDefault();
-        setTrucker(Number(event.target.value))
+        const response = await conn.get(`/trucker/cpf/${event.target.value}`)
+        .then(response => {
+            setTrucker(response.data.id);
+        }).catch((err) => {
+            console.log("motorista não encontrado");
+        })
     }
 
-    const updateTruck = (event) => {
-        event.preventDefault();
-        setTruck(Number(event.target.value))
+    const updateTruck =  async (event) => {
+        event.preventDefault()
+        const response = await conn.get(`/truck/plate/${event.target.value}`)
+        .then(response => {
+           setTruck(response.data.id)
+        }).catch((err) => {
+            console.log("caminhão não encontrado");
+        })
     }
+
+    
 
     const loadOptions = async (inputValue) => {
         const response = await fetchLocalMapBox(inputValue);
@@ -172,12 +175,12 @@ export default function Travel() {
                         <input id="id-descricao" placeholder="Material de construção" className="input-travel" name="description" value={travel.description} onChange={updateTravelValues} />
                         <div className='inputs-grid'>
                             <div>
-                                <label htmlFor="id-motorista">Motorista</label>
-                                <input id="id-motorista" placeholder="1" className="input-grid" value={trucker} onChange={updateTrucker} />
+                                <label htmlFor="id-motorista">CPF do Motorista</label>
+                                <InputMask mask="999.999.999-99" id="id-motorista" placeholder="123.456.789-10" className="input-grid" onChange={updateTrucker} />
                             </div>
                             <div>
-                                <label htmlFor="id-caminhao">Caminhão</label>
-                                <input id="id-caminhao" placeholder="3" className="input-grid" value={truck} onChange={updateTruck} />
+                                <label htmlFor="id-caminhao">Placa do caminhão</label>
+                                <input id="id-caminhao" placeholder="ABC-0123" className="input-grid" onChange={updateTruck} />
                             </div>
                             <div>
                                 <label htmlFor="id-data">Data da viagem</label>
@@ -185,7 +188,7 @@ export default function Travel() {
                             </div>
                             <div>
                                 <label htmlFor="id-valor">Valor estimado</label>
-                                <input id="id-valor" placeholder="600" className="input-grid" name="estimatedValue" value={travel.estimatedValue} onChange={updateTravelValues} />
+                                <input id="id-valor" placeholder="R$ 6980,90" className="input-grid" name="estimatedValue" value={travel.estimatedValue} onChange={updateTravelValues} />
                             </div>
                         </div>
                         <div style={{ display: 'flex'}}>
@@ -202,9 +205,9 @@ export default function Travel() {
                 {
                     hasTravels ?
                         travels.map((travel) => (
-                            <CardTravel id={travel.id} date={travel.dateTravel} code={travel.codigo} truck={travel.truck.name}
-                                driver={travel.trucker.name} codigo={travel.codigo} description={travel.description}
-                                coust={travel.estimatedValue} address={travel.destiny.address} hasTravel={hasTravels} />
+                            <CardTravel id={travel.id} date={travel.dateTravel} truck={travel.truck.licensePlate}
+                                driver={travel.trucker.cpf} codigo={travel.codigo} description={travel.description}
+                                coust={travel.estimatedValue} address={travel.destiny.address} hasTravel={hasTravels} status={travel.status}/>
                         ))
                         :
                         <CardTravel code="Não há viagens ativas" hasTravel={hasTravels} />

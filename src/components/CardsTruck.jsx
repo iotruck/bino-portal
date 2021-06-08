@@ -35,7 +35,6 @@ export default function CardsTruck(props) {
             setModalConfirmOpen(false)
     }
 
-
     const putTruck = async (event) => {
         event.preventDefault();
         const response = await conn.put(`/truck/${Number(props.truckId)}`, {
@@ -46,8 +45,6 @@ export default function CardsTruck(props) {
             window.location.reload()
 
     }
-
-
 
     const updateTruckValues = (event) => {
         const { value, name } = event.target;
@@ -63,9 +60,6 @@ export default function CardsTruck(props) {
     };
 
     useEffect(() => {
-
-        
-
         setTruckValues({
             ...truck,
             name: props.name,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import InputMask from 'react-input-mask'
 import Modal from 'react-modal'
 import Confirm from 'react-modal'
@@ -14,6 +14,8 @@ const CardTravel = (props) => {
   const [modalConfirmIsOpen, setModalConfirmOpen] = useState(false)
   const [address, setAddress] = useState([]);
   const [orderLocation, setOrderLocation] = useState([]);
+  const [truck, setTruck] = useState();
+  const [trucker, setTrucker] = useState();
 
   const loadOptions = async (inputValue) => {
     const response = await fetchLocalMapBox(inputValue);
@@ -55,7 +57,7 @@ const CardTravel = (props) => {
     codigo: `${props.codigo}`,
     dateTravel: "",
     description: "",
-    estimatedValue: 1200,
+    estimatedValue: "",
     destiny: {
       address: "",
       latitude: 100000,
@@ -75,8 +77,28 @@ const CardTravel = (props) => {
     analyst: {
       id: ""
     },
-    status: "1"
+    status: ""
   })
+
+  const updateTrucker = async (event) => {
+    event.preventDefault();
+    const response = await conn.get(`/trucker/cpf/${event.target.value}`)
+      .then(response => {
+        setTrucker(response.data.id);
+      }).catch((err) => {
+        console.log("motorista não encontrado");
+      })
+  }
+
+  const updateTruck = async (event) => {
+    event.preventDefault()
+    const response = await conn.get(`/truck/plate/${event.target.value}`)
+      .then(response => {
+        setTruck(response.data.id)
+      }).catch((err) => {
+        console.log("caminhão não encontrado");
+      })
+  }
 
   const updateTravel = async (event) => {
     event.preventDefault();
@@ -107,18 +129,40 @@ const CardTravel = (props) => {
         longitude: `${orderLocation.longitude}`
       },
       trucker: {
-        ...travel.trucker,
-        [name]: value
+        id: trucker
       },
       truck: {
-        ...travel.truck,
-        [name]: value
+        id: truck
       },
       analyst: {
         id: `${idAnalyst}`
       },
     });
   };
+
+  useEffect(() => {
+    setTravelValues({
+      codigo: props.codigo,
+      dateTravel: props.date,
+      description: props.description,
+      estimatedValue: props.coust,
+      destiny: {
+        address: "",
+        latitude: 100000,
+        longitude: 300000
+      },
+      trucker: {
+        id: props.driver
+      },
+      truck: {
+        id: props.truck
+      },
+      analyst: {
+        id: props.analyst
+      },
+      status: props.status
+    })
+  }, 1)
 
   const idAnalyst = localStorage.getItem("@login-app/user")
 
@@ -140,30 +184,30 @@ const CardTravel = (props) => {
 
         <form id="updateTravel" onSubmit={updateTravel}>
           <label htmlFor="code"> Código <i className="fas fa-lock"></i> </label>
-          <input type="text" placeholder={props.codigo} name="codigo" value={travel.codigo} onChange={updateTravelValues} disabled />
+          <input type="text" name="codigo" value={travel.codigo} onChange={updateTravelValues} disabled />
 
           <label htmlFor="id-destinatario" id="label-destinatario">Destinatário</label>
           <AsyncSelect
             loadOptions={loadOptions}
-            placeholder={props.address}
             className="inputDestinary"
+            placeholder={props.address}
             onChange={value => handleChangeSelect(value)}
           />
-
+          
           <label htmlFor="description"> Descrição </label>
-          <input type="text" id="description" placeholder={props.description} name="description" value={travel.description} onChange={updateTravelValues}/>
+          <input type="text" id="description" name="description" value={travel.description} onChange={updateTravelValues} />
 
           <label htmlFor="date" id="dateTravel"> Data </label>
-          <input type="date" id="date" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues}/>
+          <input type="date" id="date" name="dateTravel" value={travel.dateTravel} onChange={updateTravelValues} />
 
-          <label htmlFor="model"> Caminhão </label>
-          <input type="text" id="model" placeholder={props.truck} name="id" value={travel.truck.id} onChange={updateTravelValues}/>
+          <label htmlFor="model"> Placa do caminhão </label>
+          <input type="text" id="model" name="id" value={travel.truck.id} onChange={updateTravelValues} />
 
-          <label htmlFor="driver" id="driver"> Motorista </label>
-          <input type="text" id="driver" placeholder={props.driver} name="id" value={travel.trucker.id} onChange={updateTravelValues}/>
+          <label htmlFor="driver" id="driver"> CPF do motorista </label>
+          <input type="text" id="driver" name="id" placeholder={travel.trucker.id} onChange={updateTrucker} />
 
           <label htmlFor="price"> Valor estimado </label>
-          <input type="text" id="price" placeholder={props.coust} name="estimatedValue" value={travel.estimatedValue} onChange={updateTravelValues}/>
+          <input type="text" id="price" name="estimatedValue" placeholder={travel.estimatedValue} onChange={updateTravelValues} />
 
 
 
