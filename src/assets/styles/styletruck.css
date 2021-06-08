@@ -196,21 +196,6 @@ form button {
 }
 
 /*SECTION TAGS*/
-
-.icon_download_file{
-    font-size: 1.8em;
-    position: absolute;
-    right: 20%;
-    top: 8%;
-    transition: 9ms;
-    cursor: pointer;
-    box-shadow: 0px 8px 24px -9px #000000;
-}
-
-.icon_download_file:hover{
-  color:#F97801;
-}
-
 .tags {
     position: absolute;
     left: 55%;
@@ -226,7 +211,7 @@ form button {
     }
 
 .motorista {
-    height: 230px;
+    height: 225px;
     width: 100%;
     overflow-y: scroll;
 }
@@ -241,7 +226,7 @@ form button {
 }
 
 .caminhao {
-    height: 230px;
+    height: 225px;
     width: 100%;
     overflow-y: scroll;
 }
@@ -320,6 +305,10 @@ form button {
   cursor: pointer;
   border: 1px solid rgb(181, 181, 181);
   transition: 1s;
+  position: absolute;
+  right: 20%;
+  top: 5%;
+  box-shadow: 0px 8px 15px -9px #000000;
 }
 
 #btnGerenciador:hover {

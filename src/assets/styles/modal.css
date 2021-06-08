@@ -73,7 +73,6 @@
     margin-left: 2%;
     color: #000000;
     background-color: #fff;
-    width: 142px;
     height: 15px;
   }
 
@@ -82,7 +81,7 @@
     margin-top: 0px;
   }
 
-  .ModalTrucker form, .ModalTruck form{
+  .ModalTrucker form, .ModalTruck form, .ModalTravel form{
     overflow-x: hidden;
     padding: 30px;
     height: 300px;
@@ -90,7 +89,6 @@
 
   .ModalTravel .inputDestinary{
     border-radius: 3px;
-    margin-top: 5%;
     outline: none;
     font-size: .7em;
     width: 100%;
@@ -137,36 +135,12 @@
     color: #fff;
   }
 
-  .ModalTravel input:nth-child(6){
-    width: 60%;
-  }
-
-  .ModalTravel input:nth-child(8){
-    width: 25%;
-    margin-left: 30px;
-  }
-
-
-  .ModalTravel input:nth-child(10){
-    width: 40%;
-  }
-
-  .ModalTravel input:nth-child(12){
-    width: 46%;
-    margin-left: 20px;
-  }
-
-  .ModalTravel #driver{
-    left: 50%;
-    top: 54%;
-  }
 
   .ModalTravel label{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     flex-direction: row;
-    width: 130px;
   }
 
   .ModalTravel i{
