@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const conn = axios.create({
-    baseURL: 'https://bino.iotruck.com.br'
+    baseURL: 'http://bino.iotruck.com.br'
 })
 
 
