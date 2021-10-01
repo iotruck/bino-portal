@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import SearchBar from '../components/SearchBar'
 import Cards from '../components/Cards'
 import conn from '../services/conn'
 
@@ -81,7 +80,6 @@ export default function AdminPage(props) {
 
     return (
         <React.Fragment>
-            <SearchBar />
             
 
             <div className="section-forms-analyst">
