@@ -6,6 +6,7 @@
     background-color: rgb(26, 26, 71);
     box-shadow: 0 0 1em rgb(31, 31, 31);
     position: relative;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
     
     .background-profile {
@@ -24,7 +25,9 @@
     .userphoto {
         height: 20vh;
         width: 20vh;
-        background-color: gainsboro;
+        background: url("../img/profile-owl.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
         border-radius: 80%;
         margin-right: 5vh;
     }
@@ -52,6 +55,8 @@
     .edit-profile span {
         color: orangered;
         padding-left: 4vh;
+        font-size: 20px;
+        font-weight: bold;
     }
     
     .edit {
@@ -76,14 +81,22 @@
     
     
     .edit-profile button {
-        float: right;
         margin-top: 4vh;
         width: 140px;
         height: 30px;
         cursor: pointer;
+        margin-left: 5vh;
+
     }
     
-    
+    .infosuser button {
+        background: orangered;
+        width: 70px;
+        height: 25px;
+        cursor: pointer;
+        border-radius: 7%;
+        color: white;    
+    }
     
     
     

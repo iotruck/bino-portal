@@ -96,7 +96,7 @@ export default function UserData(props) {
                     <div className="infosuser">
                         <div className="userphoto"> </div>
                         <div className="infos">
-                            <label style={{fontSize: "12px"}}> olá, </label> <br />
+                            <label style={{fontSize: "16px"}}> olá, </label> <br />
                             <label style={{color: "orange"}}>{analyst.name}</label> <br />
                             <button onClick={logout}>Sair</button>
                         </div>
