@@ -230,19 +230,52 @@ a:hover {
 }
 
 .error-list {
-  height: 100%;
-  width: 100%;
-  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
   background: rgba(0, 0, 0, 0.671);
-  align-content: center;
+  position: absolute;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
 }
 
 .error-group {
-  height: 20rem;
-  width: 20rem;
-  background-color: whitesmoke;
-  position: relative;
+  height: 30rem;
+  width: 30%;
+  margin-top: 7vh;
+  margin-left: 70vh;
+  background-color: rgb(220, 220, 220);
+  flex-wrap: wrap;
+  align-content: center;
+  border-radius: 8px;
+}
+
+.x-design {
+  height: 30%;
+  padding: 5%;
+  width:90%;
+  background-color: rgb(225, 103, 103);
+ 
+}
+
+.x-design img {
+  height: 90px;
+  margin-top: inherit;
+ margin-left: 38%;
+  margin-right: auto;
+  align-content: center;
+}
+
+.x-design h3 {
+  margin-left: 10%;
+  font-size: 30px;
+  font-weight: 300;
+  padding-top: 3%;
+  color: white;
+}
+
+#div-errors {
+  text-align: center;
+  line-height: 30px;
+  padding: 8%;
 }
