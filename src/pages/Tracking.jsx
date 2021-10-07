@@ -1,6 +1,4 @@
-
 import React, { useState, useEffect } from 'react';
-import SearchBar from '../components/SearchBar';
 import User from '../components/UserData';
 import SelectTravel from '../components/TrackingTravel'
 import TravelCost from '../components/TravelCost';
@@ -98,7 +96,6 @@ export default function Tracking(props) {
 
     return (
         <React.Fragment>
-            <SearchBar />
             <User name={props.name} />
 
             <div className="sliderTracking">

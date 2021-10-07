@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import SearchBar from '../components/SearchBar'
 import InputMask from 'react-input-mask'
 import { fetchLocalMapBox } from '../api'
 import AsyncSelect from 'react-select/async'
@@ -156,7 +155,6 @@ export default function Travel() {
 
     return (
         <>
-            <SearchBar />
             <div className="section-forms-travel">
                 <form className="form-travel" onSubmit={postTravel}>
                     <div className="form-inputs">
