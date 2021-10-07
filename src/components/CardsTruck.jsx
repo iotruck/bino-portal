@@ -52,7 +52,6 @@ export default function CardsTruck(props) {
         setTruckValues({
             ...truck,
             [name]: value,
-            licensePlate: `${props.licensePlate}`,
             company: {
                 id: `${idCompany}`
             },
@@ -119,6 +118,11 @@ export default function CardsTruck(props) {
                     </div>
 
                     <div>
+                        <label> Placa </label>
+                        <input placeholder={props.licensePlate} name="licensePlate" value={truck.licensePlate} onChange={updateTruckValues} />
+                    </div>
+
+                    <div>
                         <label> Status </label>
                         <input placeholder={props.condintion} name="status" value={truck.status} onChange={updateTruckValues} />
                     </div>
@@ -150,6 +154,7 @@ export default function CardsTruck(props) {
                 <h4> Marca: <span> {props.brand} </span> </h4>
                 <h4> Tipo: <span> {props.type} </span> </h4>
                 <h4> Combustível: <span> {props.fuelType} </span> </h4>
+                <h4> Placa: <span> {props.licensePlate} </span> </h4>
 
 
                 <button id="cancelDelete" onClick={() => setModalConfirmOpen(false)} >
@@ -180,12 +185,13 @@ export default function CardsTruck(props) {
 
                 <p>
                     <h6>Marca: </h6> <label> {props.brand} </label>
-                </p>
-                <p>
+           
                     <h6>Tipo: </h6> <label> {props.type} </label>
                 </p>
                 <p>
                     <h6>Combustível: </h6> <label> {props.fuelType} </label>
+              
+                    <h6>Placa: </h6> <label> {props.licensePlate} </label>
                 </p>
             </div>
         </>
