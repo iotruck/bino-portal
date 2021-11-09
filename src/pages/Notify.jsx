@@ -1,7 +1,7 @@
 import React from 'react';
 import User from '../components/UserData';
 import NotifyNotification from '../components/NotifyNotification';
-import ChatBox from '../components/Chat';
+import Message from '../components/Chat';
 
 
 export default function Notify(props) {
@@ -22,9 +22,18 @@ export default function Notify(props) {
                             </p>
                         </h1>
                     </div>
-                    <div className="notify-screen">
-                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                    </div>
+                    <div className="notify-screen box">
+
+                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                        </div>
                 </div>
 
                 <hr className="line-dotted" />
@@ -34,20 +43,43 @@ export default function Notify(props) {
                     <div>
                         <h1>
                             <p>
-                                Últimas <span>15 horas</span>
+                                <span>GF4657688</span>
                             </p>
                         </h1>
                     </div>
-
-
-                    <ChatBox 
-                        senderName="Sandra Cunha" 
-                        message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    <div className="box">
+                        <Message
+                            senderName="Sandra Cunha"
+                            message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
                         Sunt minima ad accusantium quia ducimus est error perferendis, 
                         numquam perspiciatis praesentium modi fugiat molestias."
-                        dateTime = "22:43"
+                            dateTime="22:43"
                         />
 
+                        <Message
+                            senderName="Sandra Cunha"
+                            message="santium quia ducimus est error perferendis, 
+                            numquam perspiciatis praesentium modi fugiat molestias."
+                            dateTime="22:43"
+                        />
+
+                        <Message
+                            senderName="Sandra Cunha"
+                            message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        Sunt minima ad accusantium quia ducimus est error perferendis, 
+                        numquam perspiciatis praesentium modi fugiat molestias."
+                            dateTime="22:43"
+                        />
+
+                        <Message
+                            senderName="Sandra Cunha"
+                            message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        Sunt minima ad accusantium quia ducimus est error perferendis, 
+                        numquam perspiciatis praesentium modi fugiat molestias."
+                            dateTime="22:43"
+                        />
+
+                    </div>
 
                 </div>
             </div>
