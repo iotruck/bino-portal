@@ -24,16 +24,16 @@ export default function Notify(props) {
                     </div>
                     <div className="notify-screen box">
 
-                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                            <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                        </div>
+                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
+                    </div>
                 </div>
 
                 <hr className="line-dotted" />
@@ -48,6 +48,8 @@ export default function Notify(props) {
                         </h1>
                     </div>
                     <div className="box">
+
+
                         <Message
                             senderName="Sandra Cunha"
                             message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
@@ -78,9 +80,11 @@ export default function Notify(props) {
                         numquam perspiciatis praesentium modi fugiat molestias."
                             dateTime="22:43"
                         />
-
                     </div>
-
+                    <form action="#" className="send-message">
+                        <input type="text" className="input-message" placeholder="Escreva sua mensagem aqui..."/>
+                        <i className="fas fa-chevron-right"></i>
+                    </form>
                 </div>
             </div>
         </React.Fragment>
