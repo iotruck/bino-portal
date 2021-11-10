@@ -5,7 +5,9 @@ export default function NotifyNotification(props) {
             <div className="date">{props.date}</div>
                 <div id="messageNotify" className="message">{props.message}</div>
             
-            <div className="status-notify"></div>
+            <div>
+                <i class="fas fa-arrow-right"></i>
+            </div>
         </div>
     );
 }
