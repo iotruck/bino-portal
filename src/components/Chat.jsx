@@ -9,11 +9,6 @@ export default function Chat(props) {
                     {props.senderName}
                 </h1>
 
-                <p>
-                    {props.message}
-
-                </p>
-
                 <h4>
                     {props.dateTime}
 

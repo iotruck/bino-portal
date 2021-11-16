@@ -79,8 +79,10 @@ export default function TruckerPage(props) {
             {
               hasTrucker ?
                 truckers.map((trucker) => (
-                  <CardsTrucker name={trucker.name} cpf={trucker.cpf} cnh={trucker.cnh} birthDate={trucker.birthDate} phoneNumber={trucker.phoneNumber} truckerId={trucker.id} hasTrucker={hasTrucker} />
-                )) : <CardsTrucker name="Não há motoristas cadastrados" cpf="-" cnh="-" birthDate="-" phoneNumber="-" />
+                  <CardsTrucker name={trucker.name} cpf={trucker.cpf} email={trucker.email} password={trucker.password} 
+                  cnh={trucker.cnh} birthDate={trucker.birthDate} phoneNumber={trucker.phoneNumber} truckerId={trucker.id} hasTrucker={hasTrucker} />
+                )) : <CardsTrucker name="Não há motoristas cadastrados" email="-" password="-"
+                cpf="-" cnh="-" birthDate="-" phoneNumber="-" />
             }
           </div>
           <h5 style={{ fontWeight: '130' }}>Caminhões cadastrados na sua empresa</h5>

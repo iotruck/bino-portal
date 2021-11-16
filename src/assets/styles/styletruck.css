@@ -161,7 +161,7 @@
     font-size: 16px;
     outline: 0;
     padding: 16px 10px 10px;
-    margin-bottom: 7%;
+    margin-bottom: 4%;
     border: rgb(21, 21, 21) 1px solid;
 }
 
@@ -173,7 +173,7 @@
 
 .inline-form input {
     width: 70%;
-    margin-bottom: 14%;
+    margin-bottom: 10%;
 }
 
 #h3Form {

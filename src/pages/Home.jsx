@@ -112,21 +112,24 @@ export default function Home(props) {
 
             <div className="notifications">
                 <p>
-                    <h3>Atenção</h3>
-                    <i className="fas fa-reply"></i>
-                </p>
-
-                <div id="notifies">
-                    <Notification code="BSD1213" message="Está parado há 2 horas" />
-                </div>
-            </div>
-
-            <div className="chat">
-                <p>
                     <h3>Chats ativos</h3>
+                    <Link to="/notify">
+                        <i className="fas fa-reply"></i>
+                    </Link>
+
                 </p>
 
-                <Chat code="BSD1213" message="Houve um acidente na via" />
+                {
+
+                    hasTravels ?
+                        travels.map((travel) => (
+                            <Chat senderName={travel.codigo} dateTime={travel.dateTravel} />
+                        )) :
+                        <Chat senderName="Não há mensagens no momento" dateTime="" />
+
+                }
+
+                
             </div>
 
         </React.Fragment >
