@@ -10,6 +10,7 @@ export default function Notify(props) {
     const [travels, setTravel] = useState([])
     const [hasTravels, setHasTravels] = useState(false)
     const [selectedChat, setSelectedChat] = useState(false)
+    const [defaultTravel, setDefaultTravel] = useState("")
     const idAnalyst = localStorage.getItem("@login-app/user")
 
     async function getTravel() {
@@ -49,7 +50,11 @@ export default function Notify(props) {
                                 <NotifyNotification
                                     code={travel.codigo}
                                     date={travel.dateTravel}
-                                    onClick={() => { setSelectedChat(true) }} />
+                                    onClick={
+                                        () => {
+                                            setSelectedChat(true); 
+                                            setDefaultTravel(travel.codigo);
+                                          }} />
 
                             )) :
                             <NotifyNotification code="Não há mensagens no momento" />
@@ -63,16 +68,18 @@ export default function Notify(props) {
                     {
                         selectedChat ?
                             <BoxMessage
-                                message="Selecione uma viagem para verificar a conversa"
-                                form={false}
-                            /> :
-                            <BoxMessage
-                                codeTravel="NOVSBS1280"
+                                codeTravel={defaultTravel}
                                 senderName="Sandra Cunha"
                                 message="Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
                                 dateTime="20-11-2021"
                                 form={true}
+                            /> :
+                            <BoxMessage
+                                codeTravel={defaultTravel}
+                                message="Selecione uma viagem para verificar a conversa"
+                                form={false}
                             />
+
                     }
                 </div>
             </div>
