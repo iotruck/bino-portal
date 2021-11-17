@@ -27,6 +27,9 @@ function Routes() {
                 <PrivateRoutes path="/new-analyst" component = {Admin} />
                 <PrivateRoutes path="/notify" component = {Notify} />
                 <PrivateRoutes path="/" component = {Home} />
+                <Route path="*">
+                    <Login />
+                </Route>
             </Switch>
           </Provider>   
         </BrowserRouter>

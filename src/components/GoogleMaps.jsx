@@ -70,24 +70,30 @@ const SimpleMap = (props) => {
 
   const [center, setCenter] = useState({ lat: -23.5202203, lng: -46.7001548});
   const [zoom, setZoom] = useState(12);
+  const [marker, setMarker] = useState( <Marker
+    lat={travel.currentTruckPosition.latitude}
+    lng={travel.currentTruckPosition.longitude}
+    name="Localização caminhão"
+  />)
 
-  const updateCurrentLocation = async () => {
-    const response = await conn.get(`/location/${travel.currentTruckPosition.id}`)
-    setTravel({
-      ...travel,
-      currentTruckPosition: {
-        latitude: response.data.latitude,
-        longitude:response.data.longitude,
-      }
-    })
+  const updateCurrentLocation = () => {
+    const response = conn.get(`/location/${travel.currentTruckPosition.id}`)
+    setMarker( <Marker
+      lat={response.data.latitude}
+      lng={response.data.longitude}
+      name="Localização caminhão"
+    />)
 }
 
   useEffect(() => {
    setTravel(props.travel)
    setCompany(props.company)
-   const interval = setInterval(() => {
-      updateCurrentLocation()
-   }, 1000);
+   const interval = () => {
+    updateCurrentLocation()
+    setTimeout(() => {
+      interval()
+    }, 3000);
+  }
   return () => clearInterval(interval);
   });
 
@@ -96,7 +102,7 @@ const SimpleMap = (props) => {
   return (
     <div style={{ width: '105vh', height: '40vh' }}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyD8pBN-9gQmaWdmxxLOuPwtlycNBy2e6wI' }}
+        bootstrapURLKeys={{ key: 'AIzaSyDKFHxjxRlIThJZCgc6rZ0bl3WpzQeRPYg' }}
         defaultCenter={center}
         defaultZoom={zoom}
       >
@@ -105,11 +111,7 @@ const SimpleMap = (props) => {
             lng={company.location.longitude}
             name="Ponto de partida"
           />
-          <Marker
-            lat={travel.currentTruckPosition.latitude}
-            lng={travel.currentTruckPosition.longitude}
-            name="Localização caminhão"
-          />
+         {marker}
           <Destiny
             lat={travel.destiny.latitude}
             lng={travel.destiny.longitude}
