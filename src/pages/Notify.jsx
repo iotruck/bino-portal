@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import User from '../components/UserData';
 import NotifyNotification from '../components/NotifyNotification';
-import Message from '../components/Chat';
+import BoxMessage from '../components/BoxMessage';
+import conn from './../services/conn'
+
 
 
 export default function Notify(props) {
+    const [travels, setTravel] = useState([])
+    const [hasTravels, setHasTravels] = useState(false)
+    const [selectedChat, setSelectedChat] = useState(false)
+    const idAnalyst = localStorage.getItem("@login-app/user")
+
+    async function getTravel() {
+        const response = await conn.get(`/travel/analyst/${idAnalyst}`)
+        setTravel(response.data)
+
+        if (response.status === 204)
+            setHasTravels(false)
+        else
+            setHasTravels(true)
+    }
+
+    useEffect(() => {
+        getTravel()
+    }, [])
     return (
         <React.Fragment>
 
@@ -22,69 +42,38 @@ export default function Notify(props) {
                             </p>
                         </h1>
                     </div>
-                    <div className="notify-screen box">
 
-                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                        <NotifyNotification code="GF4657688" date="18:30" message="Última atualização há 4 horas" />
-                    </div>
+                    {
+                        hasTravels ?
+                            travels.map((travel) => (
+                                <NotifyNotification
+                                    code={travel.codigo}
+                                    date={travel.dateTravel}
+                                    onClick={() => { setSelectedChat(true) }} />
+
+                            )) :
+                            <NotifyNotification code="Não há mensagens no momento" />
+                    }
+
                 </div>
 
                 <hr className="line-dotted" />
 
-
                 <div className="right title">
-                    <div>
-                        <h1>
-                            <p>
-                                <span>GF4657688</span>
-                            </p>
-                        </h1>
-                    </div>
-                    <div className="box">
-
-
-                        <Message
-                            senderName="Sandra Cunha"
-                            message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                        Sunt minima ad accusantium quia ducimus est error perferendis, 
-                        numquam perspiciatis praesentium modi fugiat molestias."
-                            dateTime="22:43"
-                        />
-
-                        <Message
-                            senderName="Sandra Cunha"
-                            message="santium quia ducimus est error perferendis, 
-                            numquam perspiciatis praesentium modi fugiat molestias."
-                            dateTime="22:43"
-                        />
-
-                        <Message
-                            senderName="Sandra Cunha"
-                            message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                        Sunt minima ad accusantium quia ducimus est error perferendis, 
-                        numquam perspiciatis praesentium modi fugiat molestias."
-                            dateTime="22:43"
-                        />
-
-                        <Message
-                            senderName="Sandra Cunha"
-                            message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                        Sunt minima ad accusantium quia ducimus est error perferendis, 
-                        numquam perspiciatis praesentium modi fugiat molestias."
-                            dateTime="22:43"
-                        />
-                    </div>
-                    <form action="#" className="send-message">
-                        <input type="text" className="input-message" placeholder="Escreva sua mensagem aqui..."/>
-                        <i className="fas fa-chevron-right"></i>
-                    </form>
+                    {
+                        selectedChat ?
+                            <BoxMessage
+                                message="Selecione uma viagem para verificar a conversa"
+                                form={false}
+                            /> :
+                            <BoxMessage
+                                codeTravel="NOVSBS1280"
+                                senderName="Sandra Cunha"
+                                message="Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                                dateTime="20-11-2021"
+                                form={true}
+                            />
+                    }
                 </div>
             </div>
         </React.Fragment>

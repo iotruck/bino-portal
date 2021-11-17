@@ -5,14 +5,20 @@ export default function Chat(props) {
     return (
         <React.Fragment>
             <div className="chatBox">
-                <h1 className="chatCodeTravel">
-                    {props.senderName}
-                </h1>
+                <div className="infos">
+                    <h1 className="chatCodeTravel">
+                        {props.senderName}
+                    </h1>
 
-                <h4>
-                    {props.dateTime}
+                    <p>
+                        {props.message}
+                    </p>
 
-                </h4>
+                    <h4>
+                        {props.dateTime}
+                    </h4>
+                </div>
+
             </div>
         </React.Fragment>
     )

@@ -10,6 +10,12 @@
     box-shadow: 2px 5px 9px -7px black;
 }
 
+.notification:hover{
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
 .notification .date{
     font-weight: bold;
     display: flex;

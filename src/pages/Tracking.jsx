@@ -10,46 +10,46 @@ const travel = {
     "id": 0,
     "codigo": "",
     "destiny": {
-    "id": 0,
-    "address": "",
-    "latitude": 0,
-    "longitude": 0
-  },
-  "currentTruckPosition": {
-    "id": 0,
-    "address": "",
-    "latitude": 0,
-    "longitude": 0
-  },
-  "description": "",
-  "dateTravel": "",
-  "trucker": {
-    "id": 0,
-    "name": "",
-    "cpf": "",
-    "cnh": "",
-    "birthDate": "",
-    "phoneNumber": ""
-  },
-  "truck": {
-    "id": 0,
-    "name": "",
-    "truckBrand": "",
-    "truckType": "",
-    "fuelType": ""
-  },
-  "analyst": {
-    "id": 0,
-    "name": "",
-    "email": "",
-    "admin": 0,
-    "company": {
-      "id": 0,
-      "name": ""
-    }
-  },
-  "estimatedValue": 0,
-  "status": "READY"
+        "id": 0,
+        "address": "",
+        "latitude": 0,
+        "longitude": 0
+    },
+    "currentTruckPosition": {
+        "id": 0,
+        "address": "",
+        "latitude": 0,
+        "longitude": 0
+    },
+    "description": "",
+    "dateTravel": "",
+    "trucker": {
+        "id": 0,
+        "name": "",
+        "cpf": "",
+        "cnh": "",
+        "birthDate": "",
+        "phoneNumber": ""
+    },
+    "truck": {
+        "id": 0,
+        "name": "",
+        "truckBrand": "",
+        "truckType": "",
+        "fuelType": ""
+    },
+    "analyst": {
+        "id": 0,
+        "name": "",
+        "email": "",
+        "admin": 0,
+        "company": {
+            "id": 0,
+            "name": ""
+        }
+    },
+    "estimatedValue": 0,
+    "status": "READY"
 };
 
 export default function Tracking(props) {
@@ -62,10 +62,10 @@ export default function Tracking(props) {
         "email": "",
         "cnpj": "",
         "location": {
-          "id": 0,
-          "address": "",
-          "latitude": 0,
-          "longitude": 0
+            "id": 0,
+            "address": "",
+            "latitude": 0,
+            "longitude": 0
         },
         "subscriptions": ""
     });
@@ -78,7 +78,6 @@ export default function Tracking(props) {
         const responseCompany = await conn.get(`/company/${idCompany}`);
         setSelectTravel(response.data);
         setCompany(responseCompany.data);
-        console.log(travel);
     }
 
     async function getTravel() {
@@ -87,7 +86,7 @@ export default function Tracking(props) {
             setHasTravel(false)
         else
             setTravels(response.data)
-            setHasTravel(true)
+        setHasTravel(true)
     }
 
     useEffect(() => {
@@ -102,19 +101,19 @@ export default function Tracking(props) {
                 {
                     hasTravel ?
                         travels.map((travel) => (
-                            <SelectTravel 
-                                codigo={travel.codigo} 
-                                trucker={travel.trucker.name} 
-                                truck={travel.truck.name} 
-                                load={travel.description} 
-                                onClick={() => {updateValuesTravel(travel)}} 
-                                />
+                            <SelectTravel
+                                codigo={travel.codigo}
+                                trucker={travel.trucker.name}
+                                truck={travel.truck.name}
+                                load={travel.description}
+                                onClick={() => { updateValuesTravel(travel) }}
+                            />
                         )) :
                         <SelectTravel codigo="Ainda não temos viagens aqui" />
 
                 }
             </div>
-            
+
             <div className="codeNumber">
                 {
                     "Selecione uma das viagens acima"
@@ -122,36 +121,36 @@ export default function Tracking(props) {
 
             </div>
 
-           
+
 
             {
                 selectTravel.id > 0 &&
-                    <>
+                <>
 
-                        <div className="destination">
-                            
-                            <span className="text-destination">DESTINO: </span>
-                            {
-                                selectTravel.destiny.address
-                            }
-                        </div>
+                    <div className="destination">
 
-                        <div className="map">
-                            <GoogleMaps travel={selectTravel} company={company} />
-                        </div>
-    
-                        <TravelCost value={selectTravel.estimatedValue} />
-    
-                        <InfoTravel 
-                            trucker={selectTravel.trucker.name} 
-                            truck={selectTravel.truck.name} 
-                            details={selectTravel.description} 
-                            detailsDate={selectTravel.dateTravel} 
-                            detailsLastLog={"-"} 
-                        />
-                    </>
+                        <span className="text-destination">DESTINO: </span>
+                        {
+                            selectTravel.destiny.address
+                        }
+                    </div>
+
+                    <div className="map">
+                        <GoogleMaps travel={selectTravel} company={company} />
+                    </div>
+
+                    <TravelCost value={selectTravel.estimatedValue} />
+
+                    <InfoTravel
+                        trucker={selectTravel.trucker.name}
+                        truck={selectTravel.truck.name}
+                        details={selectTravel.description}
+                        detailsDate={selectTravel.dateTravel}
+                        detailsLastLog={"-"}
+                    />
+                </>
             }
-           
+
 
 
 
