@@ -76,8 +76,8 @@ const SimpleMap = (props) => {
     name="Localização caminhão"
   />)
 
-  const updateCurrentLocation = () => {
-    const response = conn.get(`/location/${travel.currentTruckPosition.id}`)
+  const updateCurrentLocation = async () => {
+    const response = await conn.get(`/location/${travel.currentTruckPosition.id}`)
     setMarker( <Marker
       lat={response.data.latitude}
       lng={response.data.longitude}
@@ -88,12 +88,11 @@ const SimpleMap = (props) => {
   useEffect(() => {
    setTravel(props.travel)
    setCompany(props.company)
-   const interval = () => {
+   const interval = setInterval(() => {
+    console.log(new Date());
     updateCurrentLocation()
-    setTimeout(() => {
-      interval()
     }, 3000);
-  }
+
   return () => clearInterval(interval);
   });
 
