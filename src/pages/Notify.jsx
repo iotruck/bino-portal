@@ -42,23 +42,22 @@ export default function Notify(props) {
                                 Viagens <span>ativas</span>
                             </p>
                         </h1>
+                        {
+                            hasTravels ?
+                                travels.map((travel) => (
+                                    <NotifyNotification
+                                        code={travel.codigo}
+                                        date={travel.dateTravel}
+                                        onClick={
+                                            () => {
+                                                setSelectedChat(true);
+                                                setDefaultTravel(travel.codigo);
+                                            }}
+                                    />
+                                )) :
+                                <NotifyNotification code="Não há mensagens no momento" />
+                        }
                     </div>
-
-                    {
-                        hasTravels ?
-                            travels.map((travel) => (
-                                <NotifyNotification
-                                    code={travel.codigo}
-                                    date={travel.dateTravel}
-                                    onClick={
-                                        () => {
-                                            setSelectedChat(true); 
-                                            setDefaultTravel(travel.codigo);
-                                          }} />
-
-                            )) :
-                            <NotifyNotification code="Não há mensagens no momento" />
-                    }
 
                 </div>
 
