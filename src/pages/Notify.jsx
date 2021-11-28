@@ -33,6 +33,12 @@ export default function Notify(props) {
             setHasTravels(true)
     }
 
+    function findTime(time) {
+        let date = new Date(time)
+        console.log(date)
+        return date.toLocaleDateString('pt-BR')
+    }
+
     useEffect(() => {
         getTravel()
     }, [])
@@ -84,15 +90,15 @@ export default function Notify(props) {
                                     codeTravel={defaultTravel}
                                     form={true} />
                                 <div className="box">
-                                {
-                                    messages.map((msg) => (
-                                        <Message
-                                            senderName={msg.sender}
-                                            message={msg.content}
-                                            dateTime={msg.dateTimeMessage}
-                                        />
-                                    ))
-                                }
+                                    {
+                                        messages.map((msg) => (
+                                            <Message
+                                                senderName={msg.sender}
+                                                message={msg.content}
+                                                dateTime={() => findTime(msg.dateTimeMessage)}
+                                            />
+                                        ))
+                                    }
                                 </div>
 
                                 <Input />
