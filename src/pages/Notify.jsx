@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import User from '../components/UserData';
 import NotifyNotification from '../components/NotifyNotification';
 import BoxMessage from '../components/BoxMessage';
+import Message from '../components/Chat';
 import conn from './../services/conn'
 
 
@@ -12,6 +13,13 @@ export default function Notify(props) {
     const [selectedChat, setSelectedChat] = useState(false)
     const [defaultTravel, setDefaultTravel] = useState("")
     const idAnalyst = localStorage.getItem("@login-app/user")
+
+    const [message, setMessage] = useState([]);
+    
+    async function getMessages() {
+        const response = await conn.get(`/feed/message/${defaultTravel}?qtd=0`)
+        setMessage(response.data)
+    }
 
     async function getTravel() {
         const response = await conn.get(`/travel/analyst/${idAnalyst}`)
@@ -46,13 +54,15 @@ export default function Notify(props) {
                             hasTravels ?
                                 travels.map((travel) => (
                                     <NotifyNotification
-                                        code={travel.codigo}
+                                        code={travel.id}
                                         date={travel.dateTravel}
                                         onClick={
                                             () => {
                                                 setSelectedChat(true);
                                                 setDefaultTravel(travel.codigo);
-                                            }}
+                                                getMessages();
+                                            }
+                                        }
                                     />
                                 )) :
                                 <NotifyNotification code="Não há mensagens no momento" />
@@ -66,16 +76,25 @@ export default function Notify(props) {
                 <div className="right title">
                     {
                         selectedChat ?
+
                             <BoxMessage
                                 codeTravel={defaultTravel}
-                                senderName="Sandra Cunha"
-                                message="Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-                                dateTime="20-11-2021"
-                                form={true}
-                            /> :
+                                form={true}>
+                                <div className="box">
+                                    {
+                                        message.map((msg) => (
+                                            <Message
+                                                senderName={msg.sender}
+                                                message={msg.content}
+                                                dateTime={msg.dateTimeMessage}
+                                            />
+                                        ))
+                                    }
+                                </div >
+                            </BoxMessage> :
+
                             <BoxMessage
-                                codeTravel={defaultTravel}
-                                message="Selecione uma viagem para verificar a conversa"
+                                codeTravel="Antes de tudo, selecione uma viagem"
                                 form={false}
                             />
 

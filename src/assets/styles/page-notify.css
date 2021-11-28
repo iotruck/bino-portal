@@ -123,14 +123,22 @@
 }
 
 .send-message .input-message{
-    width: 84%;
+    width: 75%;
     padding: 8px;
     outline: none;
-    border-radius: 15px;
+    border-radius: 5px;
     border: 1px solid #c4c4c4;
     font-size: 1.1em;
 }
 
+.send-message .send-button{
+    width: 15%;
+    cursor: pointer;
+}
+
+.send-message .send-button:hover{
+    color: #f55100;
+}
 .send-message .fa-chevron-right{
     width: 20px;
     height: 20px;
