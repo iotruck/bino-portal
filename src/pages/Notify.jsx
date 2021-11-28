@@ -4,21 +4,23 @@ import NotifyNotification from '../components/NotifyNotification';
 import BoxMessage from '../components/BoxMessage';
 import Message from '../components/Chat';
 import conn from './../services/conn'
+import Input from '../components/InputMessage'
 
 
 
 export default function Notify(props) {
+    const [defaultTravelId, setDefaultTravelId] = useState("")
     const [travels, setTravel] = useState([])
+    const [messages, setMessages] = useState([]);
     const [hasTravels, setHasTravels] = useState(false)
     const [selectedChat, setSelectedChat] = useState(false)
     const [defaultTravel, setDefaultTravel] = useState("")
     const idAnalyst = localStorage.getItem("@login-app/user")
 
-    const [message, setMessage] = useState([]);
-    
+
     async function getMessages() {
-        const response = await conn.get(`/feed/message/${defaultTravel}?qtd=0`)
-        setMessage(response.data)
+        const response = await conn.get(`/feed/message/${defaultTravelId}?qtd=0`)
+        setMessages(response.data)
     }
 
     async function getTravel() {
@@ -54,10 +56,11 @@ export default function Notify(props) {
                             hasTravels ?
                                 travels.map((travel) => (
                                     <NotifyNotification
-                                        code={travel.id}
+                                        code={travel.codigo}
                                         date={travel.dateTravel}
                                         onClick={
                                             () => {
+                                                setDefaultTravelId(travel.id);
                                                 setSelectedChat(true);
                                                 setDefaultTravel(travel.codigo);
                                                 getMessages();
@@ -76,22 +79,24 @@ export default function Notify(props) {
                 <div className="right title">
                     {
                         selectedChat ?
-
-                            <BoxMessage
-                                codeTravel={defaultTravel}
-                                form={true}>
+                            <div className="feedBox">
+                                <BoxMessage
+                                    codeTravel={defaultTravel}
+                                    form={true} />
                                 <div className="box">
-                                    {
-                                        message.map((msg) => (
-                                            <Message
-                                                senderName={msg.sender}
-                                                message={msg.content}
-                                                dateTime={msg.dateTimeMessage}
-                                            />
-                                        ))
-                                    }
-                                </div >
-                            </BoxMessage> :
+                                {
+                                    messages.map((msg) => (
+                                        <Message
+                                            senderName={msg.sender}
+                                            message={msg.content}
+                                            dateTime={msg.dateTimeMessage}
+                                        />
+                                    ))
+                                }
+                                </div>
+
+                                <Input />
+                            </div> :
 
                             <BoxMessage
                                 codeTravel="Antes de tudo, selecione uma viagem"
@@ -101,6 +106,6 @@ export default function Notify(props) {
                     }
                 </div>
             </div>
-        </React.Fragment>
+        </React.Fragment >
     )
 }

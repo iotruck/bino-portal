@@ -4,6 +4,7 @@ import React from 'react';
 export default function Chat(props) {
     return (
         <React.Fragment>
+
             <div className="chatBox">
                 <div className="infos">
                     <h1 className="chatCodeTravel">
@@ -18,6 +19,7 @@ export default function Chat(props) {
                         {props.dateTime}
                     </h4>
                 </div>
+
 
             </div>
         </React.Fragment>
