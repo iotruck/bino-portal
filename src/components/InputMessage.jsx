@@ -4,6 +4,7 @@ import conn from './../services/conn'
 export default function InputMessage(props) {
     const [contentMessage, setContentMessage] = useState("")
     const [analyst, setAnalyst] = useState([])
+    const [idTravelMessage, setTravelMessage] = useState()
 
     const idAnalyst = localStorage.getItem("@login-app/user")
 
@@ -24,7 +25,7 @@ export default function InputMessage(props) {
         dateTimeMessage: getDate(),
         sender: analyst.name,
         travel: {
-            id: 4
+            id: ""
         }
     })
 
@@ -33,6 +34,9 @@ export default function InputMessage(props) {
 
         const postValue = {
             ...messageBody,
+            travel:{
+                id: idTravelMessage
+            },
             dateTimeMessage: getDate(),
             sender: analyst.name
         }
@@ -48,21 +52,23 @@ export default function InputMessage(props) {
 
     const updateMessageValues = (event) => {
         const { value, name } = event.target;
-
         setMessageBody({
             ...messageBody,
+            travel:{
+                id: idTravelMessage
+            },
             [name]: value
         });
     };
 
     useEffect(() => {
         getAnalyst()
-    })
+    }, [])
     return (
         <form className="send-message" onSubmit={sendMessage}>
             <input type="text" name="content" value={messageBody.content} onChange={updateMessageValues} className="input-message" placeholder="Escreva sua mensagem aqui..." />
 
-            <button className="send-button">Enviar</button>
+            <button className="send-button" onClick={() => setTravelMessage(props.idTravel)}>Enviar</button>
         </form>
     )
 }

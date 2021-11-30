@@ -12,6 +12,7 @@ export default function Notify(props) {
     const [defaultTravelId, setDefaultTravelId] = useState("")
     const [travels, setTravel] = useState([])
     const [messages, setMessages] = useState([]);
+    const [hasMessages, setHasMessages] = useState(false);
     const [hasTravels, setHasTravels] = useState(false)
     const [selectedChat, setSelectedChat] = useState(false)
     const [defaultTravel, setDefaultTravel] = useState("")
@@ -21,6 +22,8 @@ export default function Notify(props) {
     async function getMessages() {
         const response = await conn.get(`/feed/message/${defaultTravelId}?qtd=0`)
         setMessages(response.data)
+        console.log(messages)
+        setHasMessages(response.status == 200 ? true : false)
     }
 
     async function getTravel() {
@@ -66,8 +69,8 @@ export default function Notify(props) {
                                         date={travel.dateTravel}
                                         onClick={
                                             () => {
-                                                setDefaultTravelId(travel.id);
                                                 setSelectedChat(true);
+                                                setDefaultTravelId(travel.id);
                                                 setDefaultTravel(travel.codigo);
                                                 getMessages();
                                             }
@@ -91,17 +94,20 @@ export default function Notify(props) {
                                     form={true} />
                                 <div className="box">
                                     {
-                                        messages.map((msg) => (
-                                            <Message
-                                                senderName={msg.sender}
-                                                message={msg.content}
-                                                dateTime={() => findTime(msg.dateTimeMessage)}
+                                        hasMessages ?
+                                            messages.map((msg) => (
+                                                <Message
+                                                    senderName={msg.sender}
+                                                    message={msg.content}
+                                                    dateTime={msg.dateTimeMessage}
+                                                />
+                                            )) : <Message
+                                                message="Esse é o começo da sua conversa nessa viagem"
                                             />
-                                        ))
                                     }
                                 </div>
 
-                                <Input />
+                                <Input idTravel={defaultTravelId}/>
                             </div> :
 
                             <BoxMessage
