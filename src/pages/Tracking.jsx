@@ -74,7 +74,7 @@ export default function Tracking(props) {
     const idCompany = localStorage.getItem("@login-app/company")
 
     const updateValuesTravel = async (travel) => {
-        const response = await conn.get(`/travel/${idAnalyst}/${travel.id}`);
+        const response = await conn.get(`/travel/analyst/${idAnalyst}/${travel.id}`);
         const responseCompany = await conn.get(`/company/${idCompany}`);
         setSelectTravel(response.data);
         setCompany(responseCompany.data);
