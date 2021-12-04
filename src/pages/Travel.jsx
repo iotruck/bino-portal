@@ -4,6 +4,8 @@ import { fetchLocalMapBox } from '../api'
 import AsyncSelect from 'react-select/async'
 import CardTravel from '../components/CardTravel'
 import conn from './../services/conn'
+const idCompany = localStorage.getItem("@login-app/company")
+
 
 export default function Travel() {
 
@@ -116,7 +118,7 @@ export default function Travel() {
 
     const updateTruck =  async (event) => {
         event.preventDefault()
-        const response = await conn.get(`/truck/plate/${event.target.value}`)
+        const response = await conn.get(`/truck/plate/${event.target.value}/${idCompany}`)
         .then(response => {
            setTruck(response.data.id)
         }).catch((err) => {

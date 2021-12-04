@@ -8,7 +8,7 @@
 }
 
 .section-forms-analyst form, .list-analyst {
-    height: 500px;
+    height: 400px;
     width: 450px;
     padding: 15px 0px 0px 40px;
     background-color: white;
@@ -55,7 +55,6 @@ form h3 {
     font-family: Roboto;
     font-style: normal;
     padding-bottom: 30px;
-    padding-top: 25px;
 }
 
 form button {
