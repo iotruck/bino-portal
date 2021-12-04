@@ -17,6 +17,8 @@ export default function FormTrucker() {
         cnh: "",
         cpf: "",
         name: "",
+        email: "",
+        password: "",
         phoneNumber: "",
         company: {
             id: idCompany
@@ -80,9 +82,25 @@ export default function FormTrucker() {
                 </div>
 
             </div>
+
+            <div className="inline-form">
+
+                <div>
+                    <label> E-mail</label>
+                    <input placeholder="caminhoneiro@iotruck.com.br" name="email" value={trucker.email} onChange={updateTruckerValues} /> <br />
+                </div>
+            </div>
+            <div className="inline-form">
+                <div>
+                    <label> Senha </label>
+                    <input placeholder="#Caminhoneiro2021" type="password" name="password" value={trucker.password} onChange={updateTruckerValues} />
+                </div>
+
+            </div>
+
             <br />
             <button>Cadastrar</button>
-            <span id="error" style={{ display: 'none', color: 'red', paddingTop: '3vh' }}>
+            <span id="error" style={{ display: 'none', color: 'red', paddingTop: '1vh' }}>
                 Alguma informação inválida. Por favor, revise o formulário.</span>
         </form>
     );

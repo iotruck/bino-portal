@@ -1,11 +1,27 @@
+import React from 'react';
+
+
 export default function Chat(props) {
     return (
-        <div className="chats">
-            <div className="icon-img"></div>
-            <div className="infos">
-                <div className="code"> {props.code} </div>
-                <div className="message">{props.message} </div>
+        <React.Fragment>
+
+            <div className="chatBox">
+                <div className="infos">
+                    <h1 className="chatCodeTravel">
+                        {props.senderName}
+                    </h1>
+
+                    <p>
+                        {props.message}
+                    </p>
+
+                    <h4>
+                        {props.dateTime}
+                    </h4>
+                </div>
+
+
             </div>
-        </div>
-    );
+        </React.Fragment>
+    )
 }

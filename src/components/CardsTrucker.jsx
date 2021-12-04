@@ -65,7 +65,9 @@ export default function CardsTrucker(props) {
             cpf: props.cpf,
             name: props.name,
             phoneNumber: props.phoneNumber,
-            birthDate: props.birthDate
+            birthDate: props.birthDate,
+            email: props.email,
+            password: props.password
         })
     }, 1)
 
@@ -94,7 +96,7 @@ export default function CardsTrucker(props) {
                     <InputMask mask="999.999.999-99" type="text" name="cpf" value={trucker.cpf} onChange={updateTruckerValues} placeholder={props.cpf} />
 
                     <label htmlFor="birthDate"> Nascimento </label>
-                    <input type="date"  name="birthDate" value={(trucker.birthDate)} onChange={updateTruckerValues} />
+                    <input type="date" name="birthDate" value={(trucker.birthDate)} onChange={updateTruckerValues} />
 
                     <label htmlFor="phoneNumber" id="labelPhoneNumber"> Telefone </label>
                     <InputMask mask="(99)99999-9999" type="text" name="phoneNumber" value={trucker.phoneNumber} onChange={updateTruckerValues} placeholder={props.phoneNumber} />
@@ -105,6 +107,11 @@ export default function CardsTrucker(props) {
                     <label htmlFor="digito" id="labelDig"> Certificação </label>
                     <input type="text" name="certification" value={trucker.certification} onChange={updateTruckerValues} placeholder={props.certification} />
 
+                    <label htmlFor="digito" id="labelDig"> Email </label>
+                    <input type="text" name="email" value={trucker.email} onChange={updateTruckerValues} placeholder={props.email} />
+
+                    <label htmlFor="digito" id="labelDig"> Senha </label>
+                    <input type="text" name="password" value={trucker.password} onChange={updateTruckerValues} placeholder={props.password} />
 
                     <button id="cancelTrucker" onClick={() => setModalOpen(false)} >
                         Cancelar
@@ -136,11 +143,11 @@ export default function CardsTrucker(props) {
 
                 <button id="cancelDelete" onClick={() => setModalConfirmOpen(false)} >
                     Cancelar
-                    </button>
+                </button>
 
                 <button id="deleteButton" onClick={() => deleteTrucker()}>
                     Sim, tenho
-                    </button>
+                </button>
 
             </Confirm>
 
@@ -166,9 +173,10 @@ export default function CardsTrucker(props) {
                     <h6>Nascimento: </h6> <label> {props.birthDate} </label>
                     <h6>Telefone: </h6> <label> {props.phoneNumber} </label>
                 </p>
+
                 <p>
                     <h6>CNH: </h6> <label> {props.cnh} </label>
-
+                    <h6>Email: </h6> <label> {props.email} </label>
                 </p>
             </div>
         </>
