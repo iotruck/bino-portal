@@ -8,10 +8,7 @@ export default function InputMessage(props) {
 
     const idAnalyst = localStorage.getItem("@login-app/user")
 
-    function getDate() {
-        let d = new Date()
-        return d.toISOString()
-    }
+  
 
     async function getAnalyst() {
 
@@ -22,7 +19,6 @@ export default function InputMessage(props) {
 
     const [messageBody, setMessageBody] = useState({
         content: contentMessage,
-        dateTimeMessage: getDate(),
         sender: analyst.name,
         travel: {
             id: ""
@@ -37,7 +33,6 @@ export default function InputMessage(props) {
             travel:{
                 id: idTravelMessage
             },
-            dateTimeMessage: getDate(),
             sender: analyst.name
         }
 
