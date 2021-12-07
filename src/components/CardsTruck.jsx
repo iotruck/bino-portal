@@ -23,7 +23,8 @@ export default function CardsTruck(props) {
         status: "",
         company: {
             id: `${idCompany}`
-        }
+        },
+        isDeleted: false
     })
 
     const deleteTruck = async () => {
@@ -66,7 +67,8 @@ export default function CardsTruck(props) {
             truckBrand: props.brand,
             truckType: props.type,
             fuelType: props.fuelType,
-            status: props.condintion
+            status: props.condintion,
+            isDeleted: false
         });
 
     }, 1)

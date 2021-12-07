@@ -22,7 +22,8 @@ export default function CardsTrucker(props) {
         phoneNumber: "",
         company: {
             id: idCompany
-        }
+        },
+        isDeleted: false
     })
 
     const deleteTrucker = async () => {
@@ -67,7 +68,8 @@ export default function CardsTrucker(props) {
             phoneNumber: props.phoneNumber,
             birthDate: props.birthDate,
             email: props.email,
-            password: props.password
+            password: props.password,
+            isDeleted: false
         })
     }, 1)
 
